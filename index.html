@@ -7,6 +7,7 @@
 <meta name="description" content="مختبر الرازي التفاعلي — العلوم التفاعلية للصف الرابع الابتدائي">
 <link rel="manifest" href="manifest.json">
 <title>مختبر الرازي التفاعلي | العلوم للصف الرابع</title>
+<!-- إصدار: بنر فرسان العلوم - أفضل 10 في الرئيسية -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
@@ -177,7 +178,7 @@ label.lbl{font-size:.82rem;font-weight:800;color:var(--mut);display:block;margin
 .poe .step{font-size:.72rem;font-weight:900;color:var(--sea);letter-spacing:.3px}
 .lampBox{font-size:3rem;transition:.25s;line-height:1.3}
 
-/* ── لوحة الشرف ── */
+/* ── لوحة فرسان العلوم ── */
 .podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end;gap:8px;text-align:center}
 .pod{border-radius:18px 18px 10px 10px;padding:16px 6px;background:#f4f8fb;border:1px solid var(--line)}
 .pod.p1{padding-top:30px;background:linear-gradient(180deg,#fff5dd,#fffdf7);border-color:#f0d597}
@@ -292,6 +293,32 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  .cert .cribbon{font-size:1.05rem;padding:8px 24px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+
+
+/* ══════════ فرسان العلوم — لوحة موحّدة داخل المختبر ══════════ */
+.fursan-hero{background:radial-gradient(100% 140% at 50% 0%,#1b78ad 0%,#0d547f 42%,#083b61 72%,#052c4d 100%);color:#fff;border-radius:26px;padding:22px;box-shadow:var(--sh2);overflow:hidden;position:relative}
+.fursan-hero:after{content:"";position:absolute;inset:auto -70px -100px auto;width:280px;height:280px;border-radius:50%;background:#f0a92916;pointer-events:none}
+.fursan-title{text-align:center;position:relative;z-index:2}.fursan-title h2{font-size:clamp(1.8rem,5vw,3rem);font-weight:900;margin:0}.fursan-title p{color:#cfe7f8;margin:4px 0 0}.fursan-ribbon{display:inline-block;margin-top:9px;background:linear-gradient(180deg,#ffd96b,#e5a913);color:#4a2f00;border-radius:22px;padding:5px 18px;font-weight:900}
+.fursan-podium{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:10px;align-items:end;margin-top:22px;position:relative;z-index:2}.fursan-slot{background:#ffffff12;border:1px solid #ffffff22;border-radius:18px;padding:14px 8px;text-align:center;min-height:130px;display:flex;flex-direction:column;justify-content:center}.fursan-slot.first{min-height:165px;background:#f0a9291c;border-color:#f0c15c}.fursan-medal{font-size:2rem}.fursan-slot strong{display:block;font-size:.98rem;margin-top:4px}.fursan-slot small{color:#ffe08a;font-weight:800}
+.fursan-grid{display:grid;grid-template-columns:330px 1fr;gap:14px;margin-top:14px;align-items:start}.fursan-crit-item{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.88rem}.fursan-crit-num{width:25px;height:25px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;flex:none;font-size:.75rem;font-weight:900}.fursan-rank{display:grid;grid-template-columns:40px 1fr 150px 90px;gap:9px;align-items:center;border:1px solid var(--line);border-radius:13px;padding:9px 11px;margin-bottom:7px;background:#fafcfe}.fursan-rank.top1{background:#fff8e8;border-color:#efd38c}.fursan-rank.top2{background:#f5f8fb}.fursan-rank.top3{background:#fdf1e8;border-color:#eccbb0}.fursan-rank .idx{font-weight:900;color:var(--g);text-align:center}.fursan-rank .name{font-weight:900;min-width:0}.fursan-rank .title{color:var(--mut);font-size:.82rem;text-align:center}.fursan-rank .score{font-weight:900;color:#9a6800;text-align:center;white-space:nowrap}
+.fursan-my{margin-top:12px;background:#fff8e8;border:1px solid #efd38c;border-radius:14px;padding:10px 14px;text-align:center;font-weight:800;color:#76510a}.fursan-teacher-row{display:grid;grid-template-columns:42px 1fr 90px auto;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fafcfe;margin-bottom:7px}.fursan-teacher-row .actions{display:flex;gap:5px;flex-wrap:wrap}.fursan-teacher-row .actions .btn{padding:6px 9px}.fursan-criterion-btn{width:100%;text-align:right;border:1px solid var(--line);background:#f9fcfe;border-radius:11px;padding:9px 12px;margin-bottom:6px;font-weight:700}.fursan-criterion-btn:not(:disabled):hover{background:#eef7fb;border-color:#b7d9eb}.fursan-criterion-btn:disabled{cursor:default;color:var(--ink)}
+/* بنر فرسان العلوم في الصفحة الرئيسية — أفضل 10 */
+.home-fursan-banner{margin-bottom:18px;background:radial-gradient(110% 150% at 50% 0%,#1b78ad 0%,#0d547f 42%,#083b61 72%,#052c4d 100%);color:#fff;border-radius:28px;padding:22px;box-shadow:var(--sh2);overflow:hidden;position:relative}
+.home-fursan-banner:after{content:"";position:absolute;inset:auto -80px -115px auto;width:300px;height:300px;border-radius:50%;background:#f0a92918;pointer-events:none}
+.home-fursan-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:16px}
+.home-fursan-head .copy{text-align:right}.home-fursan-head h2{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;margin:0}.home-fursan-head p{margin:3px 0 0;color:#cfe7f8;font-size:.88rem}
+.home-fursan-head .btn{background:#ffffff16;color:#fff;border:1px solid #ffffff2b}
+.home-fursan-top10{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;position:relative;z-index:2}
+.home-fursan-card{min-width:0;background:#ffffff12;border:1px solid #ffffff24;border-radius:16px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:112px}
+.home-fursan-card.rank1{background:#f0a92924;border-color:#f2c85e;box-shadow:inset 0 0 0 1px #ffd76a22}.home-fursan-card.rank2{background:#e6eef51a}.home-fursan-card.rank3{background:#cd8b521f}
+.home-fursan-card .medal{font-size:1.6rem;line-height:1;margin-bottom:6px}.home-fursan-card strong{display:block;font-size:.88rem;line-height:1.45;overflow:hidden;text-overflow:ellipsis}.home-fursan-card small{display:block;color:#ffe08a;font-weight:900;font-size:.76rem;margin-top:4px}.home-fursan-card .place{display:block;color:#b9dff5;font-size:.68rem;font-weight:800;margin-top:3px}
+.home-fursan-card.me{outline:2px solid var(--gold);outline-offset:1px}
+@media(max-width:1000px){.home-fursan-top10{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.home-fursan-banner{padding:16px 13px;border-radius:22px}.home-fursan-top10{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:none}.home-fursan-top10::-webkit-scrollbar{display:none}.home-fursan-card{min-width:165px;min-height:104px}.home-fursan-head{align-items:flex-start}.home-fursan-head .btn{width:100%}}
+
+@media(max-width:850px){.fursan-grid{grid-template-columns:1fr}.fursan-rank{grid-template-columns:34px 1fr 82px}.fursan-rank .title{display:none}.fursan-teacher-row{grid-template-columns:32px 1fr 76px}.fursan-teacher-row .actions{grid-column:1/-1}.fursan-podium{gap:6px}.fursan-slot{padding:10px 5px}.fursan-slot strong{font-size:.8rem}}
+
 @media print{
  body{background:#fff}
  .hdr,.foot,.nav,.ov,.proj,main,.noprint{display:none!important}
@@ -327,7 +354,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
   <button data-p="exams">📋 اختبارات الوحدات</button>
   <button data-p="review">🔁 صندوق الأخطاء</button>
   <button data-p="labs">🧪 المختبر</button>
-  <button data-p="board">🏆 لوحة الشرف</button>
+  <button data-p="board">⚔️ فرسان العلوم</button>
   <button data-p="me">🎒 ملفي</button>
   <button data-p="cert">📜 الشهادات</button>
  </nav>
@@ -336,13 +363,21 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 <main>
 <!-- الرئيسية -->
 <section id="home" class="page"><div class="wrap">
+ <section class="home-fursan-banner" aria-label="أفضل عشرة فرسان في العلوم">
+  <div class="home-fursan-head">
+   <div class="copy"><h2>⚔️ فرسان العلوم</h2><p>أفضل ١٠ فرسان • مدرسة أبي بكر الرازي • الصف الرابع الابتدائي</p></div>
+   <button class="btn sm" onclick="go('board')">عرض لوحة فرسان العلوم كاملة ←</button>
+  </div>
+  <div class="home-fursan-top10" id="homeFursanTop10"><div class="home-fursan-card"><strong>جارٍ تحميل ترتيب الفرسان…</strong></div></div>
+ </section>
+
  <div class="hero">
   <h2>تعلّم، جرّب، نافس، وتألّق 🌟</h2>
-  <p>٢٤ درسًا • ١٠ أسئلة لكل درس • اختبار ٣٠ سؤالًا لكل وحدة • مختبر تنبّؤ وملاحظة • لوحة شرف للفصل.</p>
+  <p>٢٤ درسًا • ١٠ أسئلة لكل درس • اختبار ٣٠ سؤالًا لكل وحدة • مختبر تنبّؤ وملاحظة • لوحة فرسان العلوم.</p>
   <div class="heroRow">
    <button class="btn g" onclick="go('lessons')">ابدأ درسًا</button>
    <button class="btn" style="background:#ffffff1a;color:#fff;border:1px solid #ffffff33" onclick="startDaily()">🎯 مهمة اليوم</button>
-   <button class="btn" style="background:#ffffff1a;color:#fff;border:1px solid #ffffff33" onclick="go('board')">🏆 لوحة الشرف</button>
+   <button class="btn" style="background:#ffffff1a;color:#fff;border:1px solid #ffffff33" onclick="go('board')">⚔️ فرسان العلوم</button>
   </div>
   <div class="trail" id="trail" aria-label="خط رحلة الوحدات"></div>
  </div>
@@ -353,22 +388,18 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  </div>
 
  <div class="grid stats">
-  <div class="card stat"><b id="stPts">٠</b><span>نقاطي</span></div>
+  <div class="card stat"><b id="stPts">٠</b><span>نقاط فرسان العلوم</span></div>
   <div class="card stat"><b id="stLsn">٠</b><span>دروس أنجزتها</span></div>
   <div class="card stat"><b id="stAcc">٠٪</b><span>دقة إجاباتي</span></div>
   <div class="card stat"><b id="stBdg">٠</b><span>شاراتي</span></div>
  </div>
-
- <div class="sec"><div><h3>🛡️ لوحة الفرسان</h3><p>ترتيب الفصل — ظاهر للجميع</p></div>
-  <button class="btn o sm" onclick="go('board')">اللوحة كاملة</button></div>
- <div class="card" id="homeBoard"></div>
 
  <div class="sec" style="margin-top:18px"><div><h3>⚡ الوصول السريع</h3></div></div>
  <div class="grid quick">
   <button onclick="go('lessons')"><i>📚</i>مكتبة الدروس<small>٢٤ درسًا</small></button>
   <button onclick="go('exams')"><i>📋</i>اختبار وحدة<small>٣٠ سؤالًا</small></button>
   <button onclick="go('labs')"><i>🧪</i>المختبر<small>تنبّأ ولاحظ</small></button>
-  <button onclick="go('me')"><i>🎒</i>ملفي<small>نقاطي وشاراتي</small></button>
+  <button onclick="go('me')"><i>🎒</i>ملفي<small>نقاط الفرسان وشاراتي</small></button>
  </div>
 </div></section>
 
@@ -400,7 +431,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
 <!-- المختبر -->
 <section id="labs" class="page"><div class="wrap">
- <div class="sec"><div><h3>🧪 مختبر العلوم</h3><p>لكل درس من الـ٢٤ تجربة خاصة به. في كل تجربة: توقّع أولًا، ثم لاحظ، ثم فسّر. النقطة تُمنح على التوقّع الصحيح فقط.</p></div>
+ <div class="sec"><div><h3>🧪 مختبر العلوم</h3><p>لكل درس من الـ٢٤ تجربة خاصة به. في كل تجربة: توقّع أولًا، ثم لاحظ، ثم فسّر. عند إنجاز التجربة بشكل صحيح لأول مرة تُضاف نقطتان تلقائيًا إلى رصيد فرسان العلوم.</p></div>
   <span class="tag sea">تنبّأ • لاحظ • فسّر</span></div>
  <div class="row" style="margin-bottom:12px">
   <span class="tag" id="labStat"></span>
@@ -411,19 +442,34 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  <div id="labGrid" class="grid labs"></div>
 </div></section>
 
-<!-- لوحة الشرف -->
+<!-- فرسان العلوم -->
 <section id="board" class="page"><div class="wrap">
- <div class="sec"><div><h3>🏆 لوحة شرف الفصل</h3><p>الترتيب يتحدّث تلقائيًا عند إرسال الطالب إنجازه للمعلم.</p></div>
-  <button class="btn o sm" onclick="openCard()">📤 إرسال إنجازي للمعلم</button></div>
- <div class="card"><div class="podium" id="podium"></div></div>
- <div class="card" style="margin-top:13px"><h3 style="font-size:1.05rem;margin-bottom:10px">ترتيب الطلاب</h3>
-  <div id="rankList" class="grid" style="gap:8px"></div></div>
+ <div class="fursan-hero">
+  <div class="fursan-title"><h2>⚔️ فرسان العلوم</h2><p>مدرسة أبي بكر الرازي • الصف الرابع الابتدائي</p><span class="fursan-ribbon">التفوق هدفنا والتميز طريقتنا</span></div>
+  <div class="fursan-podium" id="fursanPodium"></div>
+ </div>
+ <div class="fursan-my" id="fursanMyScore">رصيد فرسان العلوم مرتبط تلقائيًا بالتعلّم: فتح درس +٢، إجابة صحيحة +٢، إنجاز تجربة +٢، مع إمكانية منح المعلم نقاطًا إضافية وفق المعايير.</div>
+ <div class="fursan-grid">
+  <div class="card">
+   <h3 style="font-size:1.05rem;margin-bottom:6px">⭐ كيف أحصل على نقاط فرسان العلوم؟</h3>
+   <p class="muted" style="margin-top:0">تُضاف <b>نقطتان تلقائيًا</b> عند فتح درس لأول مرة، و<b>نقطتان</b> لكل إجابة صحيحة لأول مرة، و<b>نقطتان</b> عند إنجاز تجربة لأول مرة. كما يستطيع المعلم منح نقاط إضافية وفق المعايير المعتمدة.</p>
+   <div class="note" style="margin:10px 0 12px;line-height:2">
+    <b>النقاط التلقائية:</b> 📚 فتح درس لأول مرة <b>+٢</b> • ✅ إجابة صحيحة لأول مرة <b>+٢</b> • 🧪 إنجاز تجربة لأول مرة <b>+٢</b>
+   </div>
+   <div id="fursanCriteriaPreview"></div>
+   <button class="btn o sm" style="width:100%;margin-top:9px" onclick="openFursanCriteria()">عرض معايير النقاط الإضافية للمعلم</button>
+  </div>
+  <div class="card">
+   <div class="sec" style="margin:0 0 10px"><div><h3 style="font-size:1.05rem">🏅 ترتيب الفرسان العشرين الأوائل</h3><p>متزامن مباشرة بين جميع الأجهزة عبر Firebase.</p></div><span class="tag gold" id="fursanSync">جارٍ المزامنة…</span></div>
+   <div id="fursanRankList"></div>
+  </div>
+ </div>
 </div></section>
 
 <!-- ملفي -->
 <section id="me" class="page"><div class="wrap">
- <div class="sec"><div><h3>🎒 ملفي</h3></div>
-  <button class="btn o sm" onclick="openCard()">📤 إرسال إنجازي للمعلم</button></div>
+ <div class="sec"><div><h3>🎒 ملفي</h3><p>رصيد فرسان العلوم يتحدث تلقائيًا مع فتح الدروس والإجابات الصحيحة والتجارب، إضافةً إلى نقاط المعلم.</p></div>
+  <button class="btn o sm" onclick="go('board')">⚔️ لوحة فرسان العلوم</button></div>
  <div class="grid" style="grid-template-columns:1fr 1.6fr">
   <div class="card" style="text-align:center">
    <div style="font-size:3.4rem">🎓</div>
@@ -441,7 +487,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
   </div>
   <div class="card">
    <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
-    <div class="stat"><b id="mePts">٠</b><span>نقطة</span></div>
+    <div class="stat"><b id="mePts">٠</b><span>نقاط الفرسان</span></div>
     <div class="stat"><b id="meLsn">٠</b><span>درسًا</span></div>
     <div class="stat"><b id="meAcc">٠٪</b><span>دقة</span></div>
    </div>
@@ -471,9 +517,10 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  <div id="certArea" style="margin-top:14px"></div>
 </div></section>
 
+
 <!-- لوحة المعلم -->
 <section id="teacher" class="page"><div class="wrap">
- <div class="sec"><div><h3>👨‍🏫 لوحة المعلم</h3><p>لوحة الشرف والنتائج المجمعة متزامنة مباشرة عبر Firebase.</p></div>
+ <div class="sec"><div><h3>👨‍🏫 لوحة المعلم</h3><p>نقاط فرسان العلوم مرتبطة مباشرة بلوحة فرسان العلوم الأصلية، وكشف الطلاب متزامن عبر Firebase.</p></div>
   <button class="btn g sm" onclick="openProjector()">📺 وضع العرض</button></div>
 
  <div class="card">
@@ -509,17 +556,13 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  </div>
 
  <div class="card" style="margin-top:13px">
-  <h3 style="font-size:1.05rem">📥 الإنجازات المرسلة تلقائيًا</h3>
-  <p class="muted" style="margin-bottom:0">عندما يضغط الطالب «إرسال إنجازي للمعلم» تصل نتيجته مباشرة إلى Firebase، ثم تُضاف تلقائيًا إلى لوحة الشرف عند دخول المعلم.</p>
- </div>
-
- <div class="card" style="margin-top:13px">
-  <h3 style="font-size:1.05rem">📊 نتائج الفصل</h3>
-  <div style="overflow-x:auto"><table><thead><tr><th>#</th><th>الطالب</th><th>النقاط</th><th>الدروس</th><th>الدقة</th><th>المستوى</th><th></th></tr></thead>
-   <tbody id="clsTable"></tbody></table></div>
+  <div class="sec" style="margin:0 0 10px"><div><h3 style="font-size:1.05rem">⚔️ إدارة فرسان العلوم</h3><p>هذه هي الطريقة الوحيدة لمنح نقاط فرسان العلوم. اختيار معيار = +٢ نقطة، وتظهر النتيجة فورًا هنا وفي لوحة فرسان العلوم الأصلية على جميع الأجهزة.</p></div>
+   <button class="btn o sm" onclick="openFursanCriteria()">📋 المعايير الـ٢٠</button></div>
+  <input id="fursanTeacherSearch" class="inp" type="search" placeholder="ابحث عن اسم الطالب…" oninput="drawFursanTeacher()">
+  <div id="fursanTeacherList" style="margin-top:10px;max-height:520px;overflow:auto"></div>
   <div class="row" style="margin-top:12px">
-   <button class="btn o sm" onclick="exportResults()">تنزيل النتائج (CSV)</button>
-   <button class="btn o sm" onclick="printBoard()">🖨️ طباعة لوحة الشرف</button>
+   <button class="btn o sm" onclick="exportResults()">⬇️ تنزيل نقاط الفرسان (CSV)</button>
+   <button class="btn o sm" onclick="printBoard()">🖨️ طباعة فرسان العلوم</button>
   </div>
  </div>
 
@@ -546,7 +589,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
  <div class="card note bad" style="margin-top:13px">
   <b>منطقة الحذف</b>
-  <p style="margin:6px 0 10px">يمسح كل شيء على هذا الجهاز: النقاط، القائمة، النتائج.</p>
+  <p style="margin:6px 0 10px">يمسح التقدم المحلي على هذا الجهاز فقط. نقاط فرسان العلوم محفوظة في Firebase ولا تُمسح من هنا.</p>
   <button class="btn d sm" onclick="wipe()">مسح بيانات المختبر</button>
   <button class="btn o sm" onclick="teacherLogout()" style="margin-inline-start:8px">🚪 خروج المعلم</button>
  </div>
@@ -579,8 +622,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
 <!-- من الطالب -->
 <div id="mWho" class="ov"><div class="mdl sm">
- <div class="mdlH"><div><small>دخول الفارس</small><h2>🛡️ اسمك ورمزك</h2></div>
-  </div>
+ <div class="mdlH"><div><small>دخول الفارس</small><h2>🛡️ اسمك ورمزك</h2></div></div>
  <div class="mdlB">
   <label class="lbl">اسمك الكامل كما هو في كشف الفصل</label>
   <input id="whoInput" class="inp" autocomplete="off" oninput="whoSuggest()" placeholder="الاسم الأول واسم الأب والعائلة">
@@ -590,13 +632,14 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
    style="letter-spacing:8px;text-align:center;direction:ltr;font-family:ui-monospace,monospace;font-weight:900"
    onkeydown="if(event.key==='Enter')tryLogin()">
   <div id="whoMsg" class="note warn hide" style="margin-top:10px"></div>
-  <div style="margin-top:12px;display:grid;gap:9px">
-   <button class="btn p" style="width:100%" onclick="tryLogin()">دخول الطالب</button>
-   <button class="btn o" style="width:100%" id="gateTeacher" onclick="openPin()">🔐 دخول المعلم</button>
+  <div class="row" style="margin-top:12px">
+   <button class="btn p" onclick="tryLogin()">دخول الطالب</button>
+   <button class="btn o" id="teacherGateBtn" onclick="openPin()">🔐 دخول المعلم</button>
+   <button class="btn o sm hide" id="whoLater" onclick="closeOv('mWho')">لاحقًا</button>
   </div>
-  <p class="muted" style="margin-top:10px;font-size:.78rem">لا يمكن الدخول باسم غير مسجَّل في كشف الفصل.</p>
+  <p class="muted" style="margin-top:10px;font-size:.78rem">الطالب يدخل باسمه المسجَّل ورمزه الخاص، والمعلم يدخل من الزر المخصص بحسابه الآمن.</p>
   <div class="gateNote" id="gateNote">هذا المختبر مخصّص لطلاب <b>ابتدائية أبي بكر الرازي</b>.
-   لا يمكن استخدامها بدون الاسم والرمز الموزَّع من معلم المادة.</div>
+   لا يمكن للطالب تجاوز شاشة الدخول بدون الاسم والرمز. دخول المعلم منفصل ويتطلب حساب المعلم المعتمد.</div>
  </div>
 </div></div>
 
@@ -615,16 +658,6 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 </div></div>
 
 <!-- إرسال الإنجاز مباشرة -->
-<div id="mCard" class="ov"><div class="mdl sm">
- <div class="mdlH"><div><small>إرسال مباشر وآمن</small><h2>📤 إرسال إنجازي للمعلم</h2></div>
-  <button class="x" onclick="closeOv('mCard')" aria-label="إغلاق">✕</button></div>
- <div class="mdlB" style="text-align:center">
-  <div id="sendAchIcon" style="font-size:3.3rem;line-height:1.2">⏳</div>
-  <h3 id="sendAchTitle" style="margin-top:10px">جارٍ إرسال إنجازك…</h3>
-  <p id="sendAchMsg" class="muted">لا تحتاج إلى نسخ أي رمز أو إرسال رسالة خارج الموقع.</p>
-  <button id="sendAchRetry" class="btn g hide" style="margin-top:12px" onclick="sendAchievement()">إعادة المحاولة</button>
- </div>
-</div></div>
 
 <!-- المهمة اليومية -->
 <div id="mDaily" class="ov" onclick="if(event.target===this)closeOv('mDaily')"><div class="mdl">
@@ -651,8 +684,15 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  </div>
 </div>
 
+
+<!-- معايير فرسان العلوم -->
+<div id="mFursanCrit" class="ov"><div class="mdl sm" style="max-width:650px">
+ <div class="mdlH"><div><small>فرسان العلوم</small><h2 id="fursanCritTitle">معايير نقاط فرسان العلوم</h2></div><button class="x" onclick="closeOv('mFursanCrit')">✕</button></div>
+ <div class="mdlB"><p id="fursanCritSub" class="muted"></p><div id="fursanCritList"></div><button class="btn o" style="width:100%;margin-top:8px" onclick="closeOv('mFursanCrit')">إغلاق</button></div>
+</div></div>
+
 <div id="printZone"></div>
-<!-- Firebase: مزامنة لوحة الشرف وتوثيق المعلم -->
+<!-- Firebase: كشف الطلاب وفرسان العلوم وتوثيق المعلم -->
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js"></script>
@@ -670,19 +710,22 @@ const FIREBASE_CONFIG = {
 firebase.initializeApp(FIREBASE_CONFIG);
 const FB_DB = firebase.database();
 const FB_AUTH = firebase.auth();
-function syncClassToFirebase(){
-  if (!FB_AUTH.currentUser) return Promise.reject(new Error('سجّل دخول المعلم أولًا.'));
-  return FB_DB.ref('classBoard').set(S.cls || {});
-}
-function listenClassFromFirebase(){
-  FB_DB.ref('classBoard').on('value', snap => {
-    S.cls = snap.val() || {};
-    try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){}
-    try { drawBoard(); } catch(e){}
-    try { drawTeacher(); } catch(e){}
-  }, err => console.warn('تعذرت مزامنة لوحة الشرف', err));
-}
 
+/* قاعدة فرسان العلوم الأصلية: نفس قاعدة ملف فرسان العلوم المستقل */
+const FURSAN_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyDfqbZcRkM2Kn78citwx9Vt14rhZowEsOE",
+  authDomain: "fursan-science.firebaseapp.com",
+  databaseURL: "https://fursan-science-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "fursan-science",
+  storageBucket: "fursan-science.firebasestorage.app",
+  messagingSenderId: "495865771023",
+  appId: "1:495865771023:web:484d1dfc6357cd8fdf9f7a"
+};
+let FURSAN_APP;
+try { FURSAN_APP = firebase.app('fursanBoard'); }
+catch(e) { FURSAN_APP = firebase.initializeApp(FURSAN_FIREBASE_CONFIG, 'fursanBoard'); }
+const FURSAN_DB = FURSAN_APP.database();
+const FURSAN_AUTH = FURSAN_APP.auth();
 function listenRosterFromFirebase(){
   FB_DB.ref('roster').on('value', snap => {
     const v = snap.val();
@@ -693,6 +736,7 @@ function listenRosterFromFirebase(){
       try { drawStCodes(); } catch(e){}
       try { drawTeacher(); } catch(e){}
       try { whoSuggest(); } catch(e){}
+      try { drawFursanBoard(); drawFursanTeacher(); } catch(e){}
     }
   }, err => console.warn('تعذرت مزامنة كشف الطلاب', err));
 }
@@ -890,6 +934,154 @@ LESSONS.forEach(l => l.q.forEach((q, i) => QI['L' + l.id + '#' + i] = { q, src: 
 UNITS.forEach(u => u.exam.forEach((q, i) => QI['E' + u.id + '#' + i] = { q, src: 'وحدة ' + ar(u.id), u: u.id }));
 const unitBank = uid => Object.keys(QI).filter(k => QI[k].u === uid);
 
+/* ══════════ فرسان العلوم — ربط برمجي كامل ══════════ */
+const FURSAN_CRITERIA = [
+ 'التعاون الإيجابي مع الزملاء.','حل الواجبات والمهام المطلوبة.','المشاركة الفاعلة أثناء الدرس.','الالتزام بالهدوء والنظام داخل الصف.','إحضار الكتاب والأدوات المدرسية.',
+ 'المحافظة على نظافة الصف والمكان.','احترام المعلم والزملاء.','المبادرة ومساعدة الآخرين.','إنجاز الأنشطة الصفية في الوقت المحدد.','التميز والإبداع في الأنشطة والمشروعات.',
+ 'الحضور المبكر والاستعداد للحصة.','المحافظة على الكتاب والدفتر.','ترتيب وتنظيم الدفتر.','إحضار الواجب في موعده.','الإجابة عن الأسئلة الشفهية.',
+ 'التفاعل مع الأنشطة والتجارب العلمية.','اتباع تعليمات السلامة أثناء التجارب.','المحافظة على أدوات وممتلكات الصف.','التحسن والتطور في المستوى.','الحصول على الدرجة الكاملة في نشاط أو اختبار قصير.'
+];
+const FURSAN_TITLES=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون'];
+let FURSAN_RAW = {}, FURSAN_TARGET = '';
+const fursanKey = n => String(n||'').replace(/[.#$\[\]\/]/g,'_');
+const fursanScore = n => Number(FURSAN_RAW[fursanKey(n)])||0;
+function fursanRows(){ return ROSTER_NAMES.slice().sort((a,b)=>fursanScore(b)-fursanScore(a)||a.localeCompare(b,'ar')); }
+function fursanPts(n){ n=Number(n)||0; return n===1?'نقطة واحدة':n===2?'نقطتان':(n>=3&&n<=10?ar(n)+' نقاط':ar(n)+' نقطة'); }
+const FURSAN_AUTO_POINTS = 2;
+function fursanAutoEventKey(type,id){
+  return ('auto_'+String(type||'event')+'_'+String(id||'')).replace(/[.#$\[\]\/\s:]+/g,'_').slice(0,120);
+}
+function fursanCanonicalStudent(){
+  if(!S.student) return '';
+  return ROSTER_NAMES.find(n=>norm(n)===norm(S.student)) || S.student;
+}
+/*
+  منح آلي لنقاط فرسان العلوم.
+  نستخدم مفتاحًا ثابتًا داخل awardLogs لكل إنجاز لمنع تكرار النقاط عند إعادة فتح الدرس
+  أو إعادة حل السؤال على الجهاز نفسه، ومع المزامنة تُحفظ علامة الإنجاز في Firebase أيضًا.
+*/
+async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
+  const student=fursanCanonicalStudent();
+  if(!student) return false;
+  const localKey='fauto:'+type+':'+id;
+  if(S.earned[localKey]===1 || S.earned[localKey]==='pending') return false;
+  S.earned[localKey]='pending'; save();
+  const sk=fursanKey(student), ev=fursanAutoEventKey(type,id);
+  const receipt=FURSAN_DB.ref('awardLogs/'+sk+'/'+ev);
+  let claimed=false;
+  try{
+    const tx=await receipt.transaction(v=>{
+      if(v) return; // سبق تسجيل هذا الإنجاز في قاعدة فرسان العلوم
+      return {
+        student, criterion:'مكافأة تلقائية: '+label,
+        eventType:type, eventId:String(id), delta:points,
+        automatic:true, source:'مختبر الرازي',
+        ts:firebase.database.ServerValue.TIMESTAMP
+      };
+    });
+    claimed=!!(tx&&tx.committed);
+    if(claimed){
+      await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
+    }
+    S.earned[localKey]=1; save();
+    return claimed;
+  }catch(e){
+    console.warn('تعذر إضافة نقاط فرسان العلوم تلقائيًا',e);
+    if(claimed){ try{ await receipt.remove(); }catch(_e){} }
+    delete S.earned[localKey]; save();
+    return false;
+  }
+}
+function syncMyFursanPoints(){
+  if(!S.student) return;
+  const canonical = ROSTER_NAMES.find(n=>norm(n)===norm(S.student)) || S.student;
+  const p = fursanScore(canonical);
+  if(S.pts !== p){ S.pts=p; save(); }
+}
+function drawFursanBoard(){
+  const rows=fursanRows(), top=rows.slice(0,3), order=[top[1],top[0],top[2]];
+  const pod=$('fursanPodium');
+  if(pod) pod.innerHTML=order.map((n,i)=>{
+    if(!n) return '<div class="fursan-slot" style="opacity:.45">—<small>شاغر</small></div>';
+    const rank=rows.indexOf(n)+1, med=rank===1?'🥇':rank===2?'🥈':'🥉';
+    return `<div class="fursan-slot ${rank===1?'first':''}"><div class="fursan-medal">${med}</div><strong>${esc(n)}</strong><small>${fursanPts(fursanScore(n))}</small></div>`;
+  }).join('');
+  const prev=$('fursanCriteriaPreview');
+  if(prev) prev.innerHTML=FURSAN_CRITERIA.slice(0,5).map((c,i)=>`<div class="fursan-crit-item"><span class="fursan-crit-num">${ar(i+1)}</span><span>${esc(c)}</span></div>`).join('')+`<p class="muted" style="text-align:center;margin:8px 0 0">و${ar(FURSAN_CRITERIA.length-5)} معيارًا آخر</p>`;
+  const list=$('fursanRankList');
+  if(list){ const publicRows=rows.slice(0,20); list.innerHTML=publicRows.map((n,i)=>`<div class="fursan-rank ${i<3?'top'+(i+1):''}"><span class="idx">${ar(i+1)}</span><span class="name">${esc(n)}</span><span class="title">الفارس ${FURSAN_TITLES[i]||ar(i+1)}</span><span class="score">⭐ ${ar(fursanScore(n))}</span></div>`).join('') || '<div class="note">لا توجد أسماء في الكشف.</div>'; }
+  const my=$('fursanMyScore'); if(my) my.innerHTML=S.student?`🛡️ <b>${esc(S.student)}</b> — رصيدك في فرسان العلوم: <b>${fursanPts(fursanScore(S.student))}</b>`:'رصيد فرسان العلوم مرتبط تلقائيًا بالتعلّم: فتح درس +٢، إجابة صحيحة +٢، إنجاز تجربة +٢، مع إمكانية منح المعلم نقاطًا إضافية وفق المعايير.';
+  const homeTop=$('homeFursanTop10');
+  if(homeTop){
+    const top10=rows.slice(0,10);
+    homeTop.innerHTML=top10.map((n,i)=>{
+      const rank=i+1, medal=rank===1?'🥇':rank===2?'🥈':rank===3?'🥉':'🛡️';
+      const me=S.student&&norm(n)===norm(S.student)?' me':'';
+      return `<article class="home-fursan-card rank${rank}${me}" title="الفارس ${FURSAN_TITLES[i]||ar(rank)}">
+        <span class="medal">${medal}</span><strong>${esc(n)}</strong>
+        <small>⭐ ${ar(fursanScore(n))} نقطة</small><span class="place">الفارس ${FURSAN_TITLES[i]||ar(rank)}</span>
+      </article>`;
+    }).join('') || '<div class="home-fursan-card"><strong>لا توجد أسماء في الكشف.</strong></div>';
+  }
+  const sy=$('fursanSync'); if(sy){ sy.textContent='متزامن الآن ✓'; sy.className='tag sea'; }
+}
+function drawBoard(){ syncMyFursanPoints(); drawFursanBoard(); }
+function listenFursanScores(){
+  FURSAN_DB.ref('scores').on('value',snap=>{
+    FURSAN_RAW=snap.val()||{};
+    syncMyFursanPoints(); drawFursanBoard();
+    try{refresh();}catch(e){}
+    try{drawFursanTeacher();}catch(e){}
+  },err=>{
+    console.warn('تعذرت مزامنة فرسان العلوم',err);
+    const sy=$('fursanSync'); if(sy){sy.textContent='تعذرت مزامنة فرسان العلوم';sy.className='tag gold';}
+  });
+}
+function openFursanCriteria(studentName){
+  FURSAN_TARGET=studentName||'';
+  const title=$('fursanCritTitle'), sub=$('fursanCritSub'), list=$('fursanCritList');
+  if(title) title.textContent=FURSAN_TARGET?'منح نقاط إضافية للفارس':'معايير النقاط الإضافية — فرسان العلوم';
+  if(sub) sub.textContent=FURSAN_TARGET?`${FURSAN_TARGET} — اختر المعيار المستحق (+٢ نقطة إضافية)`:'هذه المعايير تمنح نقاطًا إضافية من المعلم، إلى جانب النقاط التلقائية للدروس والأسئلة والتجارب.';
+  if(list) list.innerHTML=FURSAN_CRITERIA.map((c,i)=>`<button class="fursan-criterion-btn" ${FURSAN_TARGET?'':'disabled'} onclick="awardFursanCriterion(${i})">${ar(i+1)}. ${esc(c)} ${FURSAN_TARGET?'<b style="color:#9a6800">(+٢)</b>':''}</button>`).join('');
+  openOv('mFursanCrit');
+}
+async function awardFursanCriterion(i){
+  if(!FURSAN_TARGET) return;
+  if(!FURSAN_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  const name=FURSAN_TARGET, criterion=FURSAN_CRITERIA[i], key=fursanKey(name);
+  try{
+    await FURSAN_DB.ref('scores/'+key).transaction(v=>(Number(v)||0)+2);
+    try{
+      await FURSAN_DB.ref('awardLogs/'+key).push().set({
+        student:name, criterionIndex:i+1, criterion, delta:2,
+        teacher:FURSAN_AUTH.currentUser.uid||'',
+        ts:firebase.database.ServerValue.TIMESTAMP
+      });
+    }catch(logErr){ console.warn('تعذر حفظ سجل المعيار',logErr); }
+    closeOv('mFursanCrit'); FURSAN_TARGET='';
+  }catch(e){ alert('تعذر منح النقاط: '+e.message); }
+}
+async function adjustFursanScore(name,delta){
+  if(!FURSAN_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  const key=fursanKey(name);
+  try{
+    await FURSAN_DB.ref('scores/'+key).transaction(v=>Math.max(0,(Number(v)||0)+delta));
+    try{
+      await FURSAN_DB.ref('awardLogs/'+key).push().set({
+        student:name, criterion:'تصحيح يدوي', delta,
+        teacher:FURSAN_AUTH.currentUser.uid||'',
+        ts:firebase.database.ServerValue.TIMESTAMP
+      });
+    }catch(logErr){ console.warn('تعذر حفظ سجل التصحيح',logErr); }
+  }catch(e){ alert('تعذر تعديل النقاط: '+e.message); }
+}
+function drawFursanTeacher(){
+  const el=$('fursanTeacherList'); if(!el) return;
+  const q=norm(($('fursanTeacherSearch')&&$('fursanTeacherSearch').value)||'');
+  const all=fursanRows(), rows=all.filter(n=>!q||norm(n).includes(q));
+  el.innerHTML=rows.map(n=>{ const rank=all.indexOf(n)+1; const j=JSON.stringify(n).replace(/</g,'\\u003c'); return `<div class="fursan-teacher-row"><b style="text-align:center;color:var(--g)">${ar(rank)}</b><span style="font-weight:900">${esc(n)}</span><span class="tag gold" style="text-align:center">⭐ ${ar(fursanScore(n))}</span><span class="actions"><button class="btn g sm" onclick='openFursanCriteria(${j})'>⭐ نقاط إضافية +٢</button><button class="btn o sm" onclick='adjustFursanScore(${j},1)'>+١</button><button class="btn d sm" onclick='adjustFursanScore(${j},-1)'>−١</button></span></div>`; }).join('') || '<div class="note">لا يوجد طالب مطابق للبحث.</div>';
+}
+
 /* ── التنقل ── */
 function go(p){
   document.querySelectorAll('.page').forEach(x => x.style.display = 'none');
@@ -901,16 +1093,16 @@ function go(p){
 }
 function openOv(id){ $(id).classList.add('on'); }
 /* ══════ 🔒 البوابة: لا محتوى قبل الدخول ══════ */
-const authed = () => !!S.student || !!S.teacher;
+const authed = () => !!(S.student || S.teacher);
 function applyGate(){
   const lock = !authed();
   document.body.classList.toggle('gated', lock);
   const t = (id, on) => { const e = $(id); if (e) e.classList.toggle('hide', !on); };
-  t('whoX', !lock); t('gateTeacher', true); t('gateNote', lock);
+  t('whoLater', !lock); t('gateNote', lock);
   if (lock) openOv('mWho');
 }
 function closeOv(id){
-  if (id === 'mWho' && !authed()) return;   /* لا يُغلق قبل الدخول */
+  if (id === 'mWho' && !S.student && !S.teacher) return;   /* لا تُغلق البوابة إلا بعد دخول طالب صحيح أو معلم موثّق */
   $(id).classList.remove('on'); if (id === 'mLesson' || id === 'mDaily') { stopSpeak(); drawLessons(); refresh(); } }
 
 /* ══════════ محرّك الأسئلة ══════════ */
@@ -964,8 +1156,14 @@ function finish(key, right, extra){
     (q.w ? '<span class="why">💡 ' + esc(q.w) + '</span>' : '');
 
   if (!S.earned['seen:' + key]) { S.earned['seen:' + key] = 1; S.total++; if (right) S.right++; }
-  const val = key[0] === 'E' ? 5 : 3;
-  if (right && !S.earned['pts:' + key]) { S.earned['pts:' + key] = 1; S.pts += val; }
+  if (right && !S.earned['pts:' + key]) {
+    S.earned['pts:' + key] = 1;
+    const src = (QI[key] && QI[key].src) ? QI[key].src : 'سؤال العلوم';
+    awardFursanAuto('question', key, 'إجابة صحيحة — ' + src).then(got=>{
+      if(got && fb && !fb.querySelector('.fursan-auto-gain'))
+        fb.insertAdjacentHTML('beforeend','<span class="why fursan-auto-gain">⭐ +٢ نقطة في فرسان العلوم</span>');
+    });
+  }
   /* صندوق الأخطاء */
   if (!right) S.wrong[key] = { b:1, due:addDays(today(), 1) };
   else if (S.wrong[key]) {
@@ -1035,7 +1233,12 @@ function openLesson(id){
   const l = LESSONS.find(x => x.id === id); if (!l) return;
   if (!lessonOpen(id)) { alert('هذا الدرس مقفل. اطلب رمز الدرس من معلمك.'); return; }
   curLesson = l;
-  if (!S.viewed.includes(id)) { S.viewed.push(id); if (!S.earned['open:' + id]) { S.earned['open:' + id] = 1; S.pts += 2; } checkBadges(); save(); }
+  if (!S.viewed.includes(id)) {
+    S.viewed.push(id);
+    if (!S.earned['open:' + id]) { S.earned['open:' + id] = 1; }
+    checkBadges(); save();
+    awardFursanAuto('lesson', id, 'فتح الدرس لأول مرة — ' + l.t);
+  }
   $('lmUnit').textContent = l.unit + ' • ' + l.ch;
   $('lmTitle').textContent = l.t;
   $('lmSum').textContent = l.s;
@@ -1492,7 +1695,11 @@ function labPick(id, ok, btn){
   if (box.dataset.done) return; box.dataset.done = '1';
   box.querySelectorAll('.opt').forEach(b => b.disabled = true);
   btn.classList.add(ok ? 'right' : 'wrong');
-  if (ok && !S.labs.includes(id)) { S.labs.push(id); S.pts += 5; }
+  const firstLabSuccess = ok && !S.labs.includes(id);
+  if (firstLabSuccess) {
+    S.labs.push(id);
+    awardFursanAuto('lab', id, 'إنجاز التجربة لأول مرة — ' + L.t);
+  }
   save(); refresh();
   let extra = '';
   if (L.extra === 'circuit')
@@ -1503,7 +1710,7 @@ function labPick(id, ok, btn){
        <span class="step">٢ • لاحظ</span><div style="font-size:.88rem">${esc(L.obs)}</div>${extra}</div>
      <div class="poe" style="border-style:solid;background:#fdf7ec;border-color:#eddcb8">
        <span class="step" style="color:#8a5710">٣ • فسّر</span><div style="font-size:.88rem">${esc(L.exp)}</div></div>
-     <div class="${ok ? 'fb show y' : 'fb show n'}">${ok ? '✅ توقّعك صحيح +٥ نقاط' : '❌ توقّعك لم يكن صحيحًا — اقرأ التفسير جيدًا'}</div>`);
+     <div class="${ok ? 'fb show y' : 'fb show n'}">${ok ? '✅ توقّعك صحيح — أحسنت' : '❌ توقّعك لم يكن صحيحًا — اقرأ التفسير جيدًا'}</div>`);
 }
 function toggleCircuit(){
   const b = $('swBtn'), lamp = $('lamp');
@@ -1512,110 +1719,6 @@ function toggleCircuit(){
     lamp.style.opacity = '.25'; lamp.textContent = '🔌'; }
   else { b.dataset.open = '0'; b.textContent = 'المفتاح: مغلق (يمر التيار)';
     lamp.style.opacity = '1'; lamp.textContent = '💡'; }
-}
-
-/* ══════════ لوحة الشرف ══════════ */
-function myRow(){ const acc = S.total ? Math.round(S.right / S.total * 100) : 0;
-  return { n:S.student || 'أنا', p:S.pts, v:S.viewed.length, a:acc, me:true }; }
-function classRows(){
-  const rows = Object.keys(S.cls).map(n => Object.assign({ n }, S.cls[n]));
-  const mine = myRow();
-  const i = rows.findIndex(r => norm(r.n) === norm(mine.n));
-  if (i >= 0) { if (mine.p >= rows[i].p) rows[i] = mine; else rows[i].me = true; }
-  else if (S.student) rows.push(mine);
-  return rows.sort((a, b) => b.p - a.p);
-}
-function drawBoard(){
-  const rows = classRows();
-  const top = rows.slice(0, 3), ord = [top[1], top[0], top[2]];
-  $('podium').innerHTML = ord.map((r, i) => {
-    if (!r) return '<div class="pod" style="opacity:.35"><div class="medal">—</div><small>شاغر</small></div>';
-    const medal = r === top[0] ? '🥇' : r === top[1] ? '🥈' : '🥉';
-    return `<div class="pod ${r === top[0] ? 'p1' : ''}"><div class="medal">${medal}</div>
-      <strong>${esc(r.n)}</strong><small>${ar(r.p)} نقطة</small></div>`; }).join('');
-  const hb = $('homeBoard');
-  if (hb) hb.innerHTML = rows.length
-    ? rows.slice(0, 10).map((r, i) => {
-        const m = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ar(i + 1);
-        return `<div class="rk ${r.me ? 'me' : ''}"><div class="n"><span class="num">${m}</span>
-          <span><b>${esc(r.n)}</b>${r.me ? ' <span class="tag">أنا</span>' : ''}<br>
-          <small class="muted">${ar(r.v)} درسًا • دقة ${ar(r.a || 0)}٪</small></span></div>
-          <span class="pts">⭐ ${ar(r.p)}</span></div>`; }).join('')
-      + (rows.length > 10 ? `<p class="muted" style="text-align:center;margin:10px 0 0">و${ar(rows.length - 10)} فارسًا آخر في اللوحة الكاملة</p>` : '')
-    : '<div class="note">لا توجد نتائج بعد — كن أول فارس يظهر على اللوحة! 🛡️</div>';
-  if (!$('rankList')) return;
-  $('rankList').innerHTML = rows.length ? rows.map((r, i) =>
-    `<div class="rk ${r.me ? 'me' : ''}"><div class="n"><span class="num">${ar(i + 1)}</span>
-      <span><b>${esc(r.n)}</b>${r.me ? ' <span class="tag">أنا</span>' : ''}<br>
-      <small class="muted">${ar(r.v)} درسًا • دقة ${ar(r.a || 0)}٪</small></span></div>
-      <span class="pts">⭐ ${ar(r.p)}</span></div>`).join('')
-    : '<div class="note">لا توجد نتائج بعد. اطلب من الطلاب الضغط على «إرسال إنجازي للمعلم».</div>';
-}
-
-/* ── إرسال الإنجاز مباشرة إلى المعلم ── */
-function achievementPayload(){
-  const p = { n:S.student, p:S.pts, v:S.viewed.length, a:S.total ? Math.round(S.right / S.total * 100) : 0, d:today(), ts:Date.now() };
-  const sig = { n:p.n, p:p.p, v:p.v, a:p.a, d:p.d };
-  p.c = hash(JSON.stringify(sig));
-  return p;
-}
-async function openCard(){
-  if (!S.student) { openWho(); return; }
-  openOv('mCard');
-  await sendAchievement();
-}
-async function sendAchievement(){
-  if (!S.student) { closeOv('mCard'); openWho(); return; }
-  const icon=$('sendAchIcon'), title=$('sendAchTitle'), msg=$('sendAchMsg'), retry=$('sendAchRetry');
-  if (icon) icon.textContent='⏳';
-  if (title) title.textContent='جارٍ إرسال إنجازك…';
-  if (msg) msg.textContent='لا تحتاج إلى نسخ أي رمز أو إرسال رسالة خارج الموقع.';
-  if (retry) retry.classList.add('hide');
-  try{
-    const p = achievementPayload();
-    const key = String(hash('student:' + S.student));
-    await FB_DB.ref('studentSubmissions/' + key).set(p);
-    if (icon) icon.textContent='✅';
-    if (title) title.textContent='تم الإرسال للمعلم بنجاح';
-    if (msg) msg.textContent='وصل إنجازك مباشرة، وسيظهر في لوحة الشرف تلقائيًا.';
-    setTimeout(() => { try{ closeOv('mCard'); }catch(e){} }, 1800);
-  }catch(e){
-    console.warn('تعذر إرسال الإنجاز', e);
-    if (icon) icon.textContent='⚠️';
-    if (title) title.textContent='تعذّر الإرسال';
-    if (msg) msg.textContent = (e && e.code === 'PERMISSION_DENIED')
-      ? 'Firebase يمنع إرسال الطلاب حاليًا. يحتاج المعلم إلى تفعيل صلاحية studentSubmissions مرة واحدة.'
-      : 'تحقق من اتصال الإنترنت ثم حاول مرة أخرى.';
-    if (retry) retry.classList.remove('hide');
-  }
-}
-function validSubmission(p){
-  if (!p || !p.n) return false;
-  const sig = { n:String(p.n), p:Number(p.p)||0, v:Number(p.v)||0, a:Number(p.a)||0, d:String(p.d||'') };
-  return String(p.c||'') === String(hash(JSON.stringify(sig)));
-}
-async function processStudentSubmission(snap){
-  if (!FB_AUTH.currentUser) return;
-  const p = snap.val();
-  if (!validSubmission(p)) { try{ await snap.ref.remove(); }catch(e){} return; }
-  const result = { p:Number(p.p)||0, v:Number(p.v)||0, a:Number(p.a)||0, d:String(p.d||today()) };
-  try{
-    await FB_DB.ref('classBoard').child(String(p.n)).set(result);
-    await snap.ref.remove();
-  }catch(e){ console.warn('تعذرت معالجة إنجاز الطالب', e); }
-}
-function listenStudentSubmissions(){
-  FB_DB.ref('studentSubmissions').on('child_added', snap => {
-    if (FB_AUTH.currentUser) processStudentSubmission(snap);
-  }, err => console.warn('تعذر استقبال إنجازات الطلاب', err));
-}
-async function consumePendingSubmissions(){
-  if (!FB_AUTH.currentUser) return;
-  try{
-    const snap = await FB_DB.ref('studentSubmissions').once('value');
-    const jobs=[]; snap.forEach(ch => jobs.push(processStudentSubmission(ch)));
-    await Promise.all(jobs);
-  }catch(e){ console.warn('تعذر جلب الإنجازات المعلقة', e); }
 }
 
 /* ══════════ ملفي والشارات ══════════ */
@@ -1654,7 +1757,7 @@ function parentReport(){
 مادة العلوم — الصف الرابع الابتدائي
 
 • الدروس المنجزة: ${ar(S.viewed.length)} من ${ar(LESSONS.length)}
-• مجموع النقاط: ${ar(S.pts)}
+• نقاط فرسان العلوم: ${ar(S.pts)}
 • دقة الإجابات: ${ar(acc)}٪
 • الشارات: ${ar(S.badges.length)} من ${ar(BADGES.length)}
 ${strong ? '• أفضل اختبار وحدة: ' + ar(strong[1]) + ' من ٣٠' : ''}
@@ -1717,21 +1820,8 @@ function makeCert(){
 }
 function printCert(){ $('printZone').innerHTML = certHTML(); window.print(); }
 function printBoard(){
-  const rows = classRows();
-  $('printZone').innerHTML = `<div style="padding:18px"><h2 style="text-align:center">🏆 لوحة شرف العلوم — الصف الرابع</h2>
-    <p style="text-align:center;color:#666">${esc($('cSchool') ? $('cSchool').value : '')}</p>
-    <table style="width:100%;border-collapse:collapse"><thead><tr>
-    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">#</th>
-    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">الطالب</th>
-    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">النقاط</th>
-    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">الدروس</th>
-    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">الدقة</th></tr></thead><tbody>
-    ${rows.map((r, i) => `<tr><td style="padding:7px;border-bottom:1px solid #ddd">${ar(i+1)}</td>
-      <td style="padding:7px;border-bottom:1px solid #ddd">${esc(r.n)}</td>
-      <td style="padding:7px;border-bottom:1px solid #ddd">${ar(r.p)}</td>
-      <td style="padding:7px;border-bottom:1px solid #ddd">${ar(r.v)}</td>
-      <td style="padding:7px;border-bottom:1px solid #ddd">${ar(r.a || 0)}٪</td></tr>`).join('')}
-    </tbody></table></div>`;
+  const rows=fursanRows().slice(0,20);
+  $('printZone').innerHTML=`<div style="padding:18px" dir="rtl"><h2 style="text-align:center">⚔️ فرسان العلوم — الصف الرابع</h2><p style="text-align:center;color:#666">مدرسة أبي بكر الرازي الابتدائية</p><table style="width:100%;border-collapse:collapse"><thead><tr><th>#</th><th>الفارس</th><th>اللقب</th><th>النقاط</th></tr></thead><tbody>${rows.map((n,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(n)}</td><td>الفارس ${FURSAN_TITLES[i]||ar(i+1)}</td><td>⭐ ${ar(fursanScore(n))}</td></tr>`).join('')}</tbody></table><p style="margin-top:14px;font-size:.8rem;color:#666">تُضاف نقطتان تلقائيًا لفتح الدرس أول مرة، ولكل إجابة صحيحة أول مرة، ولإنجاز التجربة أول مرة؛ ويمكن للمعلم إضافة نقاط وفق المعايير.</p></div>`;
   window.print();
 }
 
@@ -1748,7 +1838,7 @@ function startDaily(){
   }
   $('dailyDate').textContent = 'أسئلة تتغيّر كل يوم • ' + ar(d);
   const done = S.daily.d === d;
-  $('dailyArea').innerHTML = (done ? '<div class="note warn">أنجزت مهمة اليوم — يمكنك حلّها للمراجعة دون نقاط إضافية.</div>' : '')
+  $('dailyArea').innerHTML = (done ? '<div class="note warn">أنجزت مهمة اليوم — يمكنك حلّها مرة أخرى للمراجعة.</div>' : '')
     + pickd.map((k, i) => qHTML(k, i + 1)).join('');
   if (!done) { S.daily = { d, done:true }; checkBadges(); save(); }
   openOv('mDaily');
@@ -1761,16 +1851,23 @@ async function tryPin(){
   const password = $('pinIn').value;
   const m = $('pinMsg');
   if (!email || !password) { m.textContent = 'أدخل بريد المعلم وكلمة المرور.'; m.classList.remove('hide'); return; }
-  m.textContent = 'جارٍ التحقق…'; m.classList.remove('hide');
-  try {
-    await FB_AUTH.signInWithEmailAndPassword(email, password);
-    S.teacher = true; save(); closeOv('mPin');
-    applyGate(); $('mWho').classList.remove('on'); go('teacher');
-    m.classList.add('hide');
-  } catch(e) {
+  m.textContent = 'جارٍ التحقق من مختبر العلوم وفرسان العلوم…'; m.classList.remove('hide');
+  let fursanOK=false, labOK=false;
+  try { await FURSAN_AUTH.signInWithEmailAndPassword(email, password); fursanOK=true; } catch(e){}
+  try { await FB_AUTH.signInWithEmailAndPassword(email, password); labOK=true; } catch(e){}
+  if (!fursanOK) {
+    if (labOK) try{ await FB_AUTH.signOut(); }catch(e){}
     S.teacher = false; save();
-    m.textContent = 'بيانات دخول المعلم غير صحيحة.'; m.classList.remove('hide');
+    m.textContent = 'بيانات دخول فرسان العلوم غير صحيحة. استخدم حساب المعلم المسجل في فرسان العلوم.';
+    m.classList.remove('hide'); return;
   }
+  S.teacher = true; save();
+  closeOv('mPin');
+  closeOv('mWho');
+  applyGate();
+  go('teacher');
+  m.textContent = labOK ? 'تم الربط الكامل.' : 'تم دخول فرسان العلوم. إدارة كشف المختبر تحتاج حسابًا مطابقًا في قاعدة المختبر.';
+  m.classList.add('hide');
 }
 function setPin(){ alert('تم استبدال رمز المعلم بتسجيل دخول Firebase الآمن.'); }
 function drawCodes(){
@@ -1798,26 +1895,14 @@ function printCodes(){
   window.print();
 }
 function drawTeacher(){
-  drawCodes(); drawStCodes();
+  drawCodes(); drawStCodes(); drawFursanTeacher();
   $('rosterCount').textContent = ar(ROSTER_NAMES.length) + ' طالبًا';
   const rm = $('rosterManageTable');
   if (rm) rm.innerHTML = ROSTER.length ? ROSTER.map((r,i) =>
     `<tr><td>${ar(i+1)}</td><td>${esc(r[0])}</td><td class="codeCell">${esc(String(r[1]))}</td>
      <td><button class="btn d sm" onclick="deleteStudentFirebase(${i})">🗑️ حذف</button></td></tr>`).join('')
     : '<tr><td colspan="4" class="muted">لا يوجد طلاب في الكشف.</td></tr>';
-  const rows = classRows();
-  const sent = new Set(Object.keys(S.cls).map(n => norm(n)));
-  if (S.student) sent.add(norm(S.student));
-  const missing = ROSTER_NAMES.filter(n => !sent.has(norm(n)));
-  $('clsTable').innerHTML = (rows.map((r, i) =>
-    `<tr><td>${ar(i + 1)}</td><td>${esc(r.n)}</td><td>⭐ ${ar(r.p)}</td><td>${ar(r.v)}</td><td>${ar(r.a || 0)}٪</td>
-     <td><span class="lvl">${r.p >= 300 ? 'خبير' : r.p >= 120 ? 'متقدم' : 'مستكشف'}</span></td>
-     <td><button class="btn d sm" onclick="delResult('${esc(r.n).replace(/'/g,'')}')">حذف</button></td></tr>`).join('')
-   + missing.map(n => `<tr style="opacity:.55"><td>—</td><td>${esc(n)}</td><td colspan="5" class="muted">لم يرسل بطاقة إنجاز بعد</td></tr>`).join(''))
-   || '<tr><td colspan="7" class="muted">لا توجد بيانات بعد.</td></tr>';
 }
-function delResult(n){ const k = Object.keys(S.cls).find(x => esc(x).replace(/'/g,'') === n); if (k && confirm('حذف نتيجة ' + k + '؟')) { delete S.cls[k]; save(); drawTeacher(); drawBoard(); syncClassToFirebase().catch(e => alert('حُذفت محليًا لكن تعذرت مزامنة Firebase: ' + e.message)); } }
-
 async function addStudentFirebase(){
   const nameEl = $('newStudentName'), codeEl = $('newStudentCode'), msg = $('rosterMsg');
   const name = (nameEl.value || '').trim().replace(/\s+/g,' ');
@@ -1880,10 +1965,10 @@ function dl(name, text){
 }
 function exportRoster(){ dl('كشف-الفصل.csv', 'م,الطالب,الرمز\n' + ROSTER.map((r,i) => `${i+1},${r[0]},${r[1]}`).join('\n')); }
 function exportResults(){
-  const rows = classRows();
-  dl('نتائج-العلوم.csv', 'الطالب,النقاط,الدروس,الدقة\n' + rows.map(r => `${r.n},${r.p},${r.v},${r.a || 0}`).join('\n'));
+  const rows=fursanRows();
+  dl('نقاط-فرسان-العلوم.csv','الترتيب,الطالب,النقاط\n'+rows.map((n,i)=>`${i+1},${n},${fursanScore(n)}`).join('\n'));
 }
-async function teacherLogout(){ try { await FB_AUTH.signOut(); } catch(e){} S.teacher = false; save(); applyGate(); go('home'); }
+async function teacherLogout(){ try { await FB_AUTH.signOut(); } catch(e){} try { await FURSAN_AUTH.signOut(); } catch(e){} S.teacher = false; save(); applyGate(); go('home'); }
 function wipe(){ if (confirm('سيُمسح كل شيء على هذا الجهاز. متابعة؟')) { localStorage.removeItem(KEY); location.reload(); } }
 
 /* ══════════ اختيار الطالب ══════════ */
@@ -1988,17 +2073,20 @@ function applyFont(){ document.body.classList.remove('fs-l', 'fs-xl');
   if (S.font === 2) document.body.classList.add('fs-xl'); }
 
 /* ══════════ التشغيل ══════════ */
+function syncTeacherAuthState(){
+  S.teacher = !!(FB_AUTH.currentUser || FURSAN_AUTH.currentUser);
+  save(); applyGate();
+  if(S.teacher){ try{ drawTeacher(); }catch(e){} }
+}
 FB_AUTH.onAuthStateChanged(async user => {
-  S.teacher = !!user; save(); applyGate();
+  syncTeacherAuthState();
   if (user) {
     try { await ensureRosterOnFirebase(); } catch(e) { console.warn('تعذر تهيئة كشف الطلاب', e); }
-    try { await consumePendingSubmissions(); } catch(e) { console.warn('تعذر معالجة الإنجازات المعلقة', e); }
-    try { drawTeacher(); } catch(e){}
   }
 });
-listenClassFromFirebase();
+FURSAN_AUTH.onAuthStateChanged(() => syncTeacherAuthState());
 listenRosterFromFirebase();
-listenStudentSubmissions();
+listenFursanScores();
 
 function init(){
   $('fUnit').innerHTML = '<option value="0">كل الوحدات</option>' +
