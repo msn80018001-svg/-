@@ -635,7 +635,6 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
   <div class="row" style="margin-top:12px">
    <button class="btn p" onclick="tryLogin()">دخول الطالب</button>
    <button class="btn o" id="teacherGateBtn" onclick="openPin()">🔐 دخول المعلم</button>
-   <button class="btn o sm hide" id="whoLater" onclick="closeOv('mWho')">لاحقًا</button>
   </div>
   <p class="muted" style="margin-top:10px;font-size:.78rem">الطالب يدخل باسمه المسجَّل ورمزه الخاص، والمعلم يدخل من الزر المخصص بحسابه الآمن.</p>
   <div class="gateNote" id="gateNote">هذا المختبر مخصّص لطلاب <b>ابتدائية أبي بكر الرازي</b>.
@@ -1098,7 +1097,7 @@ function applyGate(){
   const lock = !authed();
   document.body.classList.toggle('gated', lock);
   const t = (id, on) => { const e = $(id); if (e) e.classList.toggle('hide', !on); };
-  t('whoLater', !lock); t('gateNote', lock);
+  t('gateNote', lock);
   if (lock) openOv('mWho');
 }
 function closeOv(id){
