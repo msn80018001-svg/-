@@ -350,7 +350,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  </div>
  <nav class="nav" id="nav">
   <button class="on" data-p="home">🏠 الرئيسية</button>
-  <button data-p="lessons">📚 الدروس</button>
+  <button data-p="lessons">📚 أوراق العمل</button>
   <button data-p="exams">📋 اختبارات الوحدات</button>
   <button data-p="review">🔁 صندوق الأخطاء</button>
   <button data-p="labs">🧪 المختبر</button>
@@ -396,7 +396,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
  <div class="sec" style="margin-top:18px"><div><h3>⚡ الوصول السريع</h3></div></div>
  <div class="grid quick">
-  <button onclick="go('lessons')"><i>📚</i>مكتبة الدروس<small>٢٤ درسًا</small></button>
+  <button onclick="go('lessons')"><i>📚</i>أوراق العمل التفاعلية<small>٢٤ درسًا</small></button>
   <button onclick="go('exams')"><i>📋</i>اختبار وحدة<small>٣٠ سؤالًا</small></button>
   <button onclick="go('labs')"><i>🧪</i>المختبر<small>تنبّأ ولاحظ</small></button>
   <button onclick="go('me')"><i>🎒</i>ملفي<small>نقاط الفرسان وشاراتي</small></button>
@@ -405,7 +405,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
 <!-- الدروس -->
 <section id="lessons" class="page"><div class="wrap">
- <div class="sec"><div><h3>📚 مكتبة الدروس</h3><p>كل درس فيه ملخص وأهم الأفكار و١٠ أسئلة متنوعة.</p></div>
+ <div class="sec"><div><h3>📚 أوراق العمل التفاعلية</h3><p>كل درس فيه ملخص وأهم الأفكار و١٠ أسئلة متنوعة.</p></div>
   <span class="tag" id="lsnPct">٠٪ مكتمل</span></div>
  <div class="tools">
   <input id="q" class="inp" placeholder="ابحث عن درس أو وحدة…" oninput="drawLessons()">
@@ -635,6 +635,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
   <div class="row" style="margin-top:12px">
    <button class="btn p" onclick="tryLogin()">دخول الطالب</button>
    <button class="btn o" id="teacherGateBtn" onclick="openPin()">🔐 دخول المعلم</button>
+   <button class="btn o sm hide" id="whoLater" onclick="closeOv('mWho')">لاحقًا</button>
   </div>
   <p class="muted" style="margin-top:10px;font-size:.78rem">الطالب يدخل باسمه المسجَّل ورمزه الخاص، والمعلم يدخل من الزر المخصص بحسابه الآمن.</p>
   <div class="gateNote" id="gateNote">هذا المختبر مخصّص لطلاب <b>ابتدائية أبي بكر الرازي</b>.
@@ -1097,7 +1098,7 @@ function applyGate(){
   const lock = !authed();
   document.body.classList.toggle('gated', lock);
   const t = (id, on) => { const e = $(id); if (e) e.classList.toggle('hide', !on); };
-  t('gateNote', lock);
+  t('whoLater', !lock); t('gateNote', lock);
   if (lock) openOv('mWho');
 }
 function closeOv(id){
