@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d5476">
+<meta name="description" content="مختبر الرازي التفاعلي — العلوم التفاعلية للصف الرابع الابتدائي">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="مختبر الرازي">
+<link rel="manifest" href="manifest.json?v=20260902">
+<link rel="icon" type="image/png" sizes="32x32" href="alrazi-icon-32.png?v=20260902">
+<link rel="icon" type="image/png" sizes="192x192" href="alrazi-icon-192.png?v=20260902">
+<link rel="apple-touch-icon" sizes="180x180" href="alrazi-apple-touch-icon-180.png?v=20260902">
+<title>مختبر الرازي التفاعلي | العلوم للصف الرابع</title>
+<!-- إصدار: بنر فرسان العلوم - أفضل 10 في الرئيسية -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
+<style>
+:root{
+ --g:#0d5476; --g2:#1a7ba9; --g3:#e4f2fa; --gold:#f0a929; --gold2:#c9800e;
+ --sea:#1a7f8e; --sand:#f6efe2; --bg:#f3f7fa; --ink:#14293a; --mut:#6d7f8a;
+ --line:#e0e9f0; --red:#b34a4a; --w:#fff;
+ --sh:0 10px 30px rgba(9,45,72,.09); --sh2:0 18px 50px rgba(9,45,72,.16);
+ --r:20px; --fs:16px;
+}
+body.fs-l{--fs:18.5px} body.fs-xl{--fs:21px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Tajawal,"Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
+ background:var(--bg);color:var(--ink);line-height:1.85;font-size:var(--fs)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
+h1,h2,h3,h4{line-height:1.35;margin:0}
+.wrap{max-width:1140px;margin:auto;padding:16px 14px 40px}
+.hide{display:none!important}
+/* ── بوابة الدخول الإلزامي ── */
+body.gated main,body.gated .foot,body.gated #nav,body.gated .hdrBtns{display:none!important}
+body.gated{overflow:hidden}
+.gateNote{background:#fff6e5;border:1px solid #f2d9a6;color:#6b4a08;border-radius:12px;
+ padding:10px 12px;font-size:.8rem;line-height:1.7;margin-top:12px}
+
+/* ── رأس الصفحة ── */
+.hdr{background:linear-gradient(150deg,#0d5476 0%,#12719e 100%);
+ color:#fff;position:sticky;top:0;z-index:40;box-shadow:0 6px 26px rgba(9,45,72,.18)}
+.hdrTop{max-width:1140px;margin:auto;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;gap:11px;align-items:center;min-width:0}
+.mark{width:48px;height:48px;border-radius:15px;background:#14638f;display:grid;place-items:center;font-size:25px;
+ border:1px solid #ffffff26;flex:none}
+.brand h1{font-size:1.18rem;font-weight:900;letter-spacing:-.2px}
+.brand small{color:#a9d3ef;font-size:.72rem;display:block;line-height:1.4}
+.hdrBtns{display:flex;gap:7px;flex:none;align-items:stretch}
+.iconBtn{min-width:82px;min-height:64px;padding:9px 10px 7px;border-radius:12px;background:#ffffff14;color:#fff;border:1px solid #ffffff20;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:27px;line-height:1;cursor:pointer}
+.iconBtn .ibT{font-size:.72rem;font-weight:800;color:#cfe7f8;line-height:1.2;white-space:nowrap;letter-spacing:-.1px}
+.iconBtn:hover{background:#ffffff26}
+.iconBtn:hover .ibT{color:#fff}
+@media(max-width:560px){
+ .iconBtn{min-width:70px;min-height:56px;padding:7px 7px 6px;font-size:22px}
+ .iconBtn .ibT{font-size:.64rem}
+}
+.nav{max-width:1140px;margin:auto;display:flex;gap:4px;overflow-x:auto;padding:0 10px 10px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav button{white-space:nowrap;background:#ffffff12;color:#d7ecf9;padding:8px 14px;border-radius:12px;font-weight:700;font-size:.86rem}
+.nav button.on{background:var(--gold);color:#22190a;font-weight:900}
+
+/* ── بطاقات عامة ── */
+.card{background:var(--w);border:1px solid var(--line);border-radius:var(--r);padding:17px;box-shadow:var(--sh)}
+.grid{display:grid;gap:13px}
+.sec{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:26px 0 12px;flex-wrap:wrap}
+.sec h3{font-size:1.22rem;font-weight:900}
+.sec p{margin:2px 0 0;color:var(--mut);font-size:.84rem}
+.tag{background:var(--g3);color:#0f5c8a;border-radius:9px;padding:3px 9px;font-size:.72rem;font-weight:900;white-space:nowrap}
+.tag.gold{background:#fdf1d8;color:#8a5c05}
+.tag.sea{background:#e2f2f4;color:#125b66}
+.btn{border-radius:13px;padding:10px 16px;font-weight:800;font-size:.92rem;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn.p{background:var(--g);color:#fff}.btn.p:hover{background:var(--g2)}
+.btn.g{background:linear-gradient(160deg,#fbc251,#e8930f);color:#241a05;box-shadow:0 3px 0 #b0720b55}
+.btn.o{background:#fff;border:1.5px solid var(--line);color:var(--g)}
+.btn.o:hover{border-color:var(--g2)}
+.btn.d{background:#fdecec;color:#963939}
+.btn.sm{padding:7px 12px;font-size:.82rem;border-radius:11px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.inp{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:13px;padding:11px 13px;outline:0}
+.inp:focus{border-color:var(--g2)}
+textarea.inp{min-height:130px;line-height:2;resize:vertical}
+label.lbl{font-size:.82rem;font-weight:800;color:var(--mut);display:block;margin-bottom:4px}
+.note{background:var(--g3);color:#14567d;border-radius:14px;padding:12px 14px;font-size:.88rem}
+.note.warn{background:#fdf3e0;color:#835613}
+.note.bad{background:#fdeded;color:#8f3c3c}
+.muted{color:var(--mut);font-size:.85rem}
+
+/* ── الواجهة الرئيسة: خط الرحلة (العنصر المميز) ── */
+.hero{background:
+  radial-gradient(120% 120% at 92% 0%,#1a7f8e33 0%,transparent 55%),
+  linear-gradient(145deg,#0e5f8a,#0a476b);
+ color:#fff;border-radius:26px;padding:26px 22px;box-shadow:var(--sh2);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:auto -40px -70px auto;width:230px;height:230px;border-radius:50%;
+ background:#f0a92914;pointer-events:none}
+.hero h2{font-size:1.72rem;font-weight:900;letter-spacing:-.5px}
+.hero p{margin:8px 0 0;color:#bfddf3;font-size:.94rem;max-width:52ch}
+.heroRow{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.trail{margin-top:22px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.trail::-webkit-scrollbar{display:none}
+.trailIn{display:flex;gap:0;align-items:stretch;min-width:max-content;position:relative}
+.stn{position:relative;display:flex;flex-direction:column;align-items:center;gap:7px;padding:0 13px;min-width:104px;
+ background:none;color:#cfe6f6}
+.stn:after{content:"";position:absolute;top:21px;left:-50%;width:100%;height:3px;background:#ffffff1f;z-index:0}
+.stn:first-child:after{display:none}
+.stn .dot{width:43px;height:43px;border-radius:50%;background:#0f5c85;border:2px solid #ffffff30;
+ display:grid;place-items:center;font-weight:900;font-size:1rem;z-index:1;color:#fff;transition:.2s}
+.stn.done .dot{background:var(--gold);color:#241a05;border-color:#ffdc9a}
+.stn.part .dot{background:#1a7ba9;border-color:var(--gold)}
+.stn b{font-size:.74rem;font-weight:700;text-align:center;line-height:1.4;max-width:96px}
+.stn small{font-size:.68rem;color:#8fbcd9}
+.stn:hover .dot{transform:scale(1.08)}
+
+.stats{grid-template-columns:repeat(4,1fr);margin-top:16px}
+.stat{text-align:center;padding:14px 8px}
+.stat b{display:block;font-size:1.6rem;color:var(--g);font-weight:900;line-height:1.2}
+.stat span{color:var(--mut);font-size:.78rem;font-weight:700}
+.quick{grid-template-columns:repeat(4,1fr)}
+.quick button{text-align:center;padding:16px 10px;font-weight:800;font-size:.88rem;background:#fff;border:1px solid var(--line);
+ border-radius:var(--r);box-shadow:var(--sh);transition:.16s}
+.quick button:hover{transform:translateY(-3px);border-color:var(--g2)}
+.quick i{display:block;font-size:1.7rem;font-style:normal;margin-bottom:4px}
+.quick small{display:block;color:var(--mut);font-weight:600;font-size:.75rem}
+.bell{background:#fff8e8;border:1px solid #f2dda6;border-radius:16px;padding:13px 15px;display:flex;gap:10px;
+ align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:14px}
+
+/* ── الدروس ── */
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tools .inp{flex:1;min-width:190px}
+.sel{border:1.5px solid var(--line);background:#fff;border-radius:13px;padding:10px 12px}
+.lessons{grid-template-columns:repeat(3,1fr)}
+.lsn{position:relative;transition:.16s;display:flex;flex-direction:column}
+.lsn:hover{transform:translateY(-3px);border-color:var(--g2)}
+.lsn h4{font-size:1.05rem;margin:8px 0 2px}
+.lsn .sm{color:var(--mut);font-size:.75rem}
+.lsn p{color:#5d6f7d;font-size:.85rem;margin:8px 0 12px;flex:1;
+ display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.lsn .fav{position:absolute;left:12px;top:12px;width:32px;height:32px;border-radius:50%;background:#f4f8fb;font-size:1rem}
+.bar{height:9px;background:#e7eef3;border-radius:20px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g2),var(--gold));border-radius:20px;transition:.4s}
+.done-chip{background:#e3f6ec;color:#14724f;font-size:.7rem;font-weight:900;padding:2px 8px;border-radius:8px}
+
+/* ── الأسئلة ── */
+.q{border:1.5px solid var(--line);border-radius:17px;padding:15px;margin:12px 0;background:#fff}
+.q.ok{border-color:#7cc7a3;background:#f4fcf8}
+.q.no{border-color:#e3a5a5;background:#fef7f7}
+.qHead{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.qType{font-size:.68rem;font-weight:900;padding:2px 8px;border-radius:7px;background:#edf2f6;color:#5b6a75;white-space:nowrap}
+.qType.m{background:#e8f1fb;color:#2b5f92}.qType.b{background:#f3edfb;color:#5a3f8c}.qType.f{background:#fdf0e3;color:#8a5710}
+.q b.qt{display:block;font-size:.98rem;font-weight:800;margin:2px 0 10px;line-height:1.75}
+.opt{display:block;width:100%;text-align:right;background:#fff;border:1.5px solid var(--line);border-radius:12px;
+ padding:10px 13px;margin:7px 0;font-weight:600;transition:.13s;font-size:.92rem}
+.opt:hover:not(:disabled){border-color:var(--g2);background:#f9fcfe}
+.opt.right{background:#dff5e9;border-color:#54b98d;font-weight:800}
+.opt.wrong{background:#fde5e5;border-color:#dd8f8f}
+.tf{display:flex;gap:9px}
+.tf .opt{text-align:center;flex:1;font-weight:900}
+.fill{display:flex;gap:8px;flex-wrap:wrap}
+.fill .inp{flex:1;min-width:150px}
+.fb{margin-top:9px;font-size:.87rem;font-weight:700;padding:9px 12px;border-radius:11px;display:none}
+.fb.show{display:block}
+.fb.y{background:#e4f7ed;color:#136448}.fb.n{background:#fdeaea;color:#8f3b3b}
+.why{display:block;font-weight:600;color:#4a5b66;margin-top:4px;font-size:.85rem}
+.scoreCard{text-align:center;padding:24px}
+.scoreCard .big{font-size:2.6rem;font-weight:900;color:var(--g);line-height:1.2}
+
+/* ── المختبر ── */
+.labs{grid-template-columns:repeat(3,1fr)}
+.lab{text-align:center}
+.lab .ic{font-size:2.6rem;line-height:1.4}
+.lab h4{font-size:1rem;margin:2px 0 4px}
+.lab p{color:var(--mut);font-size:.82rem;margin:0 0 10px}
+.lab .tag{display:inline-block;margin-bottom:6px}
+.lab.locked{border-style:dashed}
+.lab.locked h4{color:#5d6f7d}
+.poe{background:#f5f9fc;border:1px dashed #cfdfeb;border-radius:15px;padding:12px;margin-top:8px;text-align:right}
+.poe .step{font-size:.72rem;font-weight:900;color:var(--sea);letter-spacing:.3px}
+.lampBox{font-size:3rem;transition:.25s;line-height:1.3}
+
+/* ── لوحة فرسان العلوم ── */
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end;gap:8px;text-align:center}
+.pod{border-radius:18px 18px 10px 10px;padding:16px 6px;background:#f4f8fb;border:1px solid var(--line)}
+.pod.p1{padding-top:30px;background:linear-gradient(180deg,#fff5dd,#fffdf7);border-color:#f0d597}
+.pod .medal{font-size:1.7rem}
+.pod strong{display:block;font-size:.92rem;margin-top:3px}
+.pod small{color:var(--mut);font-size:.75rem}
+.rk{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:#fafcfe;
+ border:1px solid var(--line);border-radius:13px;gap:10px}
+.rk .n{display:flex;gap:9px;align-items:center;min-width:0}
+.rk .num{width:26px;height:26px;border-radius:8px;background:var(--g3);color:var(--g);display:grid;place-items:center;
+ font-weight:900;font-size:.8rem;flex:none}
+.rk.me{border-color:var(--gold);background:#fffdf5}
+.pts{color:#a06b00;font-weight:900;white-space:nowrap;font-size:.9rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:right}
+th{color:var(--mut);font-size:.78rem;font-weight:800}
+.lvl{font-size:.72rem;font-weight:900;padding:2px 8px;border-radius:7px;background:#edf3f8;color:#4c5d68}
+
+/* ── الشارات ── */
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.bdg{padding:14px 8px;text-align:center;border-radius:16px;background:#fffaf0;border:1px solid #f0dcae}
+.bdg i{font-size:1.8rem;font-style:normal;display:block}
+.bdg b{font-size:.78rem;display:block;margin-top:3px}
+.bdg.lock{filter:grayscale(1);opacity:.42;background:#f6f8fa;border-color:var(--line)}
+
+/* ── النوافذ ── */
+.ov{position:fixed;inset:0;background:#072436d9;z-index:100;display:none;align-items:flex-start;justify-content:center;
+ padding:12px;overflow:auto;-webkit-overflow-scrolling:touch}
+.ov.on{display:flex}
+.mdl{width:min(920px,100%);margin:20px auto;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 28px 70px #0006}
+.mdl.sm{max-width:460px}
+.mdlH{background:var(--g);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.mdlH small{color:#a9d3ef;font-size:.75rem}
+.mdlH h2{font-size:1.2rem;margin-top:2px}
+.x{width:38px;height:38px;border-radius:11px;background:#ffffff16;color:#fff;border:1px solid #ffffff2b;flex:none;font-size:1.1rem}
+.mdlB{padding:18px}
+
+/* ── وضع العرض ── */
+.proj{position:fixed;inset:0;background:#06243a;color:#fff;z-index:200;display:none;flex-direction:column;padding:20px}
+.proj.on{display:flex}
+.projTop{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.team{border-radius:16px;padding:9px 18px;font-weight:900;font-size:1.05rem;display:flex;gap:9px;align-items:center}
+.team.a{background:#1a7ba9}.team.b{background:#8a6108}
+.team button{background:#ffffff26;color:#fff;width:30px;height:30px;border-radius:9px;font-weight:900}
+.projQ{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:22px;padding:10px}
+.projQ .qq{font-size:clamp(1.4rem,4.4vw,2.9rem);font-weight:900;line-height:1.6}
+.projOpts{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px;margin:auto;width:100%}
+.projOpts div{background:#0f5c85;border:2px solid #ffffff1f;border-radius:16px;padding:14px;font-size:clamp(1rem,2.4vw,1.5rem);font-weight:800}
+.projOpts div.right{background:var(--gold);color:#241a05;border-color:#ffe0a5}
+.timer{font-size:2.2rem;font-weight:900;color:var(--gold)}
+.projBtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ── الشهادة ── */
+.cert{position:relative;padding:9px;border-radius:12px;overflow:hidden;
+ background:linear-gradient(135deg,#e9d192,#fffdf5 22%,#f0dca4 50%,#fffdf5 78%,#e9d192);
+ box-shadow:0 14px 34px -22px #0f2b4088}
+.cert .cwm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54%;opacity:.07;z-index:-1}
+.cert .cframe{position:relative;z-index:2;border:2.5px solid #c8a227;border-radius:7px;padding:26px 24px 18px;text-align:center;
+ background:radial-gradient(120% 80% at 50% 0,#fffefb,#fffdf4 65%);
+ box-shadow:inset 0 0 0 6px #fffdf4,inset 0 0 0 7.5px #e0c682}
+.cert .cn{position:absolute;width:30px;height:30px;border:3px solid #c8a227;z-index:4;opacity:.9}
+.cert .cn.a{top:11px;right:11px;border-left:0;border-bottom:0;border-radius:0 7px 0 0}
+.cert .cn.b{top:11px;left:11px;border-right:0;border-bottom:0;border-radius:7px 0 0 0}
+.cert .cn.c{bottom:11px;right:11px;border-left:0;border-top:0;border-radius:0 0 7px 0}
+.cert .cn.d{bottom:11px;left:11px;border-right:0;border-top:0;border-radius:0 0 0 7px}
+.cert .chead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+ font-size:.73rem;font-weight:800;color:#8a6f1f;letter-spacing:.2px;border-bottom:1px solid #eadfbe;padding-bottom:8px}
+.cert .cribbon{display:inline-block;margin-top:18px;padding:9px 36px;border-radius:4px;position:relative;
+ background:linear-gradient(180deg,#12668f,#0a4162);color:#ffe6a0;font-size:1.3rem;font-weight:900;
+ box-shadow:0 4px 0 #07304a,0 10px 18px -12px #0a416288}
+.cert .cribbon:before,.cert .cribbon:after{content:'';position:absolute;top:0;bottom:0;width:15px;
+ background:linear-gradient(180deg,#12668f,#0a4162)}
+.cert .cribbon:before{right:-13px;clip-path:polygon(0 0,100% 50%,0 100%)}
+.cert .cribbon:after{left:-13px;clip-path:polygon(100% 0,0 50%,100% 100%)}
+.cert .cmedal{font-size:2.1rem;line-height:1;margin-top:14px;filter:drop-shadow(0 3px 4px #c8a22755)}
+.cert .cintro{margin:8px 0 0;color:#5f6b74;font-size:.92rem}
+.cert .nm{display:inline-block;font-size:1.8rem;font-weight:900;color:#0b3d5c;margin:6px 0 4px;
+ padding:2px 30px 9px;border-bottom:3px double #c8a227}
+.cert .cbody{margin:8px auto 0;max-width:520px;color:#3c4650;font-size:.93rem;line-height:1.85}
+.cert .cstars{margin-top:12px;font-size:1.05rem;color:#d9a92a;letter-spacing:3px;direction:ltr}
+.cert .cstars b{display:block;color:#0b3d5c;font-size:.9rem;letter-spacing:0;margin-top:3px;direction:rtl}
+.cert .meta{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:16px}
+.cert .meta span{background:#fff8e6;border:1px solid #e6d3a0;border-radius:22px;padding:6px 15px;
+ font-size:.8rem;font-weight:700;color:#6a5518}
+.cert .meta b{color:#0b3d5c}
+.cert .csig{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-top:26px}
+.cert .sigline{flex:1;min-width:150px;font-size:.79rem;color:#4a5b66;text-align:center}
+.cert .sigline i{display:block;border-top:1.5px dotted #9aa7b1;margin-top:24px;padding-top:5px;font-style:normal;font-weight:700;color:#33424e}
+.cert .seal{width:82px;height:82px;border-radius:50%;flex:none;transform:rotate(-7deg);
+ background:radial-gradient(circle at 34% 28%,#f9e08d,#c8a227 70%);color:#4a3708;
+ display:grid;place-items:center;align-content:center;gap:1px;font-weight:900;font-size:.58rem;line-height:1.3;
+ box-shadow:0 0 0 3px #fffdf4,0 0 0 5px #c8a227,0 5px 12px -6px #7a5c0f}
+.cert .seal em{font-style:normal;font-size:1.25rem;display:block}
+.cert .code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.72rem;color:#8b7a4f;margin-top:14px;direction:ltr}
+#printZone{display:none}
+
+.foot{margin-top:36px;background:var(--g);color:#b7d6ec;text-align:center;padding:24px 16px;font-size:.85rem}
+.foot strong{color:#fff;display:block;font-size:1rem}
+
+@media(max-width:900px){
+ .lessons,.labs{grid-template-columns:repeat(2,1fr)}
+ .quick{grid-template-columns:repeat(2,1fr)}
+ .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ .lessons,.labs{grid-template-columns:1fr}
+ .badges{grid-template-columns:repeat(2,1fr)}
+ .hero{padding:20px 16px;border-radius:20px}.hero h2{font-size:1.4rem}
+ .projOpts{grid-template-columns:1fr}
+ .cert .cframe{padding:20px 13px}
+ .cert .nm{font-size:1.4rem;padding:2px 12px 8px}
+ .cert .cribbon{font-size:1.05rem;padding:8px 24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+
+
+/* ══════════ فرسان العلوم — لوحة موحّدة داخل المختبر ══════════ */
+.fursan-hero{background:radial-gradient(100% 140% at 50% 0%,#1b78ad 0%,#0d547f 42%,#083b61 72%,#052c4d 100%);color:#fff;border-radius:26px;padding:22px;box-shadow:var(--sh2);overflow:hidden;position:relative}
+.fursan-hero:after{content:"";position:absolute;inset:auto -70px -100px auto;width:280px;height:280px;border-radius:50%;background:#f0a92916;pointer-events:none}
+.fursan-title{text-align:center;position:relative;z-index:2}.fursan-title h2{font-size:clamp(1.8rem,5vw,3rem);font-weight:900;margin:0}.fursan-title p{color:#cfe7f8;margin:4px 0 0}.fursan-ribbon{display:inline-block;margin-top:9px;background:linear-gradient(180deg,#ffd96b,#e5a913);color:#4a2f00;border-radius:22px;padding:5px 18px;font-weight:900}
+.fursan-podium{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:10px;align-items:end;margin-top:22px;position:relative;z-index:2}.fursan-slot{background:#ffffff12;border:1px solid #ffffff22;border-radius:18px;padding:14px 8px;text-align:center;min-height:130px;display:flex;flex-direction:column;justify-content:center}.fursan-slot.first{min-height:165px;background:#f0a9291c;border-color:#f0c15c}.fursan-medal{font-size:2rem}.fursan-slot strong{display:block;font-size:.98rem;margin-top:4px}.fursan-slot small{color:#ffe08a;font-weight:800}
+.fursan-grid{display:grid;grid-template-columns:330px 1fr;gap:14px;margin-top:14px;align-items:start}.fursan-crit-item{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.88rem}.fursan-crit-num{width:25px;height:25px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;flex:none;font-size:.75rem;font-weight:900}.fursan-rank{display:grid;grid-template-columns:40px 1fr 150px 90px;gap:9px;align-items:center;border:1px solid var(--line);border-radius:13px;padding:9px 11px;margin-bottom:7px;background:#fafcfe}.fursan-rank.top1{background:#fff8e8;border-color:#efd38c}.fursan-rank.top2{background:#f5f8fb}.fursan-rank.top3{background:#fdf1e8;border-color:#eccbb0}.fursan-rank .idx{font-weight:900;color:var(--g);text-align:center}.fursan-rank .name{font-weight:900;min-width:0}.fursan-rank .title{color:var(--mut);font-size:.82rem;text-align:center}.fursan-rank .score{font-weight:900;color:#9a6800;text-align:center;white-space:nowrap}
+.fursan-my{margin-top:12px;background:#fff8e8;border:1px solid #efd38c;border-radius:14px;padding:10px 14px;text-align:center;font-weight:800;color:#76510a}.fursan-teacher-row{display:grid;grid-template-columns:42px 1fr 90px auto;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:#fafcfe;margin-bottom:7px}.fursan-teacher-row .actions{display:flex;gap:5px;flex-wrap:wrap}.fursan-teacher-row .actions .btn{padding:6px 9px}.fursan-criterion-btn{width:100%;text-align:right;border:1px solid var(--line);background:#f9fcfe;border-radius:11px;padding:9px 12px;margin-bottom:6px;font-weight:700}.fursan-criterion-btn:not(:disabled):hover{background:#eef7fb;border-color:#b7d9eb}.fursan-criterion-btn:disabled{cursor:default;color:var(--ink)}
+/* بنر فرسان العلوم في الصفحة الرئيسية — أفضل 10 */
+.home-fursan-banner{margin-bottom:18px;background:radial-gradient(110% 150% at 50% 0%,#1b78ad 0%,#0d547f 42%,#083b61 72%,#052c4d 100%);color:#fff;border-radius:28px;padding:22px;box-shadow:var(--sh2);overflow:hidden;position:relative}
+.home-fursan-banner:after{content:"";position:absolute;inset:auto -80px -115px auto;width:300px;height:300px;border-radius:50%;background:#f0a92918;pointer-events:none}
+.home-fursan-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:16px}
+.home-fursan-head .copy{text-align:right}.home-fursan-head h2{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;margin:0}.home-fursan-head p{margin:3px 0 0;color:#cfe7f8;font-size:.88rem}
+.home-fursan-head .btn{background:#ffffff16;color:#fff;border:1px solid #ffffff2b}
+.home-fursan-top10{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;position:relative;z-index:2}
+.home-fursan-card{min-width:0;background:#ffffff12;border:1px solid #ffffff24;border-radius:16px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:112px}
+.home-fursan-card.rank1{background:#f0a92924;border-color:#f2c85e;box-shadow:inset 0 0 0 1px #ffd76a22}.home-fursan-card.rank2{background:#e6eef51a}.home-fursan-card.rank3{background:#cd8b521f}
+.home-fursan-card .medal{font-size:1.6rem;line-height:1;margin-bottom:6px}.home-fursan-card strong{display:block;font-size:.88rem;line-height:1.45;overflow:hidden;text-overflow:ellipsis}.home-fursan-card small{display:block;color:#ffe08a;font-weight:900;font-size:.76rem;margin-top:4px}.home-fursan-card .place{display:block;color:#b9dff5;font-size:.68rem;font-weight:800;margin-top:3px}
+.home-fursan-card.me{outline:2px solid var(--gold);outline-offset:1px}
+@media(max-width:1000px){.home-fursan-top10{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.home-fursan-banner{padding:16px 13px;border-radius:22px}.home-fursan-top10{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px;scrollbar-width:none}.home-fursan-top10::-webkit-scrollbar{display:none}.home-fursan-card{min-width:165px;min-height:104px}.home-fursan-head{align-items:flex-start}.home-fursan-head .btn{width:100%}}
+
+@media(max-width:850px){.fursan-grid{grid-template-columns:1fr}.fursan-rank{grid-template-columns:34px 1fr 82px}.fursan-rank .title{display:none}.fursan-teacher-row{grid-template-columns:32px 1fr 76px}.fursan-teacher-row .actions{grid-column:1/-1}.fursan-podium{gap:6px}.fursan-slot{padding:10px 5px}.fursan-slot strong{font-size:.8rem}}
+
+@media print{
+ body{background:#fff}
+ .hdr,.foot,.nav,.ov,.proj,main,.noprint{display:none!important}
+ #printZone{display:block!important}
+ .cert{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .cert *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ── أقفال الدروس ── */
+.lsn.locked{border-style:dashed}
+.lsn.locked h4{color:#5d6f7d}
+.lockBox{display:flex;gap:6px;align-items:center}
+.lockBox .inp{flex:1;min-width:0;text-align:center;letter-spacing:2px;direction:ltr;font-family:ui-monospace,monospace}
+.codeCell{direction:ltr;text-align:left;font-family:ui-monospace,monospace;font-weight:900;letter-spacing:1px}
+</style>
+</head>
+<body>
+<header class="hdr noprint">
+ <div class="hdrTop">
+  <div class="brand">
+   <div class="mark">🔬</div>
+   <div><h1>مختبر الرازي التفاعلي</h1><small>العلوم • الصف الرابع الابتدائي</small></div>
+  </div>
+  <div class="hdrBtns">
+   <button class="iconBtn" onclick="cycleFont()" title="تكبير/تصغير حجم الخط" aria-label="حجم الخط">🔡<span class="ibT">حجم الخط</span></button>
+   <button class="iconBtn" onclick="openWho()" title="دخول الطلاب" aria-label="دخول الطلاب">👤<span class="ibT">دخول الطلاب</span></button>
+   <button class="iconBtn" onclick="openPin()" title="دخول لوحة المعلم" aria-label="لوحة المعلم">🔐<span class="ibT">لوحة المعلم</span></button>
+  </div>
+ </div>
+ <nav class="nav" id="nav">
+  <button class="on" data-p="home">🏠 الرئيسية</button>
+  <button data-p="lessons">📚 أوراق العمل</button>
+  <button data-p="exams">📋 اختبارات الوحدات</button>
+  <button data-p="review">🔁 صندوق الأخطاء</button>
+  <button data-p="labs">🧪 المختبر</button>
+  <button data-p="board">⚔️ فرسان العلوم</button>
+  <button data-p="me">🎒 ملفي</button>
+  <button data-p="cert">📜 الشهادات</button>
+ </nav>
+</header>
+
+<main>
+<!-- الرئيسية -->
+<section id="home" class="page"><div class="wrap">
+ <section class="home-fursan-banner" aria-label="أفضل عشرة فرسان في العلوم">
+  <div class="home-fursan-head">
+   <div class="copy"><h2>⚔️ فرسان العلوم</h2><p>أفضل ١٠ فرسان • مدرسة أبي بكر الرازي • الصف الرابع الابتدائي</p></div>
+   <button class="btn sm" onclick="go('board')">عرض لوحة فرسان العلوم كاملة ←</button>
+  </div>
+  <div class="home-fursan-top10" id="homeFursanTop10"><div class="home-fursan-card"><strong>جارٍ تحميل ترتيب الفرسان…</strong></div></div>
+ </section>
+
+ <div class="hero">
+  <h2>تعلّم، جرّب، نافس، وتألّق 🌟</h2>
+  <p>٢٤ درسًا • ١٠ أسئلة لكل درس • اختبار ٣٠ سؤالًا لكل وحدة • مختبر تنبّؤ وملاحظة • لوحة فرسان العلوم.</p>
+  <div class="heroRow">
+   <button class="btn g" onclick="go('lessons')">ابدأ درسًا</button>
+   <button class="btn" style="background:#ffffff1a;color:#fff;border:1px solid #ffffff33" onclick="startDaily()">🎯 مهمة اليوم</button>
+   <button class="btn" style="background:#ffffff1a;color:#fff;border:1px solid #ffffff33" onclick="go('board')">⚔️ فرسان العلوم</button>
+  </div>
+  <div class="trail" id="trail" aria-label="خط رحلة الوحدات"></div>
+ </div>
+
+ <div id="reviewBell" class="bell hide">
+  <div><b id="reviewBellTxt"></b><br><small class="muted">راجعها الآن لتثبّتها في ذاكرتك</small></div>
+  <button class="btn g sm" onclick="go('review')">ابدأ المراجعة</button>
+ </div>
+
+ <div class="grid stats">
+  <div class="card stat"><b id="stPts">٠</b><span>نقاط فرسان العلوم</span></div>
+  <div class="card stat"><b id="stLsn">٠</b><span>دروس أنجزتها</span></div>
+  <div class="card stat"><b id="stAcc">٠٪</b><span>دقة إجاباتي</span></div>
+  <div class="card stat"><b id="stBdg">٠</b><span>شاراتي</span></div>
+ </div>
+
+ <div class="sec" style="margin-top:18px"><div><h3>⚡ الوصول السريع</h3></div></div>
+ <div class="grid quick">
+  <button onclick="go('lessons')"><i>📚</i>أوراق العمل التفاعلية<small>٢٤ درسًا</small></button>
+  <button onclick="go('exams')"><i>📋</i>اختبار وحدة<small>٣٠ سؤالًا</small></button>
+  <button onclick="go('labs')"><i>🧪</i>المختبر<small>تنبّأ ولاحظ</small></button>
+  <button onclick="go('me')"><i>🎒</i>ملفي<small>نقاط الفرسان وشاراتي</small></button>
+ </div>
+</div></section>
+
+<!-- الدروس -->
+<section id="lessons" class="page"><div class="wrap">
+ <div class="sec"><div><h3>📚 أوراق العمل التفاعلية</h3><p>كل درس فيه ملخص وأهم الأفكار و١٠ أسئلة متنوعة.</p></div>
+  <span class="tag" id="lsnPct">٠٪ مكتمل</span></div>
+ <div class="tools">
+  <input id="q" class="inp" placeholder="ابحث عن درس أو وحدة…" oninput="drawLessons()">
+  <select id="fTerm" class="sel" onchange="drawLessons()"><option value="0">كل الفصول</option><option value="1">الفصل الأول</option><option value="2">الفصل الثاني</option></select>
+  <select id="fUnit" class="sel" onchange="drawLessons()"></select>
+ </div>
+ <div class="bar" style="margin-bottom:14px"><i id="lsnBar" style="width:0%"></i></div>
+ <div id="lessonGrid" class="grid lessons"></div>
+</div></section>
+
+<!-- اختبارات الوحدات -->
+<section id="exams" class="page"><div class="wrap">
+ <div class="sec"><div><h3>📋 اختبارات نهاية الوحدات</h3><p>٣٠ سؤالًا لكل وحدة: اختيار من متعدد، صواب وخطأ، وإكمال الفراغ.</p></div></div>
+ <div id="examList" class="grid" style="grid-template-columns:repeat(2,1fr)"></div>
+ <div id="examArea" style="margin-top:16px"></div>
+</div></section>
+
+<!-- صندوق الأخطاء -->
+<section id="review" class="page"><div class="wrap">
+ <div class="sec"><div><h3>🔁 صندوق الأخطاء</h3><p>كل سؤال تخطئ فيه يعود إليك بعد يوم، ثم ٣ أيام، ثم أسبوع — حتى تتقنه.</p></div></div>
+ <div id="reviewArea"></div>
+</div></section>
+
+<!-- المختبر -->
+<section id="labs" class="page"><div class="wrap">
+ <div class="sec"><div><h3>🧪 مختبر العلوم</h3><p>لكل درس من الـ٢٤ تجربة خاصة به. في كل تجربة: توقّع أولًا، ثم لاحظ، ثم فسّر. عند إنجاز التجربة بشكل صحيح لأول مرة تُضاف نقطتان تلقائيًا إلى رصيد فرسان العلوم.</p></div>
+  <span class="tag sea">تنبّأ • لاحظ • فسّر</span></div>
+ <div class="row" style="margin-bottom:12px">
+  <span class="tag" id="labStat"></span>
+  <select id="fLabUnit" class="sel" onchange="drawLabs()" style="max-width:260px"><option value="0">كل الوحدات</option></select>
+  <label class="row" style="gap:5px;font-size:.85rem;font-weight:700;color:var(--mut)">
+   <input type="checkbox" id="fLabOpen" onchange="drawLabs()"> المتاحة لي فقط</label>
+ </div>
+ <div id="labGrid" class="grid labs"></div>
+</div></section>
+
+<!-- فرسان العلوم -->
+<section id="board" class="page"><div class="wrap">
+ <div class="fursan-hero">
+  <div class="fursan-title"><h2>⚔️ فرسان العلوم</h2><p>مدرسة أبي بكر الرازي • الصف الرابع الابتدائي</p><span class="fursan-ribbon">التفوق هدفنا والتميز طريقتنا</span></div>
+  <div class="fursan-podium" id="fursanPodium"></div>
+ </div>
+ <div class="fursan-my" id="fursanMyScore">رصيد فرسان العلوم مرتبط تلقائيًا بالتعلّم: فتح درس +٢، إجابة صحيحة +٢، إنجاز تجربة +٢، مع إمكانية منح المعلم نقاطًا إضافية وفق المعايير.</div>
+ <div class="fursan-grid">
+  <div class="card">
+   <h3 style="font-size:1.05rem;margin-bottom:6px">⭐ كيف أحصل على نقاط فرسان العلوم؟</h3>
+   <p class="muted" style="margin-top:0">تُضاف <b>نقطتان تلقائيًا</b> عند فتح درس لأول مرة، و<b>نقطتان</b> لكل إجابة صحيحة لأول مرة، و<b>نقطتان</b> عند إنجاز تجربة لأول مرة. كما يستطيع المعلم منح نقاط إضافية وفق المعايير المعتمدة.</p>
+   <div class="note" style="margin:10px 0 12px;line-height:2">
+    <b>النقاط التلقائية:</b> 📚 فتح درس لأول مرة <b>+٢</b> • ✅ إجابة صحيحة لأول مرة <b>+٢</b> • 🧪 إنجاز تجربة لأول مرة <b>+٢</b>
+   </div>
+   <div id="fursanCriteriaPreview"></div>
+   <button class="btn o sm" style="width:100%;margin-top:9px" onclick="openFursanCriteria()">عرض معايير النقاط الإضافية للمعلم</button>
+  </div>
+  <div class="card">
+   <div class="sec" style="margin:0 0 10px"><div><h3 style="font-size:1.05rem">🏅 ترتيب الفرسان العشرين الأوائل</h3><p>متزامن مباشرة بين جميع الأجهزة عبر Firebase.</p></div><span class="tag gold" id="fursanSync">جارٍ المزامنة…</span></div>
+   <div id="fursanRankList"></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- ملفي -->
+<section id="me" class="page"><div class="wrap">
+ <div class="sec"><div><h3>🎒 ملفي</h3><p>رصيد فرسان العلوم يتحدث تلقائيًا مع فتح الدروس والإجابات الصحيحة والتجارب، إضافةً إلى نقاط المعلم.</p></div>
+  <button class="btn o sm" onclick="go('board')">⚔️ لوحة فرسان العلوم</button></div>
+ <div class="grid" style="grid-template-columns:1fr 1.6fr">
+  <div class="card" style="text-align:center">
+   <div style="font-size:3.4rem">🎓</div>
+   <h2 id="meName" style="font-size:1.2rem">—</h2>
+   <p class="muted" style="margin:2px 0 12px">الصف الرابع الابتدائي</p>
+   <div class="row" style="justify-content:center;gap:6px">
+    <button class="btn o sm" onclick="openWho()">تغيير الاسم</button>
+    <button class="btn d sm" onclick="logoutStudent()">خروج</button>
+   </div>
+   <div style="margin-top:16px;text-align:right">
+    <label class="lbl">تقدّمي في المنهج</label>
+    <div class="bar"><i id="meBar" style="width:0%"></i></div>
+    <small class="muted" id="meBarTxt"></small>
+   </div>
+  </div>
+  <div class="card">
+   <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
+    <div class="stat"><b id="mePts">٠</b><span>نقاط الفرسان</span></div>
+    <div class="stat"><b id="meLsn">٠</b><span>درسًا</span></div>
+    <div class="stat"><b id="meAcc">٠٪</b><span>دقة</span></div>
+   </div>
+   <h3 style="font-size:1rem;margin-bottom:9px">🎖️ شاراتي</h3>
+   <div id="badgeGrid" class="badges"></div>
+   <div style="margin-top:16px">
+    <button class="btn o sm" onclick="parentReport()">👨‍👩‍👦 تقرير لولي الأمر</button>
+   </div>
+   <div id="prArea"></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- الشهادات -->
+<section id="cert" class="page"><div class="wrap">
+ <div class="sec"><div><h3>📜 مركز الشهادات</h3><p>الشهادة تُطبع وحدها في صفحة نظيفة.</p></div></div>
+ <div class="card">
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+   <div><label class="lbl">اسم المدرسة</label><input id="cSchool" class="inp" value="مدرسة أبي بكر الرازي الابتدائية"></div>
+   <div><label class="lbl">اسم المعلم</label><input id="cTeacher" class="inp" value="أ/ حمدان المحياوي"></div>
+  </div>
+  <div class="row" style="margin-top:12px">
+   <button class="btn g" onclick="makeCert()">إصدار الشهادة</button>
+   <button class="btn o" onclick="printCert()" id="cPrint" disabled>🖨️ طباعة</button>
+  </div>
+ </div>
+ <div id="certArea" style="margin-top:14px"></div>
+</div></section>
+
+
+<!-- لوحة المعلم -->
+<section id="teacher" class="page"><div class="wrap">
+ <div class="sec"><div><h3>👨‍🏫 لوحة المعلم</h3><p>نقاط فرسان العلوم مرتبطة مباشرة بلوحة فرسان العلوم الأصلية، وكشف الطلاب متزامن عبر Firebase.</p></div>
+  <button class="btn g sm" onclick="openProjector()">📺 وضع العرض</button></div>
+
+ <div class="card">
+  <h3 style="font-size:1.05rem">👥 إدارة طلاب الفصل</h3>
+  <p class="muted">أضف أو احذف الطلاب من هنا. تُحفظ التغييرات مباشرة في Firebase وتظهر على الجوال والكمبيوتر دون تعديل HTML أو إعادة النشر.</p>
+  <div class="grid" style="grid-template-columns:2fr 1fr;gap:9px;margin-top:12px">
+   <div><label class="lbl">اسم الطالب الكامل</label><input id="newStudentName" class="inp" placeholder="اكتب اسم الطالب الكامل"></div>
+   <div><label class="lbl">رمز الدخول (٤ أرقام)</label><input id="newStudentCode" class="inp" inputmode="numeric" maxlength="4" placeholder="مثال: 1081" style="direction:ltr;text-align:center;letter-spacing:3px"></div>
+  </div>
+  <div class="row" style="margin-top:10px">
+   <button class="btn g" onclick="addStudentFirebase()">➕ إضافة طالب</button>
+   <span class="tag" id="rosterCount">٠ طالبًا</span>
+   <span id="rosterMsg" class="tag hide"></span>
+   <button class="btn o sm" onclick="exportRoster()">⬇️ تنزيل الكشف (CSV)</button>
+  </div>
+  <div style="overflow:auto;max-height:360px;margin-top:12px">
+   <table><thead><tr><th>#</th><th>الطالب</th><th>الرمز</th><th>إجراء</th></tr></thead>
+   <tbody id="rosterManageTable"></tbody></table>
+  </div>
+ </div>
+
+ <div class="card" style="margin-top:13px">
+  <h3 style="font-size:1.05rem">🛡️ رموز دخول الطلاب</h3>
+  <p class="muted">لكل طالب رمز ثابت من ٤ أرقام مشتق من اسمه. سلّم كل طالب رمزه — لن يدخل المختبر بدونه.</p>
+  <div style="overflow:auto;max-height:320px"><table><thead><tr><th>#</th><th>الطالب</th><th>الرمز</th></tr></thead>
+   <tbody id="stCodesTable"></tbody></table></div>
+  <textarea id="stCodesTxt" class="inp" style="min-height:90px;font-family:ui-monospace,monospace;font-size:.78rem;margin-top:10px"></textarea>
+  <div class="row" style="margin-top:10px">
+   <button class="btn p sm" onclick="copyEl('stCodesTxt')">📋 نسخ كل الرموز</button>
+   <button class="btn o sm" onclick="printStCodes()">🖨️ طباعة بطاقات الرموز</button>
+   <button class="btn o sm" onclick="exportStCodes()">⬇️ تنزيل CSV</button>
+  </div>
+ </div>
+
+ <div class="card" style="margin-top:13px">
+  <div class="sec" style="margin:0 0 10px"><div><h3 style="font-size:1.05rem">⚔️ إدارة فرسان العلوم</h3><p>هذه هي الطريقة الوحيدة لمنح نقاط فرسان العلوم. اختيار معيار = +٢ نقطة، وتظهر النتيجة فورًا هنا وفي لوحة فرسان العلوم الأصلية على جميع الأجهزة.</p></div>
+   <button class="btn o sm" onclick="openFursanCriteria()">📋 المعايير الـ٢٠</button></div>
+  <input id="fursanTeacherSearch" class="inp" type="search" placeholder="ابحث عن اسم الطالب…" oninput="drawFursanTeacher()">
+  <div id="fursanTeacherList" style="margin-top:10px;max-height:520px;overflow:auto"></div>
+  <div class="row" style="margin-top:12px">
+   <button class="btn o sm" onclick="exportResults()">⬇️ تنزيل نقاط الفرسان (CSV)</button>
+   <button class="btn o sm" onclick="printBoard()">🖨️ طباعة فرسان العلوم</button>
+  </div>
+ </div>
+
+ <div class="card" style="margin-top:13px">
+  <h3 style="font-size:1.05rem">🔑 رموز فتح الدروس</h3>
+  <p class="muted" id="codesMode"></p>
+  <div style="overflow-x:auto"><table><thead><tr><th>#</th><th>الدرس</th><th>الرمز</th></tr></thead>
+   <tbody id="codesTable"></tbody></table></div>
+  <textarea id="codesTxt" class="inp" style="min-height:90px;direction:rtl;font-family:ui-monospace,monospace;font-size:.78rem;margin-top:10px"></textarea>
+  <div class="row" style="margin-top:10px">
+   <button class="btn p sm" onclick="copyEl('codesTxt')">📋 نسخ كل الرموز</button>
+   <button class="btn o sm" onclick="printCodes()">🖨️ طباعة الرموز</button>
+   <button class="btn o sm" onclick="unlockAll()">🔓 فتح الكل على هذا الجهاز</button>
+   <button class="btn d sm" onclick="relockAll()">🔒 إعادة القفل</button>
+  </div>
+  <p class="muted" style="margin-bottom:0">أعطِ الطالب رمز الدرس عند انتهاء الحصة، والرمز يبدأ برقم الدرس نفسه.
+   لتغيير كل الرموز: افتح ملف <b>index.html</b> بمحرّر نصوص وغيّر كلمة <b>MASTER_KEY</b> ثم ارفع الملف من جديد.</p>
+ </div>
+
+ <div class="card" style="margin-top:13px">
+  <h3 style="font-size:1.05rem">🔐 حساب المعلم في Firebase</h3>
+  <p class="muted" style="margin-bottom:0">الدخول محمي الآن بواسطة Firebase Authentication. لا تُحفظ كلمة مرور المعلم داخل ملف الموقع.</p>
+ </div>
+
+ <div class="card note bad" style="margin-top:13px">
+  <b>منطقة الحذف</b>
+  <p style="margin:6px 0 10px">يمسح التقدم المحلي على هذا الجهاز فقط. نقاط فرسان العلوم محفوظة في Firebase ولا تُمسح من هنا.</p>
+  <button class="btn d sm" onclick="wipe()">مسح بيانات المختبر</button>
+  <button class="btn o sm" onclick="teacherLogout()" style="margin-inline-start:8px">🚪 خروج المعلم</button>
+ </div>
+</div></section>
+</main>
+
+<footer class="foot noprint">
+ <strong>مختبر الرازي التفاعلي</strong>
+ العلوم التفاعلية • لطلاب الصف الرابع الابتدائي — ابتدائية أبي بكر الرازي
+ <div style="margin-top:6px;font-size:.78rem;opacity:.85">إعداد وتنفيذ الأستاذ / حمدان المحياوي</div>
+ <div style="margin-top:4px;font-size:.78rem;opacity:.8"><b>ملاحظة مهمة:</b> المحتوى لا يغني عن الكتاب المدرسي.</div>
+</footer>
+
+<!-- نافذة الدرس -->
+<div id="mLesson" class="ov" onclick="if(event.target===this)closeOv('mLesson')"><div class="mdl">
+ <div class="mdlH"><div><small id="lmUnit"></small><h2 id="lmTitle"></h2></div>
+  <div class="row" style="flex:none;gap:6px">
+   <button class="x hide" id="lmSpeak" onclick="speakLesson()" title="استماع">🔊</button>
+   <button class="x" onclick="closeOv('mLesson')" aria-label="إغلاق">✕</button></div></div>
+ <div class="mdlB">
+  <div class="note" id="lmSum"></div>
+  <div class="note sea hide" id="lmLoc" style="background:#e6f3f5;color:#0f5a65;margin-top:9px"></div>
+  <h3 style="font-size:1.05rem;margin:16px 0 6px">💡 أهم الأفكار</h3>
+  <ul id="lmBul" style="padding-inline-start:20px"></ul>
+  <div class="sec" style="margin:18px 0 4px"><h3 style="font-size:1.05rem">📝 أسئلة الدرس (١٠)</h3><span class="tag" id="lmScore">٠ / ١٠</span></div>
+  <div id="lmQuiz"></div>
+  <button class="btn g" style="width:100%;margin-top:12px" onclick="closeOv('mLesson')">تم — العودة للدروس</button>
+ </div>
+</div></div>
+
+<!-- من الطالب -->
+<div id="mWho" class="ov"><div class="mdl sm">
+ <div class="mdlH"><div><small>دخول الفارس</small><h2>🛡️ اسمك ورمزك</h2></div></div>
+ <div class="mdlB">
+  <label class="lbl">اسمك الكامل كما هو في كشف الفصل</label>
+  <input id="whoInput" class="inp" autocomplete="off" oninput="whoSuggest()" placeholder="الاسم الأول واسم الأب والعائلة">
+  <div id="whoList"></div>
+  <label class="lbl" style="margin-top:12px">رمزك الخاص (٤ أرقام من المعلم)</label>
+  <input id="whoCode" class="inp" inputmode="numeric" maxlength="4" placeholder="- - - -"
+   style="letter-spacing:8px;text-align:center;direction:ltr;font-family:ui-monospace,monospace;font-weight:900"
+   onkeydown="if(event.key==='Enter')tryLogin()">
+  <div id="whoMsg" class="note warn hide" style="margin-top:10px"></div>
+  <div class="row" style="margin-top:12px">
+   <button class="btn p" onclick="tryLogin()">دخول الطالب</button>
+   <button class="btn o" id="teacherGateBtn" onclick="openPin()">🔐 دخول المعلم</button>
+  </div>
+  <p class="muted" style="margin-top:10px;font-size:.78rem">الطالب يدخل باسمه المسجَّل ورمزه الخاص، والمعلم يدخل من الزر المخصص بحسابه الآمن.</p>
+  <div class="gateNote" id="gateNote">هذا المختبر مخصّص لطلاب <b>ابتدائية أبي بكر الرازي</b>.
+   لا يمكن للطالب تجاوز شاشة الدخول بدون الاسم والرمز. دخول المعلم منفصل ويتطلب حساب المعلم المعتمد.</div>
+ </div>
+</div></div>
+
+<!-- رمز المعلم -->
+<div id="mPin" class="ov"><div class="mdl sm">
+ <div class="mdlH"><div><small>مختبر الرازي التفاعلي</small><h2>دخول المعلم</h2></div>
+  <button class="x" onclick="closeOv('mPin')" aria-label="إغلاق">✕</button></div>
+ <div class="mdlB">
+  <label class="lbl">بريد المعلم</label>
+  <input id="teacherEmail" class="inp" type="email" autocomplete="username" value="alrazy2021@gmail.com" placeholder="بريد حساب المعلم">
+  <label class="lbl" style="margin-top:10px">كلمة المرور</label>
+  <input id="pinIn" class="inp" type="password" autocomplete="current-password" placeholder="كلمة المرور" onkeydown="if(event.key==='Enter')tryPin()">
+  <div id="pinMsg" class="note bad hide" style="margin-top:9px"></div>
+  <button class="btn g" style="width:100%;margin-top:12px" onclick="tryPin()">دخول آمن</button>
+ </div>
+</div></div>
+
+<!-- إرسال الإنجاز مباشرة -->
+
+<!-- المهمة اليومية -->
+<div id="mDaily" class="ov" onclick="if(event.target===this)closeOv('mDaily')"><div class="mdl">
+ <div class="mdlH"><div><small id="dailyDate"></small><h2>🎯 مهمة اليوم</h2></div>
+  <button class="x" onclick="closeOv('mDaily')" aria-label="إغلاق">✕</button></div>
+ <div class="mdlB"><div id="dailyArea"></div></div>
+</div></div>
+
+<!-- وضع العرض -->
+<div id="proj" class="proj">
+ <div class="projTop">
+  <div class="team a">🟢 الفريق الأخضر <b id="tA">٠</b> <button onclick="teamPt('A')">+</button></div>
+  <div class="timer" id="projTimer">٣٠</div>
+  <div class="team b">🟡 الفريق الذهبي <b id="tB">٠</b> <button onclick="teamPt('B')">+</button></div>
+ </div>
+ <div class="projQ">
+  <div class="qq" id="projQ"></div>
+  <div class="projOpts" id="projOpts"></div>
+ </div>
+ <div class="projBtns">
+  <button class="btn o" onclick="projReveal()">إظهار الإجابة</button>
+  <button class="btn g" onclick="projNext()">السؤال التالي ←</button>
+  <button class="btn" style="background:#ffffff1a;color:#fff" onclick="closeProjector()">إنهاء العرض</button>
+ </div>
+</div>
+
+
+<!-- معايير فرسان العلوم -->
+<div id="mFursanCrit" class="ov"><div class="mdl sm" style="max-width:650px">
+ <div class="mdlH"><div><small>فرسان العلوم</small><h2 id="fursanCritTitle">معايير نقاط فرسان العلوم</h2></div><button class="x" onclick="closeOv('mFursanCrit')">✕</button></div>
+ <div class="mdlB"><p id="fursanCritSub" class="muted"></p><div id="fursanCritList"></div><button class="btn o" style="width:100%;margin-top:8px" onclick="closeOv('mFursanCrit')">إغلاق</button></div>
+</div></div>
+
+<div id="printZone"></div>
+<!-- Firebase: كشف الطلاب وفرسان العلوم وتوثيق المعلم -->
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js"></script>
+<script>
+/* ══════════ مختبر الرازي التفاعلي — المحرّك ══════════ */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyA2WqVhQTyKT59WtoTlqr2qj5QM1iC3aj8",
+  authDomain: "fursan-science-4.firebaseapp.com",
+  databaseURL: "https://fursan-science-4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "fursan-science-4",
+  storageBucket: "fursan-science-4.firebasestorage.app",
+  messagingSenderId: "972064475879",
+  appId: "1:972064475879:web:5a89cde86c366ac2937042"
+};
+firebase.initializeApp(FIREBASE_CONFIG);
+const FB_DB = firebase.database();
+const FB_AUTH = firebase.auth();
+
+/* قاعدة فرسان العلوم الأصلية: نفس قاعدة ملف فرسان العلوم المستقل */
+const FURSAN_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyDfqbZcRkM2Kn78citwx9Vt14rhZowEsOE",
+  authDomain: "fursan-science.firebaseapp.com",
+  databaseURL: "https://fursan-science-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "fursan-science",
+  storageBucket: "fursan-science.firebasestorage.app",
+  messagingSenderId: "495865771023",
+  appId: "1:495865771023:web:484d1dfc6357cd8fdf9f7a"
+};
+let FURSAN_APP;
+try { FURSAN_APP = firebase.app('fursanBoard'); }
+catch(e) { FURSAN_APP = firebase.initializeApp(FURSAN_FIREBASE_CONFIG, 'fursanBoard'); }
+const FURSAN_DB = FURSAN_APP.database();
+const FURSAN_AUTH = FURSAN_APP.auth();
+function listenRosterFromFirebase(){
+  FB_DB.ref('roster').on('value', snap => {
+    const v = snap.val();
+    if (Array.isArray(v)) {
+      ROSTER = v.filter(r => Array.isArray(r) && r[0] && r[1]).map(r => [String(r[0]), String(r[1])]);
+      rebuildRosterMaps();
+      if (S.student && !findInRoster(S.student)) { S.student = ''; save(); applyGate(); }
+      try { drawStCodes(); } catch(e){}
+      try { drawTeacher(); } catch(e){}
+      try { whoSuggest(); } catch(e){}
+      try { drawFursanBoard(); drawFursanTeacher(); } catch(e){}
+    }
+  }, err => console.warn('تعذرت مزامنة كشف الطلاب', err));
+}
+async function ensureRosterOnFirebase(){
+  if (!FB_AUTH.currentUser) return;
+  const ref = FB_DB.ref('roster');
+  const snap = await ref.once('value');
+  if (!snap.exists()) await ref.set(ROSTER);
+}
+async function saveRosterToFirebase(){
+  if (!FB_AUTH.currentUser) throw new Error('سجّل دخول المعلم أولًا.');
+  await FB_DB.ref('roster').set(ROSTER);
+}
+
+const DATA = {"lessons":[{"id":1,"u":1,"term":1,"unit":"الوحدة الأولى: المخلوقات الحية","ch":"الفصل الأول: ممالك المخلوقات الحية","t":"الخلايا","s":"الخلية هي الوحدة الأساسية في بناء المخلوقات الحية. تختلف الخلايا في أشكالها ووظائفها، وتوجد في المخلوقات وحيدة الخلية ومتعددة الخلايا. تتعاون الخلايا لتكوين أنسجة ثم أعضاء وأجهزة.","b":["الخلية أصغر وحدة بنائية في المخلوق الحي.","الخلايا النباتية تمتلك جدارًا خلويًا وبلاستيدات خضراء، بينما الخلايا الحيوانية لا تمتلكهما.","تختلف الخلايا المتخصصة في الشكل والوظيفة."],"q":[{"t":"m","q":"ما أصغر وحدة بنائية في جسم المخلوق الحي؟","o":["الخلية","النسيج","العضو","الجهاز"],"w":"الخلية هي وحدة البناء الأساسية، ومنها تتكون الأنسجة ثم الأعضاء ثم الأجهزة.","x":["النسيج مجموعة خلايا متشابهة، فهو أكبر من الخلية.","العضو يتكون من عدة أنسجة.","الجهاز يتكون من عدة أعضاء."]},{"t":"m","q":"أي تركيب يوجد في الخلية النباتية ولا يوجد في الخلية الحيوانية؟","o":["الجدار الخلوي","النواة","الغشاء البلازمي","السيتوبلازم"],"w":"الجدار الخلوي والبلاستيدات الخضراء من مميزات الخلية النباتية.","x":["النواة توجد في الخليتين معًا.","الغشاء البلازمي يحيط بالخليتين.","السيتوبلازم موجود في الخليتين."]},{"t":"m","q":"ما وظيفة البلاستيدات الخضراء؟","o":["صنع الغذاء بالاستفادة من ضوء الشمس","تخزين الماء فقط","حماية الخلية من الخارج","التحكم في أنشطة الخلية"],"w":"البلاستيدات الخضراء تحتوي الكلوروفيل الذي يمتص الضوء لصنع الغذاء.","x":["التخزين وظيفة الفجوة.","الحماية وظيفة الجدار والغشاء.","التحكم وظيفة النواة."]},{"t":"m","q":"أي ترتيب صحيح من الأصغر إلى الأكبر؟","o":["خلية ← نسيج ← عضو ← جهاز","نسيج ← خلية ← جهاز ← عضو","عضو ← جهاز ← نسيج ← خلية","جهاز ← عضو ← خلية ← نسيج"],"w":"البناء يبدأ من الخلية وينتهي بالجهاز ثم المخلوق الحي كاملًا.","x":[]},{"t":"m","q":"مخلوق حي يتكون من خلية واحدة فقط. ماذا نسميه؟","o":["وحيد الخلية","عديد الخلايا","غير حي","نسيجًا"],"w":"المخلوقات وحيدة الخلية مثل البكتيريا تؤدي كل وظائف الحياة بخلية واحدة.","x":[]},{"t":"b","q":"جميع الخلايا لها الشكل نفسه والوظيفة نفسها.","a":false,"w":"الخلايا متخصصة: خلية عضلية تختلف عن خلية عصبية شكلًا ووظيفة."},{"t":"b","q":"النواة تتحكم في أنشطة الخلية.","a":true,"w":"النواة مركز التحكم وتحوي المادة الوراثية."},{"t":"b","q":"الخلية الحيوانية تحتوي جدارًا خلويًا صلبًا.","a":false,"w":"الخلية الحيوانية يحيط بها غشاء بلازمي مرن فقط، وليس جدارًا."},{"t":"f","q":"الغشاء ______ ينظّم دخول المواد إلى الخلية وخروجها منها.","a":["البلازمي","الخلوي"],"w":"الغشاء البلازمي يسمح بمرور بعض المواد ويمنع غيرها."},{"t":"f","q":"مجموعة الخلايا المتشابهة التي تعمل معًا تُسمى ______.","a":["النسيج","نسيج","نسيجًا"],"w":"النسيج هو المستوى التالي بعد الخلية."}],"loc":""},{"id":2,"u":1,"term":1,"unit":"الوحدة الأولى: المخلوقات الحية","ch":"الفصل الأول: ممالك المخلوقات الحية","t":"تصنيف المخلوقات الحية","s":"يساعد التصنيف العلماء على تنظيم المخلوقات الحية في مجموعات بناءً على صفاتها المشتركة. وتستخدم الملاحظات والخصائص المشتركة للمقارنة والتعرف على المخلوقات.","b":["التصنيف تنظيم المخلوقات في مجموعات وفق صفات مشتركة.","الملاحظة الدقيقة تساعد على التعرف إلى المخلوقات.","يمكن استخدام أكثر من صفة عند المقارنة بين المخلوقات."],"q":[{"t":"m","q":"لماذا يصنّف العلماء المخلوقات الحية؟","o":["لتنظيمها في مجموعات حسب صفات مشتركة","لتغيير صفاتها الوراثية","لجعلها أكبر حجمًا","لمنعها من التكاثر"],"w":"التصنيف يسهّل دراسة المخلوقات والتعرف إليها ومقارنتها.","x":["التصنيف لا يغيّر المخلوق، بل يصف صفاته فقط.","التصنيف عملية علمية وصفية لا تؤثر في حجم المخلوق.","التصنيف لا علاقة له بالتكاثر."]},{"t":"m","q":"ما الصفة التي يعتمد عليها العالم عند التصنيف؟","o":["الصفات المشتركة بين المخلوقات","لون المكان الذي وُجد فيه","اسم من اكتشفه","تاريخ اكتشافه"],"w":"المقارنة تعتمد على صفات المخلوق نفسه لا على ظروف اكتشافه.","x":[]},{"t":"m","q":"كم عدد ممالك المخلوقات الحية المشهورة في التصنيف؟","o":["ست ممالك","مملكتان","أربع ممالك","عشر ممالك"],"w":"الممالك: البكتيريا، البدائيات، الطلائعيات، الفطريات، النباتات، الحيوانات.","x":[]},{"t":"m","q":"أي مملكة تصنع أفرادها غذاءها بنفسها غالبًا؟","o":["النباتات","الحيوانات","الفطريات","البكتيريا المسببة للمرض"],"w":"النباتات ذاتية التغذية بفضل البلاستيدات الخضراء.","x":["الحيوانات تحصل على غذائها من مخلوقات أخرى.","الفطريات تحلل المواد وتمتص غذاءها.","معظم البكتيريا تعتمد على مصادر خارجية للغذاء."]},{"t":"m","q":"مفتاح التصنيف ثنائي التفريع يساعد على:","o":["التعرف إلى المخلوق عبر أسئلة نعم/لا","تلوين المخلوقات","قياس وزن المخلوق","تسمية المخلوق باسم مكتشفه"],"w":"المفتاح يقود إلى اسم المخلوق بسلسلة من الاختيارات المتقابلة.","x":[]},{"t":"b","q":"الفطر يصنع غذاءه بنفسه مثل النبات.","a":false,"w":"الفطريات تحلل بقايا المخلوقات وتمتص غذاءها منها."},{"t":"b","q":"التصنيف يساعد العلماء على تبادل المعلومات بلغة واحدة.","a":true,"w":"الأسماء العلمية توحّد التسمية بين العلماء في كل مكان."},{"t":"b","q":"يمكن استخدام أكثر من صفة واحدة عند المقارنة بين مخلوقين.","a":true,"w":"كلما زادت الصفات المقارَنة كان التصنيف أدق."},{"t":"f","q":"العملية التي ننظّم بها المخلوقات الحية في مجموعات حسب صفاتها تُسمى ______.","a":["التصنيف","تصنيف"],"w":"التصنيف أساس ترتيب التنوع الحيوي."},{"t":"f","q":"المجموعة الكبرى التي تضم المخلوقات المتشابهة في صفات عامة تُسمى ______.","a":["المملكة","مملكة"],"w":"المملكة أكبر مستوى تصنيفي نتعلمه في هذه المرحلة."}],"loc":""},{"id":3,"u":1,"term":1,"unit":"الوحدة الأولى: المخلوقات الحية","ch":"الفصل الثاني: المملكة الحيوانية","t":"الحيوانات اللافقارية","s":"اللافقاريات حيوانات لا تمتلك عمودًا فقريًا. تضم مجموعات متنوعة تختلف في أشكال أجسامها وطرق حركتها وتغذيتها، ومنها الإسفنجيات والديدان والرخويات والمفصليات وغيرها.","b":["الصفة الأساسية للافقاريات هي عدم وجود عمود فقري.","تتنوع اللافقاريات في البنية وطرق الحركة.","المفصليات من أكثر مجموعات الحيوانات تنوعًا."],"q":[{"t":"m","q":"ما الصفة التي تميّز الحيوانات اللافقارية؟","o":["ليس لها عمود فقري","لها ريش","تنتج الحليب","لها رئتان دائمًا"],"w":"غياب العمود الفقري هو الفرق الأساسي عن الفقاريات.","x":["الريش صفة الطيور وهي فقاريات.","إنتاج الحليب صفة الثدييات.","كثير من اللافقاريات تتنفس بالخياشيم أو الجلد."]},{"t":"m","q":"أي مما يلي حيوان لافقاري؟","o":["الأخطبوط","الضفدع","الحمامة","سمكة القرش"],"w":"الأخطبوط من الرخويات وهي لافقاريات.","x":[]},{"t":"m","q":"لماذا يُعد الشعاب المرجانية في البحر الأحمر مهمة؟","o":["توفر مأوى وغذاءً لكثير من الكائنات البحرية","تصنع الملح في البحر","تمنع تبخر ماء البحر","تنتج الأكسجين للفضاء"],"w":"المرجان حيوان لافقاري يبني هياكل تعيش فيها أحياء كثيرة قرب سواحلنا.","x":[]},{"t":"m","q":"ما وظيفة الهيكل الخارجي في الحشرات؟","o":["حماية الجسم ودعمه من الخارج","صنع الغذاء","ضخ الدم","تخزين البذور"],"w":"الهيكل الخارجي غطاء صلب يحمي الجسم ويسنده.","x":[]},{"t":"m","q":"كم عدد أرجل الحشرة البالغة؟","o":["ست أرجل","أربع أرجل","ثماني أرجل","عشر أرجل"],"w":"ستّ أرجل وثلاثة أجزاء للجسم من علامات الحشرات.","x":["أربع أرجل صفة كثير من الفقاريات البرية.","ثماني أرجل صفة العنكبوتيات لا الحشرات.","عشر أرجل توجد في بعض القشريات."]},{"t":"b","q":"جميع اللافقاريات صغيرة الحجم.","a":false,"w":"الحبار العملاق لافقاري كبير الحجم جدًا."},{"t":"b","q":"دودة الأرض تساعد على تهوية التربة.","a":true,"w":"أنفاق الدودة تسمح بدخول الهواء والماء إلى التربة."},{"t":"b","q":"قنديل البحر له عمود فقري.","a":false,"w":"قنديل البحر لافقاري جسمه رخو دون هيكل عظمي داخلي."},{"t":"f","q":"الغطاء الصلب الذي يحمي جسم الحشرة من الخارج يُسمى الهيكل ______.","a":["الخارجي","خارجي"],"w":"يقابله الهيكل الداخلي في الفقاريات."},{"t":"f","q":"العنكبوت له ______ أرجل.","a":["ثماني","8","ثمان","ثمانية"],"w":"عدد الأرجل من أوضح الفروق بين العنكبوتيات والحشرات."}],"loc":"من بيئتنا: الشعاب المرجانية في البحر الأحمر قرب ينبع مبنية من حيوانات لافقارية دقيقة تعيش في مستعمرات."},{"id":4,"u":1,"term":1,"unit":"الوحدة الأولى: المخلوقات الحية","ch":"الفصل الثاني: المملكة الحيوانية","t":"الحيوانات الفقارية","s":"الفقاريات حيوانات لها عمود فقري وهيكل داخلي. تشمل مجموعات مثل الأسماك والبرمائيات والزواحف والطيور والثدييات، ولكل مجموعة صفات تساعدها على العيش في بيئاتها.","b":["الفقاريات تمتلك عمودًا فقريًا.","تختلف الفقاريات في الغطاء الخارجي وطريقة التكاثر ودرجة تنظيم حرارة الجسم.","الطيور تمتلك ريشًا، والثدييات تتميز بإنتاج الحليب لصغارها."],"q":[{"t":"m","q":"ما الصفة المشتركة بين جميع الفقاريات؟","o":["وجود عمود فقري","وجود ريش","التنفس بالخياشيم","وضع البيض"],"w":"العمود الفقري هو الصفة الجامعة رغم اختلاف بقية الصفات.","x":["الريش خاص بالطيور فقط.","الخياشيم في الأسماك والبرمائيات الصغيرة.","بعض الفقاريات تلد ولا تبيض."]},{"t":"m","q":"أي مجموعة تتميز بالريش والمنقار؟","o":["الطيور","الزواحف","الثدييات","البرمائيات"],"w":"الريش صفة تنفرد بها الطيور.","x":[]},{"t":"m","q":"ما الصفة التي تميّز الثدييات؟","o":["إرضاع صغارها الحليب","التنفس بالخياشيم","جلد مغطى بالحراشف","وضع بيض في الماء دائمًا"],"w":"الغدد اللبنية والشعر من أبرز صفات الثدييات.","x":[]},{"t":"m","q":"الضفدع يعيش أول حياته في الماء ثم على اليابسة، فهو من:","o":["البرمائيات","الأسماك","الزواحف","الطيور"],"w":"البرمائيات تمر بتغير في شكل الجسم وطريقة التنفس.","x":[]},{"t":"m","q":"أي حيوان من الزواحف؟","o":["السحلية","السلمون","البطريق","الجمل"],"w":"الزواحف جلدها جاف مغطى بالحراشف.","x":["السلمون سمكة.","البطريق طائر لا يطير.","الجمل من الثدييات."]},{"t":"b","q":"الأسماك فقاريات تتنفس بالخياشيم.","a":true,"w":"الخياشيم تستخلص الأكسجين الذائب في الماء."},{"t":"b","q":"الخفاش طائر لأنه يطير.","a":false,"w":"الخفاش ثديي يرضع صغاره، والطيران وحده لا يكفي للتصنيف."},{"t":"b","q":"جلد الزواحف رطب ولزج دائمًا.","a":false,"w":"جلد الزواحف جاف ومغطى بالحراشف، والبرمائيات هي ذات الجلد الرطب."},{"t":"f","q":"الحيوانات التي ترضع صغارها الحليب تُسمى ______.","a":["الثدييات","ثدييات"],"w":"من أسمائها ما يدل على الغدد اللبنية."},{"t":"f","q":"العمود ______ هو ما يميّز الفقاريات عن اللافقاريات.","a":["الفقري","فقري"],"w":"يدعم الجسم ويحمي الحبل الشوكي."}],"loc":""},{"id":5,"u":1,"term":1,"unit":"الوحدة الأولى: المخلوقات الحية","ch":"الفصل الثاني: المملكة الحيوانية","t":"أجهزة أجسام الحيوانات","s":"تعمل أجهزة الجسم معًا للمحافظة على حياة الحيوان. من أمثلتها أجهزة الهضم والتنفس والدوران والإخراج والحركة، وتتعاون الأعضاء داخل كل جهاز لإنجاز وظيفة محددة.","b":["الجهاز مجموعة أعضاء تعمل معًا لأداء وظيفة.","الجهاز الهضمي يساعد على معالجة الغذاء.","تتعاون أجهزة الجسم بدلًا من عمل كل جهاز منفردًا."],"q":[{"t":"m","q":"ما وظيفة الجهاز الهضمي؟","o":["تحويل الغذاء إلى صورة يستفيد منها الجسم","نقل الأكسجين إلى الرئتين","تحريك العظام","إرسال الإشارات العصبية"],"w":"الهضم يفكك الغذاء ليُمتص ويصل إلى الخلايا.","x":[]},{"t":"m","q":"أي جهاز مسؤول عن نقل الغذاء والأكسجين إلى جميع خلايا الجسم؟","o":["الجهاز الدوري","الجهاز الهيكلي","الجهاز التنفسي","الجهاز الإخراجي"],"w":"القلب والأوعية الدموية تنقل الدم المحمّل بالغذاء والأكسجين.","x":["الهيكلي يدعم الجسم ويحميه.","التنفسي يدخل الأكسجين لكنه لا يوزعه على الخلايا.","الإخراجي يتخلص من الفضلات."]},{"t":"m","q":"ما وظيفة الجهاز الهيكلي؟","o":["دعم الجسم وحماية أعضائه","هضم الغذاء","تنقية الدم من الفضلات","إفراز العرق"],"w":"القفص الصدري مثال على الحماية، والعظام تعطي الجسم شكله.","x":[]},{"t":"m","q":"يعمل الجهاز العضلي مع الجهاز الهيكلي من أجل:","o":["الحركة","الهضم","التنفس فقط","الرؤية"],"w":"العضلات تنقبض فتحرّك العظام عند المفاصل.","x":[]},{"t":"m","q":"أي عضو يعد مركز الجهاز الدوري؟","o":["القلب","المعدة","الرئة","الكلية"],"w":"القلب مضخة تدفع الدم في الأوعية.","x":[]},{"t":"b","q":"أجهزة الجسم تعمل مستقلة تمامًا عن بعضها.","a":false,"w":"الأجهزة تتعاون: التنفسي يزود الدوري بالأكسجين، والدوري يوزعه على الخلايا."},{"t":"b","q":"الرئتان جزء من الجهاز التنفسي.","a":true,"w":"فيهما يحدث تبادل الأكسجين وثاني أكسيد الكربون."},{"t":"b","q":"الكلية تنتمي إلى الجهاز الإخراجي.","a":true,"w":"الكلية ترشّح الدم وتخرج الفضلات مع البول."},{"t":"f","q":"العضو الذي يضخ الدم إلى جميع أنحاء الجسم هو ______.","a":["القلب","قلب"],"w":"ينقبض وينبسط باستمرار دون توقف."},{"t":"f","q":"الجهاز ______ مسؤول عن إدخال الأكسجين وإخراج ثاني أكسيد الكربون.","a":["التنفسي","تنفسي"],"w":"يشمل الأنف والقصبة الهوائية والرئتين."}],"loc":""},{"id":6,"u":2,"term":1,"unit":"الوحدة الثانية: الأنظمة البيئية","ch":"الفصل الثالث: استكشاف الأنظمة البيئية","t":"مقدمة في الأنظمة البيئية","s":"النظام البيئي يتكون من مخلوقات حية وعوامل غير حية تتفاعل معًا. ومن أمثلة العوامل غير الحية الماء والضوء والهواء ودرجة الحرارة والتربة.","b":["العوامل الحيوية هي المخلوقات الحية.","العوامل اللاحيوية تشمل الماء والضوء والهواء والتربة.","كل نظام بيئي له مكونات مترابطة."],"q":[{"t":"m","q":"ما النظام البيئي؟","o":["جميع المخلوقات الحية وغير الحية المتفاعلة في مكان واحد","المخلوقات الحية فقط","التربة والصخور فقط","الحيوانات الكبيرة فقط"],"w":"النظام البيئي يجمع العوامل الحية وغير الحية معًا.","x":["المخلوقات الحية وحدها لا تكوّن نظامًا بيئيًا دون ماء وهواء وتربة.","العوامل غير الحية جزء من النظام وليست كله.","الحجم لا علاقة له بالتصنيف."]},{"t":"m","q":"أي مما يلي عامل غير حي في النظام البيئي؟","o":["ضوء الشمس","النخلة","الجمل","البكتيريا"],"w":"الضوء والماء والهواء والتربة عوامل غير حية.","x":[]},{"t":"m","q":"المكان الذي يعيش فيه المخلوق الحي ويجد فيه حاجاته يُسمى:","o":["الموطن","الغذاء","المفترس","الفريسة"],"w":"الموطن يوفر الغذاء والماء والمأوى.","x":[]},{"t":"m","q":"النظام البيئي الصحراوي في المملكة يتميز بـ:","o":["قلة الأمطار ودرجات حرارة مرتفعة نهارًا","أمطار غزيرة طوال العام","برودة دائمة وثلوج","مياه عذبة وفيرة على السطح"],"w":"الحياة في الصحراء تكيفت مع شح الماء.","x":[]},{"t":"m","q":"مجموعة المخلوقات من النوع نفسه التي تعيش في المكان نفسه تُسمى:","o":["جماعة حيوية","مجتمعًا كاملًا","نظامًا بيئيًا","موطنًا"],"w":"الجماعة الحيوية نوع واحد، والمجتمع عدة جماعات معًا.","x":[]},{"t":"b","q":"الشعاب المرجانية في البحر الأحمر تُعد نظامًا بيئيًا بحريًا.","a":true,"w":"فيها مخلوقات حية كثيرة تتفاعل مع الماء والضوء والملوحة."},{"t":"b","q":"العوامل غير الحية لا تؤثر في المخلوقات الحية.","a":false,"w":"قلة الماء أو الضوء تغيّر أعداد المخلوقات وسلوكها."},{"t":"b","q":"النخلة والتربة والماء يمكن أن تكون جزءًا من نظام بيئي واحد.","a":true,"w":"النظام البيئي يضم العوامل الحية وغير الحية."},{"t":"f","q":"العوامل ______ في النظام البيئي تشمل الماء والهواء والتربة والضوء.","a":["غير الحية","غير حية"],"w":"تقابلها العوامل الحية من نباتات وحيوانات."},{"t":"f","q":"المكان الذي يوفر للمخلوق الحي غذاءه ومأواه يُسمى ______.","a":["الموطن","موطن","موطنه"],"w":"تغيّر الموطن يهدد بقاء المخلوق."}],"loc":"من بيئتنا: ساحل البحر الأحمر والصحراء المجاورة له نظامان بيئيان مختلفان تمامًا رغم قربهما."},{"id":7,"u":2,"term":1,"unit":"الوحدة الثانية: الأنظمة البيئية","ch":"الفصل الثالث: استكشاف الأنظمة البيئية","t":"العلاقات في الأنظمة البيئية","s":"ترتبط المخلوقات الحية بعلاقات متعددة مثل الافتراس والتنافس والتعاون. كما تنتقل الطاقة عبر السلاسل والشبكات الغذائية من مصدرها الأساسي إلى مخلوقات أخرى.","b":["التنافس يحدث عندما تستخدم مخلوقات الموارد نفسها.","الافتراس علاقة يحصل فيها مخلوق على غذائه من مخلوق آخر.","الشبكة الغذائية توضح ترابط عدة سلاسل غذائية."],"q":[{"t":"m","q":"في سلسلة الغذاء، من يبدأ السلسلة عادة؟","o":["النبات المنتج","المفترس","المحلل","الإنسان"],"w":"المنتج يصنع غذاءه بالضوء ثم تنتقل الطاقة إلى المستهلكات.","x":["المفترس مستهلك يأتي لاحقًا في السلسلة.","المحلل يأتي في النهاية.","الإنسان مستهلك."]},{"t":"m","q":"ماذا نسمي المخلوق الذي يتغذى على مخلوق حي آخر ويصطاده؟","o":["المفترس","الفريسة","المنتج","المحلل"],"w":"المفترس يصطاد، والفريسة هي المصطادة.","x":[]},{"t":"m","q":"ما دور المحللات مثل البكتيريا والفطريات؟","o":["تحليل بقايا المخلوقات وإعادة المواد للتربة","صنع الغذاء بالضوء","اصطياد الفرائس","تصفية ماء البحر"],"w":"المحللات تعيد تدوير المواد الغذائية في النظام البيئي.","x":[]},{"t":"m","q":"علاقة تفيد الطرفين معًا مثل النحلة والزهرة تُسمى:","o":["تبادل المنفعة","افتراسًا","تنافسًا","تطفلًا"],"w":"النحلة تحصل على الرحيق والزهرة تُلقّح.","x":["الافتراس يضر بأحد الطرفين.","التنافس صراع على مورد محدود.","التطفل ينفع طرفًا ويضر الآخر."]},{"t":"m","q":"أسدان يتنافسان على الماء نفسه في موسم الجفاف. هذه العلاقة:","o":["تنافس","تبادل منفعة","تطفل","تعايش نافع للطرفين"],"w":"التنافس يحدث عندما يقل المورد ويحتاجه أكثر من مخلوق.","x":[]},{"t":"b","q":"شبكة الغذاء أدق من سلسلة الغذاء في وصف النظام البيئي.","a":true,"w":"الشبكة تربط عدة سلاسل لأن المخلوق قد يتغذى على أكثر من نوع."},{"t":"b","q":"الطاقة في سلسلة الغذاء تنتقل من المستهلك إلى النبات.","a":false,"w":"الاتجاه من المنتج إلى المستهلك ثم إلى المحلل."},{"t":"b","q":"القمل الذي يعيش على جسم حيوان ويتغذى منه مثال على التطفل.","a":true,"w":"المتطفل يستفيد والمضيف يتضرر."},{"t":"f","q":"النبات الذي يصنع غذاءه بنفسه يُسمى ______ في سلسلة الغذاء.","a":["المنتج","منتج","منتجًا"],"w":"بداية انتقال الطاقة في النظام البيئي."},{"t":"f","q":"الحيوان الذي يُصطاد ويؤكل يُسمى ______.","a":["الفريسة","فريسة","الفريسه"],"w":"يقابله المفترس."}],"loc":""},{"id":8,"u":2,"term":1,"unit":"الوحدة الثانية: الأنظمة البيئية","ch":"الفصل الثالث: استكشاف الأنظمة البيئية","t":"التغيرات في الأنظمة البيئية","s":"قد تتغير الأنظمة البيئية بسبب عوامل طبيعية أو أنشطة بشرية. تتأثر أعداد المخلوقات والموارد عندما تتغير الظروف، وقد تتكيف بعض المخلوقات أو تنتقل إلى أماكن أخرى.","b":["التغير في عامل واحد قد يؤثر في مكونات النظام البيئي.","الجفاف والفيضانات من أمثلة التغيرات الطبيعية.","حماية المواطن الطبيعية تساعد على المحافظة على التنوع الحيوي."],"q":[{"t":"m","q":"أي مما يلي تغيّر طبيعي في النظام البيئي؟","o":["الجفاف والفيضان","بناء مصنع","قطع الغابة","رمي النفايات في البحر"],"w":"التغيرات الطبيعية تحدث دون تدخل الإنسان.","x":["بناء المصنع تغيّر بشري.","القطع تغيّر بشري.","التلوث ناتج عن نشاط الإنسان."]},{"t":"m","q":"ما التكيف؟","o":["صفة تساعد المخلوق على العيش في بيئته","مرض يصيب النبات","نوع من التلوث","أداة يصنعها الإنسان"],"w":"سنام الجمل وأوراق الصبار أمثلة على التكيف.","x":[]},{"t":"m","q":"كيف يتكيف الجمل مع بيئة الصحراء؟","o":["يخزن الدهن في سنامه ويتحمل قلة الماء","يعيش تحت الماء","يغيّر لونه كل يوم","يصنع غذاءه بالضوء"],"w":"تكيفات الجمل تناسب الحرارة وشح الماء.","x":[]},{"t":"m","q":"ما أثر رمي النفايات في البحر على الشعاب المرجانية؟","o":["يضرّها ويقتل كائنات كثيرة تعيش فيها","ينظف الماء","يزيد نمو المرجان","لا أثر له إطلاقًا"],"w":"التلوث البحري من أخطر ما يهدد شواطئنا.","x":[]},{"t":"m","q":"ماذا يحدث غالبًا إذا اختفى المفترس من نظام بيئي؟","o":["تزداد أعداد الفرائس بشكل كبير","تختفي النباتات فورًا","يتوقف هطول المطر","تتحول الفرائس إلى منتجات"],"w":"اختلال التوازن يؤثر في بقية السلسلة.","x":[]},{"t":"b","q":"الإنسان يستطيع المساعدة في حماية البيئة بترشيد استهلاك الماء.","a":true,"w":"الترشيد سلوك بسيط أثره كبير خاصة في المناطق الجافة."},{"t":"b","q":"التلوث من التغيرات الطبيعية التي لا دخل للإنسان فيها.","a":false,"w":"معظم التلوث ناتج عن أنشطة بشرية."},{"t":"b","q":"إعادة التدوير تقلل كمية النفايات في البيئة.","a":true,"w":"إعادة استخدام المواد يقلل الضغط على الموارد."},{"t":"f","q":"الصفة التي تساعد المخلوق الحي على البقاء في بيئته تُسمى ______.","a":["التكيف","تكيف","التكيّف"],"w":"قد تكون في الشكل أو السلوك."},{"t":"f","q":"زراعة الأشجار تساعد على تقليل ______ الهواء.","a":["تلوث","التلوث"],"w":"الأشجار تمتص ثاني أكسيد الكربون وتثبت التربة."}],"loc":"من بيئتنا: رمي النفايات على الشاطئ ولمس المرجان من أكثر ما يضر بيئة البحر الأحمر."},{"id":9,"u":3,"term":1,"unit":"الوحدة الثالثة: صحة الإنسان","ch":"الفصل الرابع: الأمراض والعدوى","t":"الأمراض","s":"المرض حالة تؤثر في صحة الجسم أو أحد أجهزته. قد يكون سببه عدوى بمسبب مرضي أو عوامل أخرى، وتساعد العادات الصحية على تقليل بعض المخاطر.","b":["ليست كل الأمراض معدية.","تختلف أسباب الأمراض وطرق الوقاية منها.","النظافة والعادات الصحية تدعم صحة الجسم."],"q":[{"t":"m","q":"ما المرض المُعدي؟","o":["مرض ينتقل من شخص إلى آخر","مرض لا ينتقل إطلاقًا","مرض يصيب النبات فقط","مرض ناتج عن كسر العظم"],"w":"الأمراض المعدية تنتقل عبر مسببات مرضية مثل الجراثيم.","x":["الأمراض غير المعدية لا تنتقل، مثل الربو.","الأمراض المعدية تصيب الإنسان والحيوان أيضًا.","الكسر إصابة وليس عدوى."]},{"t":"m","q":"أي مما يلي من مسببات الأمراض؟","o":["البكتيريا والفيروسات","الماء النظيف","الرياضة اليومية","النوم الكافي"],"w":"مسببات المرض كائنات دقيقة تدخل الجسم وتؤذيه.","x":[]},{"t":"m","q":"مرض السكري مثال على مرض:","o":["غير معدٍ","معدٍ بالهواء","معدٍ باللمس","ينتقل بالطعام"],"w":"الأمراض غير المعدية لا تنتقل بين الأشخاص.","x":[]},{"t":"m","q":"ما وظيفة الجهاز المناعي؟","o":["الدفاع عن الجسم ضد مسببات المرض","هضم الطعام","تحريك العظام","تنقية الهواء الخارجي"],"w":"المناعة خط الدفاع الذي يقاوم الجراثيم.","x":[]},{"t":"m","q":"ما فائدة التطعيمات (اللقاحات)؟","o":["تساعد الجسم على تكوين مناعة ضد مرض معين","تعالج الكسور","تزيد طول الطفل","تغني عن غسل اليدين"],"w":"اللقاح يدرّب الجهاز المناعي على التعرف إلى المرض.","x":[]},{"t":"b","q":"جميع الجراثيم ضارة بالإنسان.","a":false,"w":"بعض البكتيريا نافعة، مثل التي تساعد على الهضم."},{"t":"b","q":"ارتفاع الحرارة قد يكون علامة على وجود عدوى.","a":true,"w":"الأعراض إشارات تدل على استجابة الجسم."},{"t":"b","q":"المرض غير المعدي ينتقل بالمصافحة.","a":false,"w":"غير المعدي لا ينتقل بين الأشخاص أصلًا."},{"t":"f","q":"الكائنات الدقيقة التي تسبب الأمراض تُسمى ______.","a":["مسببات المرض","الجراثيم","جراثيم","مسببات الأمراض"],"w":"تشمل البكتيريا والفيروسات والفطريات."},{"t":"f","q":"الجهاز ______ هو المسؤول عن حماية الجسم من الأمراض.","a":["المناعي","مناعي"],"w":"يتعرف على الغريب ويهاجمه."}],"loc":""},{"id":10,"u":3,"term":1,"unit":"الوحدة الثالثة: صحة الإنسان","ch":"الفصل الرابع: الأمراض والعدوى","t":"العدوى وانتقالها","s":"تحدث العدوى عندما تنتقل مسببات مرضية إلى جسم الإنسان وتتكاثر أو تسبب المرض. يمكن أن تنتقل بطرق مختلفة، وتساعد النظافة وغسل اليدين وتغطية الفم عند السعال على تقليل الانتقال.","b":["يمكن لبعض مسببات المرض أن تنتقل بين الأشخاص.","غسل اليدين من وسائل الوقاية المهمة.","تختلف طريقة انتقال العدوى باختلاف المسبب المرضي."],"q":[{"t":"m","q":"أي طريقة تنتقل بها العدوى بسهولة؟","o":["الرذاذ المتطاير عند العطس","المشي في الحديقة","قراءة كتاب","النظر إلى المريض من بعيد"],"w":"الرذاذ يحمل مسببات المرض إلى من حولنا.","x":[]},{"t":"m","q":"ما أفضل وسيلة لتقليل انتقال العدوى في الفصل؟","o":["غسل اليدين بالماء والصابون","مشاركة زجاجة الماء","إبقاء النوافذ مغلقة دائمًا","استخدام منديل الزميل"],"w":"غسل اليدين من أبسط وأقوى وسائل الوقاية.","x":["مشاركة الأدوات تنقل الجراثيم.","التهوية تقلل تركيز الرذاذ في الهواء.","استخدام أدوات الآخرين ينقل العدوى."]},{"t":"m","q":"لماذا نغطي الفم والأنف عند العطاس؟","o":["لمنع انتشار الرذاذ إلى الآخرين","لتدفئة الأنف","لتحسين السمع","لتقوية العضلات"],"w":"التغطية بالمنديل أو ثنية المرفق تحبس الرذاذ.","x":[]},{"t":"m","q":"ماء ملوث قد ينقل:","o":["أمراضًا معوية","كسورًا في العظام","ضعف النظر فقط","الصداع النصفي دائمًا"],"w":"شرب الماء غير النظيف من طرق انتقال العدوى.","x":[]},{"t":"m","q":"متى يجب غسل اليدين خصوصًا؟","o":["قبل الأكل وبعد استخدام دورة المياه","قبل النوم فقط","مرة واحدة في الأسبوع","بعد مشاهدة التلفاز"],"w":"لحظات محددة يكون فيها احتمال انتقال الجراثيم أعلى.","x":[]},{"t":"b","q":"الجراثيم يمكن أن تنتقل عبر الأسطح التي نلمسها.","a":true,"w":"لمس السطح ثم الوجه طريق شائع للعدوى."},{"t":"b","q":"العطاس في راحة اليد أفضل من العطاس في ثنية المرفق.","a":false,"w":"اليد تلمس الأسطح والأشخاص، لذا ثنية المرفق أأمن."},{"t":"b","q":"العزل المنزلي عند المرض يقلل انتقال العدوى للزملاء.","a":true,"w":"يقلل الاختلاط في فترة انتشار المرض."},{"t":"f","q":"العملية التي تنتقل بها مسببات المرض من شخص لآخر تُسمى ______.","a":["العدوى","عدوى","الانتقال"],"w":"قد تكون مباشرة أو غير مباشرة."},{"t":"f","q":"أبسط وسيلة للوقاية من كثير من الأمراض هي غسل ______ بالماء والصابون.","a":["اليدين","اليد","الأيدي"],"w":"لمدة كافية وبين الأصابع."}],"loc":""},{"id":11,"u":3,"term":1,"unit":"الوحدة الثالثة: صحة الإنسان","ch":"الفصل الخامس: التغذية والصحة","t":"المحافظة على الصحة","s":"الصحة الجيدة تعتمد على عادات متوازنة مثل الغذاء المتنوع والنشاط البدني والنوم الكافي والنظافة الشخصية. الوقاية تساعد الإنسان على المحافظة على وظائف جسمه.","b":["الغذاء المتنوع والنشاط البدني من عادات الصحة.","النوم الكافي مهم لنشاط الجسم.","الوقاية تبدأ بعادات يومية سليمة."],"q":[{"t":"m","q":"أي عادة تساعد على المحافظة على الصحة؟","o":["النوم الكافي وممارسة النشاط البدني","السهر الطويل يوميًا","الجلوس دون حركة طوال اليوم","إهمال نظافة الأسنان"],"w":"النوم والحركة والنظافة أعمدة الصحة اليومية.","x":[]},{"t":"m","q":"لماذا تُعد نظافة الأسنان مهمة؟","o":["تقلل تسوس الأسنان وأمراض اللثة","تزيد الطول","تحسن السمع","تغني عن الغذاء"],"w":"بقايا الطعام تسبب التسوس إذا لم تُنظّف.","x":[]},{"t":"m","q":"ما فائدة النشاط البدني اليومي؟","o":["تقوية العضلات والقلب","إضعاف العظام","تقليل الحاجة إلى الماء","إيقاف نمو الجسم"],"w":"الحركة تفيد القلب والعضلات والمزاج.","x":[]},{"t":"m","q":"أي مما يلي يضر الجهاز التنفسي؟","o":["التدخين واستنشاق الدخان","المشي في الهواء الطلق","شرب الماء","تهوية الغرفة"],"w":"الدخان يؤذي الرئتين ويقلل كفاءتهما.","x":[]},{"t":"m","q":"ماذا نفعل قبل تناول الفواكه والخضراوات؟","o":["نغسلها جيدًا بالماء","نتركها في الشمس","نمسحها بالملابس","نأكلها مباشرة دائمًا"],"w":"الغسل يزيل الأتربة وبقايا المواد.","x":[]},{"t":"b","q":"النوم الكافي يساعد الجسم على النمو واستعادة نشاطه.","a":true,"w":"أثناء النوم يجدد الجسم طاقته."},{"t":"b","q":"الجلوس أمام الشاشات ساعات طويلة دون حركة عادة صحية.","a":false,"w":"قلة الحركة تؤثر في الجسم والنظر، والأفضل أخذ فترات راحة وحركة."},{"t":"b","q":"ارتداء خوذة عند ركوب الدراجة سلوك وقائي.","a":true,"w":"الوقاية من الإصابات جزء من المحافظة على الصحة."},{"t":"f","q":"شرب كمية كافية من ______ يوميًا مهم لصحة الجسم.","a":["الماء","ماء"],"w":"خاصة في الأجواء الحارة."},{"t":"f","q":"ممارسة ______ البدني تقوي القلب والعضلات.","a":["النشاط","نشاط","النشاط البدني"],"w":"مثل المشي والجري واللعب."}],"loc":""},{"id":12,"u":3,"term":1,"unit":"الوحدة الثالثة: صحة الإنسان","ch":"الفصل الخامس: التغذية والصحة","t":"الغذاء والتغذية","s":"يحتاج الجسم إلى عناصر غذائية متنوعة للحصول على الطاقة والنمو وبناء الأنسجة. يساعد اختيار غذاء متنوع ومتوازن على تلبية احتياجات الجسم.","b":["الكربوهيدرات مصدر مهم للطاقة.","البروتينات تساعد في بناء ونمو الأنسجة.","التنوع في الغذاء أفضل من الاعتماد على نوع واحد."],"q":[{"t":"m","q":"ما وظيفة الغذاء في الجسم؟","o":["إمداد الجسم بالطاقة ومواد البناء","تلوين الجلد","زيادة الوزن فقط","إيقاف النمو"],"w":"الغذاء يمد بالطاقة ويبني الأنسجة ويحمي من الأمراض.","x":[]},{"t":"m","q":"أي مجموعة غذائية تُعد المصدر الرئيس للطاقة السريعة؟","o":["الكربوهيدرات","الفيتامينات","الماء","الأملاح المعدنية"],"w":"الأرز والخبز مصادر للكربوهيدرات.","x":["الفيتامينات تنظم العمليات الحيوية بكميات صغيرة.","الماء مذيب وناقل ولا يعطي طاقة.","الأملاح المعدنية تدخل في البناء والتنظيم."]},{"t":"m","q":"أي غذاء يُعد مصدرًا جيدًا للبروتين؟","o":["البيض والسمك","السكر","الزيت فقط","الملح"],"w":"البروتين مهم لبناء الجسم ونموه.","x":[]},{"t":"m","q":"ما فائدة الفواكه والخضراوات في الوجبة؟","o":["تمد الجسم بالفيتامينات والألياف","تمنع شرب الماء","تحل محل النوم","تزيد الطول فورًا"],"w":"الألياف تساعد الهضم والفيتامينات تنظم وظائف الجسم.","x":[]},{"t":"m","q":"ما معنى الوجبة المتوازنة؟","o":["تحتوي على عناصر غذائية متنوعة","تتكون من نوع واحد فقط","تكون حلويات كلها","تكون بلا ماء"],"w":"التنوع يضمن حصول الجسم على كل ما يحتاجه.","x":[]},{"t":"b","q":"وجبة الإفطار تساعد الطالب على التركيز في المدرسة.","a":true,"w":"الإفطار يمد الجسم بالطاقة بعد ساعات النوم."},{"t":"b","q":"الماء عنصر غذائي مهم رغم أنه لا يعطي طاقة.","a":true,"w":"ينقل المواد وينظم حرارة الجسم."},{"t":"b","q":"الاعتماد على نوع واحد من الطعام يوفر كل ما يحتاجه الجسم.","a":false,"w":"لكل مجموعة غذائية دور مختلف، والتنوع ضروري."},{"t":"f","q":"العنصر الغذائي المسؤول عن بناء الجسم ونموه هو ______.","a":["البروتين","بروتين","البروتينات"],"w":"يوجد في اللحوم والبيض والبقوليات."},{"t":"f","q":"الوجبة التي تحتوي عناصر غذائية متنوعة تُسمى وجبة ______.","a":["متوازنة","متكاملة","متوازنه"],"w":"تجمع بين المجموعات الغذائية."}],"loc":""},{"id":13,"u":4,"term":2,"unit":"الوحدة الرابعة: الأرض ومواردها","ch":"الفصل السادس: موارد الأرض","t":"المعادن والصخور","s":"المعادن مواد طبيعية صلبة لها خصائص مميزة. تتكون الصخور من معدن واحد أو أكثر، وتختلف الصخور في طريقة تكوّنها وخصائصها واستخداماتها.","b":["المعدن مادة طبيعية صلبة لها خصائص محددة.","الصخور قد تتكون من معدن واحد أو عدة معادن.","يمكن استخدام خصائص المعادن في التعرف إليها."],"q":[{"t":"m","q":"ما المعدن؟","o":["مادة صلبة طبيعية غير حية لها تركيب ثابت","أي حجر صنعه الإنسان","نبات يعيش في التربة","سائل يوجد تحت الأرض"],"w":"المعادن مواد طبيعية غير حية تتكون منها الصخور.","x":["ما يصنعه الإنسان ليس معدنًا طبيعيًا.","المعادن غير حية.","المعدن صلب وليس سائلًا."]},{"t":"m","q":"مم تتكون الصخور؟","o":["من معدن واحد أو أكثر","من النباتات فقط","من الماء المتجمد","من الهواء المضغوط"],"w":"الصخر خليط من المعادن.","x":[]},{"t":"m","q":"أي خاصية تُستخدم للتعرف إلى المعادن؟","o":["الصلابة واللون والبريق","اسم مكتشفه","سعره في السوق","عمر الصخرة بالسنين"],"w":"خصائص المعدن الفيزيائية تميزه.","x":[]},{"t":"m","q":"الصخور التي تتكون من تبريد الصهارة تُسمى:","o":["نارية","رسوبية","متحولة","صناعية"],"w":"الصهارة عند تبردها تتصلب مكوّنة صخورًا نارية.","x":["الرسوبية تتكون من تراكم الفتات وتماسكه.","المتحولة تنشأ بتأثير الحرارة والضغط على صخور موجودة.","لا يوجد نوع طبيعي اسمه صخور صناعية."]},{"t":"m","q":"الصخور الرسوبية تتكون نتيجة:","o":["تراكم الفتات والرواسب وتماسكها","انفجار البركان مباشرة","ذوبان الجليد فقط","نمو النباتات"],"w":"طبقات الرواسب تتماسك مع الزمن.","x":[]},{"t":"b","q":"التربة مورد طبيعي مهم لنمو النباتات.","a":true,"w":"توفر الماء والمواد المغذية وتثبت الجذور."},{"t":"b","q":"جميع الصخور لها اللون نفسه والصلابة نفسها.","a":false,"w":"تختلف الصخور باختلاف معادنها وطريقة تكوّنها."},{"t":"b","q":"النفط من الموارد الطبيعية غير المتجددة.","a":true,"w":"يتكون عبر ملايين السنين ولا يُعوَّض بسرعة استهلاكه."},{"t":"f","q":"الصخور التي تتكون بفعل الحرارة والضغط الشديدين تُسمى صخورًا ______.","a":["متحولة","متحوله","المتحولة"],"w":"مثل الرخام المتحول عن الحجر الجيري."},{"t":"f","q":"المادة الصلبة الطبيعية التي تتكون منها الصخور تُسمى ______.","a":["المعدن","معدن","المعادن"],"w":"له تركيب وخصائص ثابتة."}],"loc":"من بيئتنا: صخور جبال الحجاز القريبة منا تتنوع بين نارية ومتحولة."},{"id":14,"u":4,"term":2,"unit":"الوحدة الرابعة: الأرض ومواردها","ch":"الفصل السادس: موارد الأرض","t":"الماء","s":"الماء مورد أساسي للحياة ويوجد في حالات ومواقع مختلفة على الأرض. تتجدد المياه عبر دورة الماء، وترشيد استخدامها يقلل الهدر ويحافظ على الموارد.","b":["الماء مورد ضروري للمخلوقات الحية.","تتحرك المياه باستمرار خلال دورة الماء.","ترشيد الماء مسؤولية فردية ومجتمعية."],"q":[{"t":"m","q":"أين توجد معظم مياه الأرض؟","o":["في المحيطات والبحار","في الأنهار","في الغيوم","في الآبار"],"w":"معظم الماء مالح في البحار والمحيطات.","x":[]},{"t":"m","q":"ما مصدر الطاقة الذي يحرّك دورة الماء؟","o":["الشمس","القمر","الرياح فقط","باطن الأرض"],"w":"حرارة الشمس تبخّر الماء فتبدأ الدورة.","x":[]},{"t":"m","q":"ما التبخر؟","o":["تحول الماء من سائل إلى بخار","تحول البخار إلى سائل","تجمد الماء","ذوبان الملح في الماء"],"w":"التبخر يحدث بفعل الحرارة.","x":["تحول البخار إلى سائل هو التكاثف.","التجمد تحول إلى صلب.","الذوبان عملية مختلفة تمامًا."]},{"t":"m","q":"ماذا نسمي تحول بخار الماء إلى قطرات في الغيوم؟","o":["التكاثف","التبخر","الهطول","التجمد"],"w":"التكاثف يسبق الهطول.","x":[]},{"t":"m","q":"لماذا يُعد ترشيد استهلاك الماء مهمًا في المملكة؟","o":["لأن المياه العذبة محدودة والأمطار قليلة","لأن الماء يزيد إذا لم نستخدمه","لأن البحر يجف سريعًا","لأن الماء مضر بكثرة"],"w":"المناطق الجافة تحتاج ترشيدًا أكبر.","x":[]},{"t":"b","q":"ماء البحر صالح للشرب مباشرة.","a":false,"w":"ماء البحر مالح ويحتاج تحلية قبل الشرب."},{"t":"b","q":"دورة الماء عملية مستمرة لا تتوقف.","a":true,"w":"تبخر ← تكاثف ← هطول ← تجمّع، ثم تتكرر."},{"t":"b","q":"تحلية مياه البحر إحدى وسائل توفير الماء العذب.","a":true,"w":"المملكة من الدول التي تعتمد على التحلية."},{"t":"f","q":"تحوّل الماء من الحالة السائلة إلى بخار يُسمى ______.","a":["التبخر","تبخر","التبخّر"],"w":"يحتاج طاقة حرارية."},{"t":"f","q":"سقوط الماء من الغيوم على شكل مطر أو ثلج يُسمى ______.","a":["الهطول","هطول","التساقط"],"w":"المرحلة التالية للتكاثف."}],"loc":"من بيئتنا: تعتمد مدننا الساحلية على تحلية مياه البحر لتوفير الماء العذب."},{"id":15,"u":5,"term":2,"unit":"الوحدة الخامسة: الفضاء","ch":"الفصل السابع: النظام الشمسي والفضاء","t":"الأرض والشمس والقمر","s":"الأرض كوكب يدور حول الشمس، والقمر جسم يدور حول الأرض. يسبب دوران الأرض حول نفسها تعاقب الليل والنهار، وترتبط أوجه القمر بموقعه بالنسبة إلى الأرض والشمس.","b":["الشمس نجم يمد الأرض بالضوء والطاقة.","القمر يدور حول الأرض.","دوران الأرض حول محورها يرتبط بتعاقب الليل والنهار."],"q":[{"t":"m","q":"ما سبب تعاقب الليل والنهار؟","o":["دوران الأرض حول محورها","دوران الأرض حول الشمس","دوران القمر حول الأرض","تغير حجم الشمس"],"w":"دورة كاملة حول المحور تستغرق نحو 24 ساعة.","x":["دوران الأرض حول الشمس سببه تعاقب الفصول لا الليل والنهار.","دوران القمر يفسر أوجه القمر.","حجم الشمس لا يتغير بهذه الطريقة."]},{"t":"m","q":"كم يستغرق دوران الأرض حول محورها تقريبًا؟","o":["24 ساعة","365 يومًا","30 يومًا","12 ساعة"],"w":"اليوم الواحد ناتج عن هذه الدورة.","x":[]},{"t":"m","q":"ما سبب تعاقب الفصول الأربعة؟","o":["دوران الأرض حول الشمس مع ميل محورها","دوران القمر حول الأرض","اقتراب الأرض من القمر","تغير سرعة الرياح"],"w":"الميل يجعل كمية أشعة الشمس تختلف عبر السنة.","x":[]},{"t":"m","q":"ما سبب اختلاف أوجه القمر التي نراها؟","o":["دوران القمر حول الأرض واختلاف الجزء المضاء الظاهر لنا","تغير حجم القمر","اختفاء القمر أحيانًا","دخول القمر في الغيوم"],"w":"القمر يعكس ضوء الشمس، والجزء الظاهر لنا يتغير.","x":[]},{"t":"m","q":"من أين يستمد القمر ضوءه؟","o":["يعكس ضوء الشمس","يصنع ضوءه بنفسه","من ضوء الأرض","من النجوم البعيدة فقط"],"w":"القمر جسم معتم يعكس الضوء.","x":[]},{"t":"b","q":"الأرض تدور حول محورها وحول الشمس في الوقت نفسه.","a":true,"w":"حركتان مختلفتان لكل منهما أثر."},{"t":"b","q":"القمر يصدر ضوءًا من نفسه مثل الشمس.","a":false,"w":"الشمس نجم مضيء، والقمر يعكس ضوءها."},{"t":"b","q":"السنة الواحدة هي زمن دوران الأرض حول الشمس تقريبًا.","a":true,"w":"نحو 365 يومًا."},{"t":"f","q":"دوران الأرض حول ______ ينتج عنه تعاقب الليل والنهار.","a":["محورها","المحور","محورها الوهمي"],"w":"دورة كل 24 ساعة تقريبًا."},{"t":"f","q":"الجسم الذي يدور حول الأرض ويعكس ضوء الشمس هو ______.","a":["القمر","قمر"],"w":"تابع الأرض الطبيعي."}],"loc":""},{"id":16,"u":5,"term":2,"unit":"الوحدة الخامسة: الفضاء","ch":"الفصل السابع: النظام الشمسي والفضاء","t":"النظام الشمسي","s":"النظام الشمسي يضم الشمس وما يدور حولها من كواكب وأجرام أخرى. تختلف الكواكب في الحجم والتركيب والمسافة عن الشمس.","b":["الشمس تقع في مركز النظام الشمسي.","تدور الكواكب حول الشمس.","تختلف الكواكب في خصائصها ومواقعها."],"q":[{"t":"m","q":"ما مركز النظام الشمسي؟","o":["الشمس","الأرض","القمر","المشتري"],"w":"الكواكب تدور حول الشمس بفعل جاذبيتها.","x":["الأرض كوكب يدور حول الشمس.","القمر تابع للأرض.","المشتري كوكب لا مركز."]},{"t":"m","q":"كم عدد كواكب النظام الشمسي؟","o":["ثمانية","خمسة","عشرة","اثنا عشر"],"w":"من عطارد إلى نبتون.","x":[]},{"t":"m","q":"أي الكواكب أقرب إلى الشمس؟","o":["عطارد","الأرض","المريخ","زحل"],"w":"الترتيب من الشمس: عطارد، الزهرة، الأرض، المريخ...","x":[]},{"t":"m","q":"ما الكوكب المعروف بحلقاته الواضحة؟","o":["زحل","الأرض","عطارد","الزهرة"],"w":"حلقات زحل من أشهر معالم النظام الشمسي.","x":[]},{"t":"m","q":"ما الفرق بين النجم والكوكب؟","o":["النجم يصدر ضوءه والكوكب يعكسه","الكوكب أكبر دائمًا","النجم أقرب إلينا دائمًا","لا يوجد فرق"],"w":"الشمس نجم، والأرض كوكب.","x":[]},{"t":"b","q":"الأرض هي الكوكب الثالث من حيث القرب من الشمس.","a":true,"w":"بعد عطارد والزهرة."},{"t":"b","q":"الكواكب تصدر ضوءًا من ذاتها.","a":false,"w":"تعكس ضوء الشمس ولا تنتجه."},{"t":"b","q":"المريخ يُعرف بالكوكب الأحمر.","a":true,"w":"بسبب لون تربته الغنية بأكاسيد الحديد."},{"t":"f","q":"النجم الذي يقع في مركز نظامنا الشمسي هو ______.","a":["الشمس","شمس"],"w":"مصدر الضوء والحرارة."},{"t":"f","q":"الجسم الذي يدور حول كوكب يُسمى ______.","a":["تابعًا","تابع","قمرًا","قمر"],"w":"مثل قمر الأرض."}],"loc":""},{"id":17,"u":6,"term":2,"unit":"الوحدة السادسة: المادة","ch":"الفصل الثامن: قياس المادة وتغيرها","t":"القياس","s":"يساعد القياس على وصف المادة ومقارنتها باستخدام وحدات وأدوات مناسبة. من الكميات التي يمكن قياسها الكتلة والحجم ودرجة الحرارة.","b":["اختيار أداة القياس يعتمد على الكمية المراد قياسها.","تستخدم وحدات معيارية للتعبير عن القياسات.","الدقة في القراءة مهمة للحصول على نتيجة جيدة."],"q":[{"t":"m","q":"ما الأداة المناسبة لقياس كتلة جسم؟","o":["الميزان","المسطرة","مقياس الحرارة","المخبار المدرج"],"w":"لكل كمية أداة قياس خاصة.","x":["المسطرة تقيس الطول.","مقياس الحرارة يقيس درجة الحرارة.","المخبار المدرج يقيس حجم السوائل."]},{"t":"m","q":"بأي أداة نقيس حجم سائل؟","o":["المخبار المدرج","الميزان","المسطرة","الساعة"],"w":"التدريج على المخبار يعطي الحجم بالملّيلتر.","x":[]},{"t":"m","q":"ما وحدة قياس الطول في النظام المتري؟","o":["المتر","اللتر","الجرام","الثانية"],"w":"المتر ومضاعفاته وأجزاؤه.","x":[]},{"t":"m","q":"ما وحدة قياس الكتلة الشائعة؟","o":["الجرام","المتر","اللتر","الدرجة المئوية"],"w":"الجرام والكيلوجرام لقياس الكتلة.","x":[]},{"t":"m","q":"لماذا نستخدم وحدات قياس موحّدة؟","o":["ليفهم الجميع النتيجة نفسها ويمكن مقارنتها","لتكون الأرقام أكبر","لتصعيب التجربة","لتغيير خصائص المادة"],"w":"التوحيد يجعل النتائج قابلة للمشاركة والمقارنة.","x":[]},{"t":"b","q":"الكتلة والحجم صفتان مختلفتان للمادة.","a":true,"w":"الكتلة كمية المادة، والحجم الحيز الذي تشغله."},{"t":"b","q":"يمكن قياس درجة الحرارة بالمسطرة.","a":false,"w":"الأداة الصحيحة هي مقياس الحرارة."},{"t":"b","q":"تكرار القياس أكثر من مرة يزيد دقة النتيجة.","a":true,"w":"التكرار يقلل احتمال الخطأ."},{"t":"f","q":"الحيز الذي يشغله الجسم يُسمى ______.","a":["الحجم","حجم","الحجم"],"w":"يقاس للسوائل بالمخبار المدرج."},{"t":"f","q":"كمية المادة في الجسم تُسمى ______.","a":["الكتلة","كتلة","الكتله"],"w":"تقاس بالميزان."}],"loc":""},{"id":18,"u":6,"term":2,"unit":"الوحدة السادسة: المادة","ch":"الفصل الثامن: قياس المادة وتغيرها","t":"كيف تتغير المادة؟","s":"قد تتغير المادة تغيرًا فيزيائيًا دون تكوّن مادة جديدة، وقد يحدث تغير كيميائي ينتج عنه مواد جديدة. يمكن ملاحظة بعض دلائل التغير الكيميائي مثل تكون غاز أو تغير دائم في بعض الخصائص.","b":["التغير الفيزيائي لا ينتج مادة جديدة عادةً.","التغير الكيميائي ينتج مواد جديدة.","تغير الحالة مثل الانصهار مثال على تغير فيزيائي."],"q":[{"t":"m","q":"ما حالات المادة الثلاث؟","o":["صلبة وسائلة وغازية","صلبة ولينة وثقيلة","ساخنة وباردة ومعتدلة","كبيرة وصغيرة ومتوسطة"],"w":"لكل حالة خصائص في الشكل والحجم.","x":[]},{"t":"m","q":"ما التغير الفيزيائي؟","o":["تغير في الشكل أو الحالة دون تكوّن مادة جديدة","تغير ينتج مادة جديدة","احتراق الورق","صدأ الحديد"],"w":"ذوبان الجليد وتقطيع الورق تغيرات فيزيائية.","x":["تكوّن مادة جديدة يعني تغيرًا كيميائيًا.","الاحتراق تغير كيميائي.","الصدأ تغير كيميائي."]},{"t":"m","q":"أي مما يلي تغير كيميائي؟","o":["احتراق الخشب","ذوبان الشمع","تكسير الزجاج","تبخر الماء"],"w":"الاحتراق ينتج مواد جديدة لا يمكن استرجاعها بسهولة.","x":[]},{"t":"m","q":"ماذا يحدث للماء عند درجة حرارة منخفضة جدًا؟","o":["يتجمد ويتحول إلى صلب","يتبخر بسرعة","يتحول إلى غاز","يختفي"],"w":"التجمد تحول من سائل إلى صلب.","x":[]},{"t":"m","q":"ما خاصية الغاز؟","o":["يأخذ شكل الإناء ويملأ حجمه كاملًا","له شكل ثابت","لا يتحرك إطلاقًا","حجمه ثابت دائمًا"],"w":"جسيمات الغاز متباعدة وسريعة الحركة.","x":[]},{"t":"b","q":"ذوبان السكر في الماء تغير فيزيائي.","a":true,"w":"السكر لا يتحول إلى مادة جديدة ويمكن استرجاعه بالتبخير."},{"t":"b","q":"صدأ الحديد تغير فيزيائي بسيط.","a":false,"w":"الصدأ مادة جديدة، فهو تغير كيميائي."},{"t":"b","q":"السائل يأخذ شكل الإناء الذي يوضع فيه.","a":true,"w":"لكن حجمه يبقى ثابتًا."},{"t":"f","q":"تحوّل السائل إلى صلب بالتبريد يُسمى ______.","a":["التجمد","تجمد","التجمّد"],"w":"مثل تحول الماء إلى جليد."},{"t":"f","q":"التغير الذي ينتج عنه مادة جديدة يُسمى تغيرًا ______.","a":["كيميائيًا","كيميائي","الكيميائي"],"w":"مثل الاحتراق."}],"loc":""},{"id":19,"u":6,"term":2,"unit":"الوحدة السادسة: المادة","ch":"الفصل الثامن: قياس المادة وتغيرها","t":"المخاليط","s":"المخلوط يتكون من مادتين أو أكثر دون تكوين مادة جديدة، ويمكن في كثير من الحالات فصل مكوناته بطرق فيزيائية مثل الترشيح أو التبخير أو الفرز.","b":["مكونات المخلوط تحتفظ بخصائصها.","يمكن استخدام طرق فيزيائية لفصل بعض المخاليط.","المحلول نوع من المخاليط المتجانسة."],"q":[{"t":"m","q":"ما المخلوط؟","o":["مادتان أو أكثر مختلطتان مع احتفاظ كل منهما بخصائصها","مادة نقية واحدة","مادة جديدة تمامًا","غاز فقط"],"w":"مكونات المخلوط يمكن فصلها.","x":[]},{"t":"m","q":"أي مما يلي محلول؟","o":["ملح مذاب في ماء","رمل مع حصى","سلطة خضار","رمل في ماء"],"w":"المحلول مخلوط متجانس لا نميز مكوناته.","x":["الرمل والحصى مخلوط غير متجانس.","السلطة مخلوط تُرى مكوناته.","الرمل لا يذوب في الماء."]},{"t":"m","q":"كيف نفصل الرمل عن الماء؟","o":["بالترشيح","بالتبخير فقط","بالمغناطيس","بالتبريد"],"w":"الترشيح يحجز الجسيمات الكبيرة ويمرر السائل.","x":[]},{"t":"m","q":"كيف نفصل الملح عن الماء؟","o":["بالتبخير","بالترشيح","بالمغناطيس","بالتصفية بالمنخل"],"w":"تبخير الماء يترك الملح.","x":[]},{"t":"m","q":"كيف نفصل برادة الحديد عن الرمل؟","o":["بالمغناطيس","بالتبخير","بالترشيح","بالتسخين"],"w":"الحديد ينجذب للمغناطيس والرمل لا ينجذب.","x":[]},{"t":"b","q":"مكونات المخلوط تحتفظ بخصائصها ويمكن فصلها.","a":true,"w":"هذا ما يميز المخلوط عن المادة الجديدة."},{"t":"b","q":"المحلول مخلوط متجانس.","a":true,"w":"تتوزع المادة المذابة بانتظام."},{"t":"b","q":"لا يمكن فصل مكونات أي مخلوط بأي طريقة.","a":false,"w":"الترشيح والتبخير والمغناطيس طرق فصل شائعة."},{"t":"f","q":"خلط الملح بالماء حتى يختفي ينتج ______.","a":["محلولًا","محلول","المحلول"],"w":"مخلوط متجانس."},{"t":"f","q":"طريقة فصل المواد الصلبة غير الذائبة عن السائل تُسمى ______.","a":["الترشيح","ترشيح","التصفية"],"w":"باستخدام ورق ترشيح أو منخل."}],"loc":""},{"id":20,"u":7,"term":2,"unit":"الوحدة السابعة: القوى والطاقة","ch":"الفصل التاسع: القوى","t":"القوى والحركة","s":"القوة دفع أو سحب يمكن أن تؤثر في حركة جسم أو اتجاهه أو شكله. تتغير حركة الجسم عندما تؤثر فيه قوى غير متزنة.","b":["القوة قد تكون دفعًا أو سحبًا.","القوة يمكن أن تغير الحركة أو الاتجاه.","الجاذبية قوة تؤثر في الأجسام."],"q":[{"t":"m","q":"ما القوة؟","o":["دفع أو سحب يؤثر في جسم","لون الجسم","كتلة الجسم","حجم الجسم"],"w":"القوة تغير حركة الجسم أو شكله.","x":[]},{"t":"m","q":"ما الحركة؟","o":["تغيّر موقع الجسم بالنسبة إلى نقطة أخرى","بقاء الجسم في مكانه","تغير لون الجسم","زيادة كتلة الجسم"],"w":"نحتاج نقطة مرجعية لوصف الحركة.","x":[]},{"t":"m","q":"ما السرعة؟","o":["المسافة المقطوعة في وحدة الزمن","كتلة الجسم","حجم الجسم","لون المسار"],"w":"السرعة تربط بين المسافة والزمن.","x":[]},{"t":"m","q":"سيارتان قطعتا المسافة نفسها، الأولى في زمن أقل. أيهما أسرع؟","o":["الأولى","الثانية","متساويتان","لا يمكن المعرفة"],"w":"الزمن الأقل لنفس المسافة يعني سرعة أكبر.","x":[]},{"t":"m","q":"ما قوة الاحتكاك؟","o":["قوة تعاكس حركة الجسم عند ملامسته سطحًا","قوة تدفع الجسم للأمام دائمًا","قوة تجذب الأجسام نحو الأرض","قوة مغناطيسية"],"w":"الاحتكاك يبطئ الحركة وينتج حرارة.","x":["الاحتكاك يعاكس الحركة ولا يدفعها.","الجذب نحو الأرض هو الجاذبية.","المغناطيسية قوة مختلفة."]},{"t":"b","q":"الجاذبية قوة تجذب الأجسام نحو مركز الأرض.","a":true,"w":"لذلك تسقط الأجسام للأسفل."},{"t":"b","q":"الاحتكاك دائمًا ضار ويجب التخلص منه.","a":false,"w":"الاحتكاك يساعدنا على المشي وإيقاف السيارات."},{"t":"b","q":"القوة قد تغيّر شكل الجسم وليس حركته فقط.","a":true,"w":"الضغط على معجون يغيّر شكله."},{"t":"f","q":"الدفع أو السحب المؤثر في جسم يُسمى ______.","a":["القوة","قوة","القوه"],"w":"تقاس بالنيوتن."},{"t":"f","q":"القوة التي تعاكس حركة الأجسام على الأسطح تُسمى ______.","a":["الاحتكاك","احتكاك","قوة الاحتكاك"],"w":"تزداد بخشونة السطح."}],"loc":""},{"id":21,"u":7,"term":2,"unit":"الوحدة السابعة: القوى والطاقة","ch":"الفصل التاسع: القوى","t":"تغير الحركة","s":"يمكن للقوى أن تجعل الجسم يبدأ الحركة أو يتوقف أو يسرع أو يبطئ أو يغير اتجاهه. يعتمد أثر القوة على مقدارها واتجاهها وعلى القوى الأخرى المؤثرة.","b":["القوى قد تزيد السرعة أو تقللها.","يمكن للقوة تغيير اتجاه الحركة.","الاحتكاك يقاوم حركة الأجسام المتلامسة."],"q":[{"t":"m","q":"ماذا يحدث للجسم الساكن إذا لم تؤثر فيه أي قوة؟","o":["يبقى ساكنًا","يتحرك تلقائيًا","يتسارع","يتوقف عن الوجود"],"w":"الأجسام تقاوم تغيّر حالتها الحركية.","x":[]},{"t":"m","q":"كيف نزيد تسارع جسم بالقوة نفسها؟","o":["نقلل كتلته","نزيد كتلته","نزيد الاحتكاك","نجعله أثقل"],"w":"الكتلة الأقل تتسارع أكثر بالقوة نفسها.","x":[]},{"t":"m","q":"متى تتغير حركة الجسم؟","o":["عند تأثير قوة غير متزنة فيه","عند تساوي القوى المؤثرة","في الظلام","إذا تغير لونه"],"w":"القوى المتزنة لا تغيّر الحركة.","x":[]},{"t":"m","q":"لاعب يركل الكرة فتتحرك. ما سبب تغير حركتها؟","o":["القوة المؤثرة من الركلة","لون الكرة","حجم الملعب","درجة الحرارة"],"w":"القوة هي سبب تغير الحركة.","x":[]},{"t":"m","q":"لماذا نستخدم حزام الأمان في السيارة؟","o":["لأن أجسامنا تميل للاستمرار في الحركة عند التوقف المفاجئ","لتزيين المقعد","لتقليل استهلاك الوقود","لزيادة سرعة السيارة"],"w":"القصور الذاتي يجعل الجسم يواصل حركته.","x":[]},{"t":"b","q":"القوى المتزنة لا تغيّر حالة حركة الجسم.","a":true,"w":"تتساوى وتتعاكس فيبقى الوضع كما هو."},{"t":"b","q":"زيادة القوة المؤثرة في جسم تزيد تسارعه.","a":true,"w":"مع ثبات الكتلة."},{"t":"b","q":"الجسم المتحرك يتوقف من تلقاء نفسه دون أي قوة.","a":false,"w":"الاحتكاك أو مقاومة الهواء هي التي توقفه."},{"t":"f","q":"القوى المتساوية والمتعاكسة تُسمى قوى ______.","a":["متزنة","متزنه","المتزنة"],"w":"لا تحدث تغيرًا في الحركة."},{"t":"f","q":"زيادة سرعة الجسم مع الزمن تُسمى ______.","a":["التسارع","تسارع","التسارُع"],"w":"ينتج عن قوة غير متزنة."}],"loc":""},{"id":22,"u":7,"term":2,"unit":"الوحدة السابعة: القوى والطاقة","ch":"الفصل العاشر: الطاقة","t":"الحرارة","s":"الحرارة طاقة تنتقل من جسم أعلى في درجة الحرارة إلى جسم أقل في درجة الحرارة. تنتقل الحرارة بطرق مختلفة، منها التوصيل والحمل والإشعاع.","b":["تنتقل الحرارة من الأدفأ إلى الأبرد.","التوصيل شائع في المواد الصلبة.","الإشعاع يمكن أن ينقل الطاقة دون تلامس مباشر."],"q":[{"t":"m","q":"في أي اتجاه تنتقل الحرارة دائمًا؟","o":["من الجسم الأدفأ إلى الجسم الأبرد","من الأبرد إلى الأدفأ","في كل الاتجاهات بالتساوي","لا تنتقل"],"w":"الانتقال يستمر حتى تتساوى درجتا الحرارة.","x":[]},{"t":"m","q":"ما التوصيل الحراري؟","o":["انتقال الحرارة بالتلامس المباشر","انتقال الحرارة بالأشعة عبر الفراغ","حركة السوائل الساخنة للأعلى","تحول الماء إلى بخار"],"w":"ملعقة معدنية في كوب شاي تسخن بالتوصيل.","x":["الانتقال عبر الفراغ هو الإشعاع.","حركة السوائل والغازات هي الحمل.","التبخر تغير في الحالة."]},{"t":"m","q":"كيف تصل حرارة الشمس إلى الأرض؟","o":["بالإشعاع","بالتوصيل","بالحمل","بالاحتكاك"],"w":"الإشعاع لا يحتاج وسطًا ماديًا.","x":[]},{"t":"m","q":"أي المواد موصل جيد للحرارة؟","o":["النحاس","الخشب","البلاستيك","الصوف"],"w":"الفلزات موصلات جيدة، وغيرها عوازل.","x":[]},{"t":"m","q":"لماذا نلبس ملابس فاتحة اللون في الصيف؟","o":["لأنها تعكس جزءًا أكبر من الأشعة","لأنها أثقل","لأنها تمتص الحرارة أكثر","لأنها تمنع الهواء"],"w":"الألوان الداكنة تمتص أكثر.","x":[]},{"t":"b","q":"مقياس الحرارة يقيس درجة سخونة الجسم أو برودته.","a":true,"w":"يقيس درجة الحرارة لا كمية الحرارة."},{"t":"b","q":"الخشب موصل جيد للحرارة مثل الحديد.","a":false,"w":"الخشب عازل، لذلك تُصنع منه مقابض بعض الأواني."},{"t":"b","q":"الحرارة شكل من أشكال الطاقة.","a":true,"w":"تنتقل بين الأجسام المختلفة في درجة الحرارة."},{"t":"f","q":"انتقال الحرارة عبر الفراغ من الشمس إلينا يُسمى ______.","a":["الإشعاع","إشعاع","الاشعاع"],"w":"لا يحتاج وسطًا."},{"t":"f","q":"المواد التي تمنع انتقال الحرارة بسهولة تُسمى ______.","a":["عوازل","العوازل","عازلة"],"w":"مثل الخشب والبلاستيك."}],"loc":""},{"id":23,"u":7,"term":2,"unit":"الوحدة السابعة: القوى والطاقة","ch":"الفصل العاشر: الطاقة","t":"الكهرباء","s":"الكهرباء شكل من أشكال الطاقة المرتبطة بالشحنات الكهربائية. في الدوائر الكهربائية تنتقل الطاقة عبر مسار مناسب، وتستخدم المفاتيح للتحكم في الدائرة.","b":["الدائرة الكهربائية تحتاج مسارًا مناسبًا لعملها.","المفتاح يفتح الدائرة أو يغلقها.","توجد مواد موصلة وأخرى عازلة للكهرباء."],"q":[{"t":"m","q":"ما الدائرة الكهربائية المغلقة؟","o":["مسار متصل يسمح بمرور التيار فيضيء المصباح","مسار مقطوع لا يمر فيه التيار","سلك بلا بطارية","مصباح محترق"],"w":"المفتاح المغلق يكمل المسار.","x":["المسار المقطوع هو الدائرة المفتوحة.","لا بد من مصدر للطاقة.","المصباح التالف يقطع المسار."]},{"t":"m","q":"ماذا يحدث للمصباح إذا فُتح المفتاح؟","o":["ينطفئ لأن التيار ينقطع","يضيء أكثر","لا يتأثر","يتحول إلى بطارية"],"w":"فتح المفتاح يقطع المسار فيتوقف التيار.","x":[]},{"t":"m","q":"ما مصدر الطاقة في الدائرة الكهربائية البسيطة؟","o":["البطارية","السلك","المصباح","المفتاح"],"w":"البطارية تدفع التيار في الدائرة.","x":[]},{"t":"m","q":"أي مادة تُعد موصلًا جيدًا للكهرباء؟","o":["النحاس","المطاط","الزجاج","الخشب الجاف"],"w":"الفلزات توصل الكهرباء.","x":[]},{"t":"m","q":"لماذا يُغلَّف السلك الكهربائي بالبلاستيك؟","o":["لأن البلاستيك عازل يحمي من الصعق","لأنه يزيد التيار","لأنه موصل ممتاز","لتلوين السلك فقط"],"w":"العازل يمنع مرور التيار إلى أيدينا.","x":[]},{"t":"b","q":"الدائرة المفتوحة لا يمر فيها التيار الكهربائي.","a":true,"w":"المسار مقطوع فلا يضيء المصباح."},{"t":"b","q":"لمس الأجهزة الكهربائية بيد مبللة سلوك آمن.","a":false,"w":"الماء يزيد خطر الصعق الكهربائي، وهو سلوك خطير."},{"t":"b","q":"ترشيد استهلاك الكهرباء يقلل الفاتورة ويحافظ على الموارد.","a":true,"w":"إطفاء الأجهزة عند عدم الحاجة مثال عملي."},{"t":"f","q":"المواد التي تسمح بمرور التيار الكهربائي تُسمى ______.","a":["موصلات","الموصلات","موصلة"],"w":"مثل النحاس."},{"t":"f","q":"الجزء الذي يفتح الدائرة ويغلقها يُسمى ______.","a":["المفتاح","مفتاح","القاطع"],"w":"يتحكم في مرور التيار."}],"loc":""},{"id":24,"u":7,"term":2,"unit":"الوحدة السابعة: القوى والطاقة","ch":"الفصل العاشر: الطاقة","t":"المغناطيسية","s":"المغناطيس جسم ينتج مجالًا مغناطيسيًا وله قطبان. تتجاذب الأقطاب المختلفة وتتنافر الأقطاب المتشابهة، ويمكن للمغناطيس جذب مواد معينة مثل الحديد.","b":["للمغناطيس قطبان.","المختلفان يتجاذبان والمتشابهان يتنافران.","ليس كل معدن ينجذب إلى المغناطيس."],"q":[{"t":"m","q":"أي المواد ينجذب إلى المغناطيس؟","o":["الحديد","الخشب","البلاستيك","الزجاج"],"w":"الحديد والنيكل والكوبلت مواد مغناطيسية.","x":["الخشب مادة غير مغناطيسية.","البلاستيك لا ينجذب.","الزجاج لا ينجذب."]},{"t":"m","q":"كم عدد أقطاب المغناطيس؟","o":["قطبان","قطب واحد","ثلاثة أقطاب","لا أقطاب له"],"w":"القطب الشمالي والقطب الجنوبي.","x":[]},{"t":"m","q":"ماذا يحدث عند تقريب قطبين متشابهين؟","o":["يتنافران","يتجاذبان","لا يحدث شيء","يذوبان"],"w":"المتشابهان يتنافران والمختلفان يتجاذبان.","x":[]},{"t":"m","q":"أين تكون قوة المغناطيس أكبر؟","o":["عند القطبين","في الوسط","في الهواء البعيد","لا تختلف"],"w":"المجال المغناطيسي أقوى عند الأقطاب.","x":[]},{"t":"m","q":"ما فائدة البوصلة؟","o":["تحديد الاتجاهات","قياس الحرارة","قياس الكتلة","قياس الزمن"],"w":"إبرة البوصلة مغناطيس يتأثر بمجال الأرض المغناطيسي.","x":[]},{"t":"b","q":"المغناطيس يجذب جميع المعادن دون استثناء.","a":false,"w":"الألومنيوم والنحاس معادن لكنها لا تنجذب للمغناطيس عادة."},{"t":"b","q":"يمكن للمغناطيس أن يؤثر عبر ورقة رقيقة.","a":true,"w":"المجال المغناطيسي ينفذ عبر بعض المواد."},{"t":"b","q":"الأرض تسلك سلوك مغناطيس كبير له قطبان.","a":true,"w":"لذلك تعمل البوصلة."},{"t":"f","q":"الطرفان اللذان تتركز فيهما قوة المغناطيس يُسميان ______.","a":["القطبين","الأقطاب","قطبي المغناطيس"],"w":"شمالي وجنوبي."},{"t":"f","q":"الأداة التي تستخدم المغناطيس لتحديد الاتجاهات هي ______.","a":["البوصلة","بوصلة","البوصله"],"w":"إبرتها تشير إلى الشمال."}],"loc":""}],"units":[{"id":1,"name":"الوحدة الأولى: المخلوقات الحية","exam":[{"t":"m","q":"مخلوق حي يعيش في ماء البحر الأحمر، جسمه رخو وليس له عمود فقري. إلى أي مجموعة ينتمي؟","o":["اللافقاريات","الفقاريات","الطيور","الثدييات"],"w":"غياب العمود الفقري يحدد المجموعة مهما كان مكان المعيشة.","x":[]},{"t":"m","q":"طالب يقارن بين خليتين: إحداهما لها جدار خلوي وبلاستيدات. ما استنتاجه الصحيح؟","o":["إنها خلية نباتية","إنها خلية حيوانية","إنها ليست خلية","إنها خلية ميتة"],"w":"الجدار والبلاستيدات دليل على أنها نباتية.","x":[]},{"t":"m","q":"أي زوج يمثل مستويين متتاليين في بناء الجسم؟","o":["نسيج ثم عضو","عضو ثم خلية","جهاز ثم نسيج","خلية ثم جهاز"],"w":"الترتيب: خلية ← نسيج ← عضو ← جهاز.","x":[]},{"t":"m","q":"حيوان له ريش ومنقار ويضع البيض. ما مجموعته؟","o":["الطيور","الزواحف","الثدييات","البرمائيات"],"w":"الريش صفة فاصلة للطيور.","x":[]},{"t":"m","q":"لو توقف الجهاز الدوري عن العمل، فأي تأثير يظهر أولًا؟","o":["لا يصل الغذاء والأكسجين إلى الخلايا","تتوقف العظام عن النمو فورًا","يتغير لون الجلد فقط","يزداد عدد الخلايا"],"w":"الدوري هو ناقل الإمداد لكل خلايا الجسم.","x":[]},{"t":"b","q":"كل مخلوق حي يتكون من خلية واحدة على الأقل.","a":true,"w":"الخلية وحدة الحياة، فلا مخلوق حي بلا خلايا."},{"t":"b","q":"الفقاريات كلها تعيش على اليابسة.","a":false,"w":"الأسماك فقاريات مائية، والحيتان فقاريات تعيش في البحر."},{"t":"b","q":"الفطريات تنتمي إلى مملكة النباتات.","a":false,"w":"الفطريات مملكة مستقلة لأنها لا تصنع غذاءها."},{"t":"b","q":"العضلات تحرّك العظام عند المفاصل.","a":true,"w":"تعاون الجهازين العضلي والهيكلي ينتج الحركة."},{"t":"f","q":"المخلوق الذي لا يملك عمودًا فقريًا يُسمى ______.","a":["لافقاري","اللافقاري","لافقاريًا"],"w":"مثل الحشرات والرخويات."},{"t":"f","q":"مركز التحكم في أنشطة الخلية هو ______.","a":["النواة","نواة"],"w":"تحوي المادة الوراثية."},{"t":"f","q":"مجموعة الأعضاء التي تعمل معًا لأداء وظيفة كبرى تُسمى ______.","a":["الجهاز","جهاز","الجهاز الحيوي"],"w":"مثل الجهاز الهضمي."}]},{"id":2,"name":"الوحدة الثانية: الأنظمة البيئية","exam":[{"t":"m","q":"سلسلة غذاء: عشب ← جراد ← طائر ← صقر. من المنتج فيها؟","o":["العشب","الجراد","الطائر","الصقر"],"w":"المنتج هو من يصنع غذاءه بالضوء.","x":[]},{"t":"m","q":"في السلسلة السابقة، ماذا يحدث لأعداد الجراد إذا اختفت الطيور؟","o":["تزداد","تنقص","تختفي فورًا","لا تتغير أبدًا"],"w":"اختفاء المفترس يرفع أعداد الفريسة.","x":[]},{"t":"m","q":"أي مما يلي يمثل عاملًا حيًا وغير حي معًا؟","o":["سمكة وماء","ماء وهواء","صخر وتربة","ضوء وحرارة"],"w":"السمكة حية والماء غير حي.","x":[]},{"t":"m","q":"طالب يريد حماية شاطئ البحر الأحمر. أي سلوك هو الأنسب؟","o":["جمع النفايات وعدم لمس المرجان","أخذ قطع المرجان تذكارًا","إلقاء بقايا الطعام في الماء","صيد الأسماك الصغيرة كلها"],"w":"المرجان كائن حي هش ينكسر بسهولة.","x":[]},{"t":"m","q":"لماذا تُعد المحللات مهمة رغم صغر حجمها؟","o":["تعيد المواد الغذائية إلى التربة","تصطاد الحيوانات الكبيرة","تصنع الأكسجين وحدها","ترفع درجة حرارة الأرض"],"w":"بدون المحللات تتراكم البقايا ولا تعود المواد للتربة.","x":[]},{"t":"b","q":"سلسلة الغذاء تبين اتجاه انتقال الطاقة بين المخلوقات.","a":true,"w":"الأسهم تشير من المأكول إلى الآكل."},{"t":"b","q":"كل نظام بيئي يحتوي عوامل حية وغير حية.","a":true,"w":"هذا تعريف النظام البيئي."},{"t":"b","q":"التنافس يحدث فقط بين الحيوانات ولا يحدث بين النباتات.","a":false,"w":"النباتات تتنافس على الضوء والماء والمساحة."},{"t":"b","q":"الجفاف الطويل قد يقلل أعداد المخلوقات في النظام البيئي.","a":true,"w":"نقص الماء يقلل الغذاء ويهدد البقاء."},{"t":"f","q":"المخلوق الذي يتغذى على بقايا المخلوقات الميتة ويحللها يُسمى ______.","a":["المحلل","محلل","المحللات"],"w":"مثل الفطريات والبكتيريا."},{"t":"f","q":"العلاقة التي يستفيد فيها الطرفان معًا تُسمى ______.","a":["تبادل المنفعة","تبادل منفعة","التعايش"],"w":"مثل النحلة والزهرة."},{"t":"f","q":"مجموعة سلاسل غذائية متداخلة تكوّن ______ الغذاء.","a":["شبكة","شبكه"],"w":"تصف العلاقات بدقة أكبر."}]},{"id":3,"name":"الوحدة الثالثة: صحة الإنسان","exam":[{"t":"m","q":"طالب أصيب بالزكام. أي سلوك يقلل انتقال المرض لزملائه؟","o":["استخدام المنديل والعطاس في ثنية المرفق","مشاركة قلمه مع الجميع","إغلاق نوافذ الفصل","شرب من زجاجة زميله"],"w":"منع انتشار الرذاذ هو المفتاح.","x":[]},{"t":"m","q":"أي مما يلي مرض معدٍ؟","o":["الإنفلونزا","السكري","الربو","قصر النظر"],"w":"الإنفلونزا تنتقل بالرذاذ.","x":[]},{"t":"m","q":"طفل يشعر بالتعب ولا يستطيع التركيز صباحًا. أي عادة قد تساعده؟","o":["النوم مبكرًا وتناول الإفطار","السهر ومشاهدة الشاشات","ترك وجبة الإفطار","تقليل شرب الماء"],"w":"النوم والغذاء يؤثران مباشرة في التركيز.","x":[]},{"t":"m","q":"ما العلاقة بين غسل اليدين والصحة؟","o":["يقلل انتقال مسببات المرض","يزيد الطاقة مباشرة","يبني العضلات","يعالج الكسور"],"w":"وقاية لا علاج.","x":[]},{"t":"m","q":"أي وجبة أقرب إلى التوازن الغذائي؟","o":["أرز ودجاج وسلطة وماء","حلوى وعصير محلى","خبز فقط","مشروب غازي ورقائق"],"w":"التنوع بين المجموعات الغذائية هو المعيار.","x":[]},{"t":"b","q":"اللقاحات تساعد على وقاية المجتمع كله وليس الفرد فقط.","a":true,"w":"انتشار المناعة يقلل انتقال المرض."},{"t":"b","q":"كل الأمراض تنتقل بالعدوى.","a":false,"w":"هناك أمراض غير معدية لا تنتقل بين الأشخاص."},{"t":"b","q":"الفيتامينات يحتاجها الجسم بكميات كبيرة جدًا مثل الكربوهيدرات.","a":false,"w":"يحتاجها بكميات صغيرة لكنها ضرورية."},{"t":"b","q":"تهوية الفصل تقلل تركيز الجراثيم في الهواء.","a":true,"w":"تجديد الهواء يقلل احتمال العدوى."},{"t":"f","q":"الأمراض التي تنتقل من شخص إلى آخر تُسمى أمراضًا ______.","a":["معدية","معديه","المعدية"],"w":"مثل الإنفلونزا."},{"t":"f","q":"العنصر الغذائي الذي يمد الجسم بالطاقة الرئيسة هو ______.","a":["الكربوهيدرات","النشويات","كربوهيدرات"],"w":"مثل الأرز والخبز."},{"t":"f","q":"الجهاز الذي يدافع عن الجسم ضد مسببات المرض هو الجهاز ______.","a":["المناعي","مناعي"],"w":"خط الدفاع الداخلي."}]},{"id":4,"name":"الوحدة الرابعة: الأرض ومواردها","exam":[{"t":"m","q":"عيّنة صخرية تتكون من طبقات متراكمة فيها بقايا أصداف. ما نوعها الأرجح؟","o":["رسوبية","نارية","متحولة","بركانية فقط"],"w":"الطبقات والأحافير من علامات الرسوبية.","x":[]},{"t":"m","q":"أي مورد يُعد متجددًا؟","o":["ضوء الشمس","النفط","الفحم","الغاز الطبيعي"],"w":"الشمس مورد لا ينفد بالاستخدام.","x":[]},{"t":"m","q":"ما الترتيب الصحيح لدورة الماء؟","o":["تبخر ← تكاثف ← هطول","هطول ← تبخر ← تكاثف","تكاثف ← تبخر ← هطول","تبخر ← هطول ← تكاثف"],"w":"الحرارة تبخر الماء، ثم يتكاثف، ثم يهطل.","x":[]},{"t":"m","q":"طالب يريد معرفة صلابة معدن. ماذا يفعل؟","o":["يخدشه بمواد مختلفة ويقارن","يزنه فقط","يقيس طوله","يسأل عن سعره"],"w":"الصلابة تُختبر بالخدش.","x":[]},{"t":"m","q":"لماذا نحافظ على التربة من الانجراف؟","o":["لأنها ضرورية لنمو النباتات","لأنها تصنع الماء","لأنها تمنع الرياح","لأنها مصدر للأكسجين"],"w":"فقدان التربة يعني فقدان الزراعة.","x":[]},{"t":"b","q":"الصخور الثلاثة الأنواع يمكن أن تتحول من نوع لآخر مع الزمن.","a":true,"w":"دورة الصخور تربط بينها."},{"t":"b","q":"الماء العذب يمثل الجزء الأكبر من ماء الأرض.","a":false,"w":"معظم الماء مالح، والعذب نسبة صغيرة."},{"t":"b","q":"المعادن مواد غير حية.","a":true,"w":"تتكون طبيعيًا دون أن تكون كائنات حية."},{"t":"b","q":"إصلاح تسرب الماء في المنزل شكل من أشكال الترشيد.","a":true,"w":"التسرب يهدر كميات كبيرة بمرور الوقت."},{"t":"f","q":"الصخور التي تنشأ من تبرّد الصهارة وتصلبها تُسمى صخورًا ______.","a":["نارية","ناريه","النارية"],"w":"مثل البازلت."},{"t":"f","q":"عملية إزالة الملح من ماء البحر لجعله صالحًا للاستخدام تُسمى ______.","a":["التحلية","تحلية","التحليه"],"w":"مهمة في المناطق الجافة."},{"t":"f","q":"الموارد التي تنفد ولا تتجدد بسرعة تُسمى موارد ______.","a":["غير متجددة","غير متجدده","ناضبة"],"w":"مثل النفط والفحم."}]},{"id":5,"name":"الوحدة الخامسة: الفضاء","exam":[{"t":"m","q":"لو توقفت الأرض عن الدوران حول محورها، فما الأثر المباشر؟","o":["اختلال تعاقب الليل والنهار","اختفاء القمر","تغير عدد الكواكب","توقف ضوء الشمس"],"w":"الليل والنهار مرتبطان بدوران المحور.","x":[]},{"t":"m","q":"طالب يرى القمر بدرًا كاملًا. بعد أسبوعين تقريبًا يرى:","o":["شكلًا مختلفًا من أوجه القمر","القمر نفسه بدرًا","قمرين","الشمس مكانه"],"w":"أوجه القمر تتغير خلال الشهر.","x":[]},{"t":"m","q":"أي ترتيب صحيح من الأصغر إلى الأكبر تقريبًا؟","o":["القمر ← الأرض ← الشمس","الشمس ← الأرض ← القمر","الأرض ← القمر ← الشمس","القمر ← الشمس ← الأرض"],"w":"الشمس أكبر بكثير من الأرض، والأرض أكبر من القمر.","x":[]},{"t":"m","q":"لماذا تبدو الشمس أكبر من النجوم الأخرى؟","o":["لأنها الأقرب إلينا","لأنها الأكبر في الكون","لأنها الأسخن","لأنها تدور حول الأرض"],"w":"المسافة تؤثر في الحجم الظاهري.","x":[]},{"t":"m","q":"ما الذي يبقي الكواكب في مداراتها حول الشمس؟","o":["جاذبية الشمس","الرياح الشمسية","الغيوم","المجال المغناطيسي للقمر"],"w":"الجاذبية قوة تجذب الأجسام نحو بعضها.","x":[]},{"t":"b","q":"الشمس نجم.","a":true,"w":"جسم مضيء ينتج طاقته بنفسه."},{"t":"b","q":"تعاقب الفصول سببه اقتراب الأرض من الشمس وابتعادها فقط.","a":false,"w":"السبب الرئيس هو ميل محور الأرض مع دورانها حول الشمس."},{"t":"b","q":"كل الكواكب لها أقمار.","a":false,"w":"بعض الكواكب مثل عطارد ليس لها أقمار."},{"t":"b","q":"القمر يكمل دورة أوجهه خلال شهر تقريبًا.","a":true,"w":"نحو 29 يومًا ونصف."},{"t":"f","q":"القوة التي تجذب الأجسام نحو الأرض تُسمى ______.","a":["الجاذبية","جاذبية","الجاذبيه"],"w":"وتُبقي الكواكب في مداراتها حول الشمس."},{"t":"f","q":"المسار الذي يسلكه الكوكب حول الشمس يُسمى ______.","a":["المدار","مدار","المسار"],"w":"شكله شبه بيضاوي."},{"t":"f","q":"الكوكب الذي نعيش عليه هو ______.","a":["الأرض","الارض"],"w":"الثالث من الشمس."}]},{"id":6,"name":"الوحدة السادسة: المادة","exam":[{"t":"m","q":"طالب صهر قطعة شمع ثم تركها تبرد فعادت صلبة. هذا التغير:","o":["فيزيائي","كيميائي","احتراق","صدأ"],"w":"لم تتكون مادة جديدة، والتغير عكوس.","x":[]},{"t":"m","q":"أي أداة يحتاجها لقياس حجم 50 ملّيلترًا من الماء؟","o":["المخبار المدرج","الميزان","المسطرة","مقياس الحرارة"],"w":"الحجم للسوائل يقاس بالمخبار.","x":[]},{"t":"m","q":"مخلوط من برادة حديد وملح وماء. ما ترتيب الفصل المناسب؟","o":["مغناطيس ثم تبخير","تبخير ثم مغناطيس فقط","ترشيح ثم مغناطيس للماء","لا يمكن الفصل"],"w":"نسحب الحديد بالمغناطيس ثم نبخر الماء ليتبقى الملح.","x":[]},{"t":"m","q":"أي مما يلي دليل على حدوث تغير كيميائي؟","o":["تصاعد غاز أو تغير لون دائم","تغير الشكل فقط","تقطيع المادة","تغير الحالة بالتبريد"],"w":"المواد الجديدة تظهر بعلامات مميزة.","x":[]},{"t":"m","q":"لماذا يملأ الغاز الإناء كله؟","o":["لأن جسيماته متباعدة وسريعة الحركة","لأنه ثقيل","لأنه بارد","لأن شكله ثابت"],"w":"ترتيب الجسيمات يفسر خصائص الحالة.","x":[]},{"t":"b","q":"الكتلة تقاس بالميزان والحجم بالمخبار المدرج.","a":true,"w":"لكل كمية أداتها."},{"t":"b","q":"تبخر الماء تغير كيميائي.","a":false,"w":"تغير في الحالة فقط، فهو فيزيائي."},{"t":"b","q":"المخلوط غير المتجانس يمكن تمييز مكوناته بالعين.","a":true,"w":"مثل السلطة أو الرمل مع الحصى."},{"t":"b","q":"جسيمات المادة الصلبة متراصة ومنتظمة.","a":true,"w":"لذلك لها شكل وحجم ثابتان."},{"t":"f","q":"المادة التي تذوب في المذيب تُسمى ______.","a":["المذاب","مذاب","المادة المذابة"],"w":"مثل الملح في الماء."},{"t":"f","q":"وحدة قياس الكتلة الشائعة في المختبر هي ______.","a":["الجرام","جرام","الغرام"],"w":"ومضاعفها الكيلوجرام."},{"t":"f","q":"الحالة التي يكون فيها للمادة شكل وحجم ثابتان هي الحالة ______.","a":["الصلبة","صلبة","الصلبه"],"w":"جسيماتها متراصة."}]},{"id":7,"name":"الوحدة السابعة: القوى والطاقة","exam":[{"t":"m","q":"طفل يدفع صندوقًا على سجادة خشنة فيجد صعوبة. ما السبب؟","o":["زيادة قوة الاحتكاك","انعدام الجاذبية","زيادة كتلة الهواء","نقص الضوء"],"w":"الأسطح الخشنة تزيد الاحتكاك.","x":[]},{"t":"m","q":"مصباح في دائرة لم يضئ رغم وجود بطارية. ما السبب المحتمل؟","o":["الدائرة مفتوحة أو السلك غير متصل","الغرفة مظلمة","المصباح صغير","السلك ملوّن"],"w":"لا بد من مسار مغلق كامل.","x":[]},{"t":"m","q":"لماذا تُصنع مقابض الأواني من البلاستيك أو الخشب؟","o":["لأنها عوازل حرارية تحمي اليد","لأنها موصلات ممتازة","لأنها أثقل","لتغيير طعم الطعام"],"w":"العازل يبطئ انتقال الحرارة.","x":[]},{"t":"m","q":"قطبان متشابهان لمغناطيسين قُرّبا من بعضهما. ماذا يحدث؟","o":["يتنافران","يتجاذبان","يلتصقان","ينكسران"],"w":"التشابه ينتج تنافرًا.","x":[]},{"t":"m","q":"أي تحول للطاقة يحدث في المصباح المتوهج؟","o":["كهربائية إلى ضوئية وحرارية","ضوئية إلى كهربائية","حرارية إلى صوتية","صوتية إلى ضوئية"],"w":"الطاقة تتحول من صورة إلى أخرى.","x":[]},{"t":"b","q":"الحرارة تنتقل من الجسم الأبرد إلى الأدفأ.","a":false,"w":"الاتجاه دائمًا من الأدفأ إلى الأبرد."},{"t":"b","q":"الجاذبية والاحتكاك كلاهما قوة.","a":true,"w":"كلتاهما تؤثر في حركة الأجسام."},{"t":"b","q":"الماء موصل يزيد خطر الصعق عند التعامل مع الكهرباء.","a":true,"w":"لذلك نتجنب لمس الأجهزة بأيدٍ مبللة."},{"t":"b","q":"البوصلة تعمل لأن الأرض لها مجال مغناطيسي.","a":true,"w":"إبرتها تصطف مع هذا المجال."},{"t":"f","q":"القوة التي تجذب الأجسام نحو الأرض هي ______.","a":["الجاذبية","جاذبية","الجاذبيه"],"w":"تجعل الأجسام تسقط."},{"t":"f","q":"الدائرة التي يمر فيها التيار ويضيء فيها المصباح تُسمى دائرة ______.","a":["مغلقة","مغلقه","المغلقة"],"w":"مسارها متصل."},{"t":"f","q":"انتقال الحرارة في السوائل والغازات بحركة جسيماتها يُسمى ______.","a":["الحمل","حمل","الحمل الحراري"],"w":"الساخن يرتفع والبارد ينزل."}]}]};
+const LESSONS = DATA.lessons, UNITS = DATA.units;
+
+/* ── أدوات ── */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ar  = n => String(n).replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+function norm(s){ return String(s||'').replace(/[\u064B-\u0652\u0670\u0640]/g,'')
+  .replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/[ؤئ]/g,'ي').replace(/ة/g,'ه')
+  .replace(/[^\u0621-\u064A0-9a-zA-Z ]/g,' ').replace(/\s+/g,' ').trim(); }
+const core = s => norm(s).replace(/^ال/,'');
+function hash(s){ let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 99991; return h; }
+function rng(seed){ return function(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+  t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const today = () => new Date().toISOString().slice(0, 10);
+const addDays = (d, n) => { const x = new Date(d + 'T00:00:00'); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10); };
+
+/* ── الحالة ── */
+const KEY = 'forsan_science4_v2';
+const FRESH = { student:'', roster:[], cls:{}, pts:0, viewed:[], fav:[], earned:{},
+  right:0, total:0, wrong:{}, lsnScore:{}, examScore:{}, labs:[], badges:[], daily:{},
+  unlocked:[], pin:'1980', pinV:0, teacher:false, font:0 };
+let S = load();
+S.teacher = false;
+function load(){ try { const r = JSON.parse(localStorage.getItem(KEY)); if (r && typeof r === 'object') return Object.assign({}, FRESH, r); } catch(e){} return JSON.parse(JSON.stringify(FRESH)); }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ console.warn('تعذّر الحفظ', e); } }
+
+/* ══════════════════ 🔐 أقفال الدروس ══════════════════
+   ⚙️ إعدادات المعلم — عدّل السطر التالي فقط:
+   ON          : true = الأقفال تعمل | false = كل الدروس مفتوحة
+   MODE        : 'fixed' = رمز ثابت لكل درس طوال العام
+                 'daily' = رمز كل درس يتغيّر تلقائيًا كل يوم
+   MASTER_KEY  : كلمة السر الرئيسية — تغييرها يغيّر كل الرموز الـ٢٤
+   FREE        : أرقام الدروس المفتوحة بلا رمز (تجربة)
+   ⚠️ بعد أي تعديل هنا: احفظ الملف وارفعه إلى الاستضافة من جديد. */
+const LOCK = { ON:true, MODE:'fixed', MASTER_KEY:'RAZI-1447', FREE:[1] };
+
+S.unlocked = Array.isArray(S.unlocked) ? S.unlocked.slice() : [];
+const de = s => String(s == null ? '' : s).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const pad2 = n => (n < 10 ? '0' : '') + n;
+function codeOf(id){
+  const seed = LOCK.MASTER_KEY + '|L' + id + (LOCK.MODE === 'daily' ? '|' + today() : '');
+  const a = hash(seed), b = hash(seed.split('').reverse().join('') + '·' + a);
+  const r = rng(a * 7919 + b * 104729 + 1); r(); r();
+  return String(1000 + Math.floor(r() * 9000));
+}
+const fullCode = id => pad2(id) + codeOf(id);          /* ما يكتبه الطالب */
+const fmtCode  = id => pad2(id) + '-' + codeOf(id);     /* ما يراه المعلم */
+const isFree = id => !LOCK.ON || LOCK.FREE.includes(id);
+
+/* ══════════════════ 👥 كشف الفصل ورموز الدخول ══════════════════
+   ⚙️ إعدادات المعلم — الكشف مدمج داخل الملف ليعمل على كل الأجهزة.
+   كل سطر: ['اسم الطالب الكامل','رمز من ٤ أرقام']
+   • لحذف طالب: احذف سطره كاملًا (لن تتغيّر رموز بقية الطلاب).
+   • لإضافة طالب: أضف سطرًا جديدًا برمز غير مستعمل.
+   • بعد أي تعديل: احفظ الملف وارفعه إلى الاستضافة من جديد. */
+const TEACHER = { name:'أ/ حمدان المحياوي', pin:'1980' };
+
+let ROSTER = [
+  ['إبراهيم قاسم حامد صالح','1001'],
+  ['أصيل سليمان سالم السناني','1002'],
+  ['أصيل عبدالعزيز عايد الجهني','1003'],
+  ['أصيل نايف عبيدالله العلوني','1004'],
+  ['المثنى فهد عاتق الحربي','1005'],
+  ['أنس أحمد الشيخ خليل','1006'],
+  ['إياد سمير هاشم محمد','1007'],
+  ['إياد عثمان حسين عبدالرب','1008'],
+  ['إياس عطية لطيف الجهني','1009'],
+  ['أيوب رويفد مفضي ربيع','1010'],
+  ['أيوب محمد بن شويط الخلوي','1011'],
+  ['بتال عبدالعزيز شتيوي الجهني','1012'],
+  ['بتال فواز حمد الذبياني','1013'],
+  ['بسام بدر داغر العلوني','1014'],
+  ['بسام عبدالرحيم عودة الجهني','1015'],
+  ['تميم مراد صادق الجهني','1016'],
+  ['ثنيان محمد عوض الخلوي','1017'],
+  ['جاسر سعد سعيد سليمان عبدالله','1018'],
+  ['جسار عبدالرحمن سرحان الجهني','1019'],
+  ['جسار عيد سليمان العلوني','1020'],
+  ['جواد عبدالرحمن عبدالله الجهني','1021'],
+  ['حاتم رياض محمد البلوي','1022'],
+  ['حسين عثمان حسين عبدالرب','1023'],
+  ['حمدان عبدالمحسن فريعان الخلوي','1024'],
+  ['خالد ماجد مريزيق الرفاعي','1025'],
+  ['خالد محمد ناير الحربي','1026'],
+  ['خالد وليد ناصر محمد','1027'],
+  ['رافد سالم فريعان الخلوي','1028'],
+  ['رافد سليم سليم الخلوي','1029'],
+  ['راكان حامد عواد الجهني','1030'],
+  ['رائد محمد حامد الرفاعي','1031'],
+  ['رواد راكان مبيريك الجهني','1032'],
+  ['زياد نايف مريزيق الرفاعي','1033'],
+  ['سالم محمد سالم سويد أحمد','1034'],
+  ['سعود بكر محمد الجهني','1035'],
+  ['سهيل عمر فاروق مصطفى كمال','1036'],
+  ['صالح حسن صالح الصويدر','1037'],
+  ['طارق سعيد ضفيدع الحبيشي','1038'],
+  ['طلال سرور حبيحب الخلوي','1039'],
+  ['عامر جمال عبدالعزيز الحربي','1040'],
+  ['عامر عويش مطير المشعلي','1041'],
+  ['عبدالرحمن فيصل مريزيق المولد','1042'],
+  ['عبدالعزيز مسعد سلمان الجهني','1043'],
+  ['عبدالله محمد محمود عبدالهادي','1044'],
+  ['عطية علي عوض الخلوي','1045'],
+  ['علاء عثمان رشيد الجهني','1046'],
+  ['علي حسن حمزة الجدعاني','1047'],
+  ['عمار صالح عبدالباسط الشميري','1048'],
+  ['عمار عبدالعزيز شويط معتق','1049'],
+  ['عمار يوسف مسفر الجهني','1050'],
+  ['عمر سلطان أحمد الجهني','1051'],
+  ['عمر عبدالرحمن عليثة الجهني','1052'],
+  ['عمر عيد محمد الحبيشي','1053'],
+  ['عيد صالح عيد الخلوي','1054'],
+  ['فارس هاني حميد الرفاعي','1055'],
+  ['فراس خليل محمد قاسم','1056'],
+  ['فضل حسين أحمد سالم','1057'],
+  ['فياض عقبة نافع المرواني','1058'],
+  ['فيصل مرزوق محمد الجهني','1059'],
+  ['لزام مسعد مسلم الخلوي','1060'],
+  ['مبارك سلطان مبارك الحبيشي','1061'],
+  ['محمد إبراهيم عتقه العلوني','1062'],
+  ['محمد أبو القاسم محجوب عبدالسلام','1063'],
+  ['محمد بندر بن عيد الجهني','1064'],
+  ['محمد سعود بن حافظ الحمدي','1065'],
+  ['محمد سليمان صالح الجهني','1066'],
+  ['محمد عدنان عبدالمنان حاجي','1067'],
+  ['مراد سعد فرج الجهني','1068'],
+  ['مراد فواز سلمي السناني','1069'],
+  ['معاذ مجيد سيف عثمان','1070'],
+  ['معاذ محمد حسن القاحزي','1071'],
+  ['مفضي فيحان مفضي الخلوي','1072'],
+  ['منصور سالم محمد بن حريز','1073'],
+  ['مهند شعيب عقلان حميد','1074'],
+  ['ناصر هاني ناصر عبدربة','1075'],
+  ['نور رشوان أحمد قحنون','1076'],
+  ['وسام سامي سليمان العلوني','1077'],
+  ['وسام معلا راشد السناني','1078'],
+  ['يزن عادل محمد الجهني','1079'],
+  ['يوسف محمد عاطف إبراهيم','1080']
+];
+
+let ROSTER_NAMES = [];
+let CODE_MAP = {};
+function rebuildRosterMaps(){
+  ROSTER_NAMES = ROSTER.map(r => r[0]);
+  CODE_MAP = {};
+  ROSTER.forEach(r => { CODE_MAP[norm(r[0])] = String(r[1]); });
+}
+rebuildRosterMaps();
+function studentCode(name){ return CODE_MAP[norm(name)] || '----'; }
+const findInRoster = n => ROSTER_NAMES.find(x => norm(x) === norm(n));
+
+/* ترقية النسخة مرة واحدة + التحقق من الاسم المحفوظ */
+if (S.pinV !== 3) { S.pin = TEACHER.pin; S.pinV = 3; save(); }
+if (S.student && !findInRoster(S.student)) { S.student = ''; save(); }
+const lessonOpen = id => isFree(id) || S.unlocked.includes(id);
+const unitOpen = uid => LESSONS.filter(l => l.u === uid).every(l => lessonOpen(l.id));
+function keyOpen(k){ const n = +k.slice(1, k.indexOf('#')); return k[0] === 'L' ? lessonOpen(n) : unitOpen(n); }
+function tryUnlock(id){
+  const inp = $('lk' + id), m = $('lkm' + id);
+  const v = de(inp.value).replace(/\D/g, '');
+  if (v && v === fullCode(id)) {
+    if (!S.unlocked.includes(id)) S.unlocked.push(id);
+    save(); drawLessons(); openLesson(id);
+    try { if ($('labGrid').innerHTML) drawLabs(); } catch(e){}
+  } else {
+    m.className = 'fb show n';
+    m.textContent = 'الرمز غير صحيح — اطلبه من معلمك عند انتهاء الحصة.';
+    try { inp.select(); } catch(e){}
+  }
+}
+function unlockAll(){ if (!confirm('فتح جميع الدروس على هذا الجهاز؟')) return;
+  S.unlocked = LESSONS.map(l => l.id); save(); drawCodes(); alert('تم فتح كل الدروس على هذا الجهاز.'); }
+function relockAll(){ if (!confirm('إعادة قفل جميع الدروس على هذا الجهاز؟ (النقاط لا تُمسح)')) return;
+  S.unlocked = []; save(); drawCodes(); alert('تمت إعادة قفل الدروس على هذا الجهاز.'); }
+
+/* ── فهرس الأسئلة ── */
+const QI = {};
+LESSONS.forEach(l => l.q.forEach((q, i) => QI['L' + l.id + '#' + i] = { q, src: 'الدرس: ' + l.t, u: l.u }));
+UNITS.forEach(u => u.exam.forEach((q, i) => QI['E' + u.id + '#' + i] = { q, src: 'وحدة ' + ar(u.id), u: u.id }));
+const unitBank = uid => Object.keys(QI).filter(k => QI[k].u === uid);
+
+/* ══════════ فرسان العلوم — ربط برمجي كامل ══════════ */
+const FURSAN_CRITERIA = [
+ 'التعاون الإيجابي مع الزملاء.','حل الواجبات والمهام المطلوبة.','المشاركة الفاعلة أثناء الدرس.','الالتزام بالهدوء والنظام داخل الصف.','إحضار الكتاب والأدوات المدرسية.',
+ 'المحافظة على نظافة الصف والمكان.','احترام المعلم والزملاء.','المبادرة ومساعدة الآخرين.','إنجاز الأنشطة الصفية في الوقت المحدد.','التميز والإبداع في الأنشطة والمشروعات.',
+ 'الحضور المبكر والاستعداد للحصة.','المحافظة على الكتاب والدفتر.','ترتيب وتنظيم الدفتر.','إحضار الواجب في موعده.','الإجابة عن الأسئلة الشفهية.',
+ 'التفاعل مع الأنشطة والتجارب العلمية.','اتباع تعليمات السلامة أثناء التجارب.','المحافظة على أدوات وممتلكات الصف.','التحسن والتطور في المستوى.','الحصول على الدرجة الكاملة في نشاط أو اختبار قصير.'
+];
+const FURSAN_TITLES=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون'];
+let FURSAN_RAW = {}, FURSAN_TARGET = '';
+const fursanKey = n => String(n||'').replace(/[.#$\[\]\/]/g,'_');
+const fursanScore = n => Number(FURSAN_RAW[fursanKey(n)])||0;
+function fursanRows(){ return ROSTER_NAMES.slice().sort((a,b)=>fursanScore(b)-fursanScore(a)||a.localeCompare(b,'ar')); }
+function fursanPts(n){ n=Number(n)||0; return n===1?'نقطة واحدة':n===2?'نقطتان':(n>=3&&n<=10?ar(n)+' نقاط':ar(n)+' نقطة'); }
+const FURSAN_AUTO_POINTS = 2;
+function fursanAutoEventKey(type,id){
+  return ('auto_'+String(type||'event')+'_'+String(id||'')).replace(/[.#$\[\]\/\s:]+/g,'_').slice(0,120);
+}
+function fursanCanonicalStudent(){
+  if(!S.student) return '';
+  return ROSTER_NAMES.find(n=>norm(n)===norm(S.student)) || S.student;
+}
+/*
+  منح آلي لنقاط فرسان العلوم.
+  نستخدم مفتاحًا ثابتًا داخل awardLogs لكل إنجاز لمنع تكرار النقاط عند إعادة فتح الدرس
+  أو إعادة حل السؤال على الجهاز نفسه، ومع المزامنة تُحفظ علامة الإنجاز في Firebase أيضًا.
+*/
+async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
+  const student=fursanCanonicalStudent();
+  if(!student) return false;
+  const localKey='fauto:'+type+':'+id;
+  if(S.earned[localKey]===1 || S.earned[localKey]==='pending') return false;
+  S.earned[localKey]='pending'; save();
+  const sk=fursanKey(student), ev=fursanAutoEventKey(type,id);
+  const receipt=FURSAN_DB.ref('awardLogs/'+sk+'/'+ev);
+  let claimed=false;
+  try{
+    const tx=await receipt.transaction(v=>{
+      if(v) return; // سبق تسجيل هذا الإنجاز في قاعدة فرسان العلوم
+      return {
+        student, criterion:'مكافأة تلقائية: '+label,
+        eventType:type, eventId:String(id), delta:points,
+        automatic:true, source:'مختبر الرازي',
+        ts:firebase.database.ServerValue.TIMESTAMP
+      };
+    });
+    claimed=!!(tx&&tx.committed);
+    if(claimed){
+      await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
+    }
+    S.earned[localKey]=1; save();
+    return claimed;
+  }catch(e){
+    console.warn('تعذر إضافة نقاط فرسان العلوم تلقائيًا',e);
+    if(claimed){ try{ await receipt.remove(); }catch(_e){} }
+    delete S.earned[localKey]; save();
+    return false;
+  }
+}
+function syncMyFursanPoints(){
+  if(!S.student) return;
+  const canonical = ROSTER_NAMES.find(n=>norm(n)===norm(S.student)) || S.student;
+  const p = fursanScore(canonical);
+  if(S.pts !== p){ S.pts=p; save(); }
+}
+function drawFursanBoard(){
+  const rows=fursanRows(), top=rows.slice(0,3), order=[top[1],top[0],top[2]];
+  const pod=$('fursanPodium');
+  if(pod) pod.innerHTML=order.map((n,i)=>{
+    if(!n) return '<div class="fursan-slot" style="opacity:.45">—<small>شاغر</small></div>';
+    const rank=rows.indexOf(n)+1, med=rank===1?'🥇':rank===2?'🥈':'🥉';
+    return `<div class="fursan-slot ${rank===1?'first':''}"><div class="fursan-medal">${med}</div><strong>${esc(n)}</strong><small>${fursanPts(fursanScore(n))}</small></div>`;
+  }).join('');
+  const prev=$('fursanCriteriaPreview');
+  if(prev) prev.innerHTML=FURSAN_CRITERIA.slice(0,5).map((c,i)=>`<div class="fursan-crit-item"><span class="fursan-crit-num">${ar(i+1)}</span><span>${esc(c)}</span></div>`).join('')+`<p class="muted" style="text-align:center;margin:8px 0 0">و${ar(FURSAN_CRITERIA.length-5)} معيارًا آخر</p>`;
+  const list=$('fursanRankList');
+  if(list){ const publicRows=rows.slice(0,20); list.innerHTML=publicRows.map((n,i)=>`<div class="fursan-rank ${i<3?'top'+(i+1):''}"><span class="idx">${ar(i+1)}</span><span class="name">${esc(n)}</span><span class="title">الفارس ${FURSAN_TITLES[i]||ar(i+1)}</span><span class="score">⭐ ${ar(fursanScore(n))}</span></div>`).join('') || '<div class="note">لا توجد أسماء في الكشف.</div>'; }
+  const my=$('fursanMyScore'); if(my) my.innerHTML=S.student?`🛡️ <b>${esc(S.student)}</b> — رصيدك في فرسان العلوم: <b>${fursanPts(fursanScore(S.student))}</b>`:'رصيد فرسان العلوم مرتبط تلقائيًا بالتعلّم: فتح درس +٢، إجابة صحيحة +٢، إنجاز تجربة +٢، مع إمكانية منح المعلم نقاطًا إضافية وفق المعايير.';
+  const homeTop=$('homeFursanTop10');
+  if(homeTop){
+    const top10=rows.slice(0,10);
+    homeTop.innerHTML=top10.map((n,i)=>{
+      const rank=i+1, medal=rank===1?'🥇':rank===2?'🥈':rank===3?'🥉':'🛡️';
+      const me=S.student&&norm(n)===norm(S.student)?' me':'';
+      return `<article class="home-fursan-card rank${rank}${me}" title="الفارس ${FURSAN_TITLES[i]||ar(rank)}">
+        <span class="medal">${medal}</span><strong>${esc(n)}</strong>
+        <small>⭐ ${ar(fursanScore(n))} نقطة</small><span class="place">الفارس ${FURSAN_TITLES[i]||ar(rank)}</span>
+      </article>`;
+    }).join('') || '<div class="home-fursan-card"><strong>لا توجد أسماء في الكشف.</strong></div>';
+  }
+  const sy=$('fursanSync'); if(sy){ sy.textContent='متزامن الآن ✓'; sy.className='tag sea'; }
+}
+function drawBoard(){ syncMyFursanPoints(); drawFursanBoard(); }
+function listenFursanScores(){
+  FURSAN_DB.ref('scores').on('value',snap=>{
+    FURSAN_RAW=snap.val()||{};
+    syncMyFursanPoints(); drawFursanBoard();
+    try{refresh();}catch(e){}
+    try{drawFursanTeacher();}catch(e){}
+  },err=>{
+    console.warn('تعذرت مزامنة فرسان العلوم',err);
+    const sy=$('fursanSync'); if(sy){sy.textContent='تعذرت مزامنة فرسان العلوم';sy.className='tag gold';}
+  });
+}
+function openFursanCriteria(studentName){
+  FURSAN_TARGET=studentName||'';
+  const title=$('fursanCritTitle'), sub=$('fursanCritSub'), list=$('fursanCritList');
+  if(title) title.textContent=FURSAN_TARGET?'منح نقاط إضافية للفارس':'معايير النقاط الإضافية — فرسان العلوم';
+  if(sub) sub.textContent=FURSAN_TARGET?`${FURSAN_TARGET} — اختر المعيار المستحق (+٢ نقطة إضافية)`:'هذه المعايير تمنح نقاطًا إضافية من المعلم، إلى جانب النقاط التلقائية للدروس والأسئلة والتجارب.';
+  if(list) list.innerHTML=FURSAN_CRITERIA.map((c,i)=>`<button class="fursan-criterion-btn" ${FURSAN_TARGET?'':'disabled'} onclick="awardFursanCriterion(${i})">${ar(i+1)}. ${esc(c)} ${FURSAN_TARGET?'<b style="color:#9a6800">(+٢)</b>':''}</button>`).join('');
+  openOv('mFursanCrit');
+}
+async function awardFursanCriterion(i){
+  if(!FURSAN_TARGET) return;
+  if(!FURSAN_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  const name=FURSAN_TARGET, criterion=FURSAN_CRITERIA[i], key=fursanKey(name);
+  try{
+    await FURSAN_DB.ref('scores/'+key).transaction(v=>(Number(v)||0)+2);
+    try{
+      await FURSAN_DB.ref('awardLogs/'+key).push().set({
+        student:name, criterionIndex:i+1, criterion, delta:2,
+        teacher:FURSAN_AUTH.currentUser.uid||'',
+        ts:firebase.database.ServerValue.TIMESTAMP
+      });
+    }catch(logErr){ console.warn('تعذر حفظ سجل المعيار',logErr); }
+    closeOv('mFursanCrit'); FURSAN_TARGET='';
+  }catch(e){ alert('تعذر منح النقاط: '+e.message); }
+}
+async function adjustFursanScore(name,delta){
+  if(!FURSAN_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  const key=fursanKey(name);
+  try{
+    await FURSAN_DB.ref('scores/'+key).transaction(v=>Math.max(0,(Number(v)||0)+delta));
+    try{
+      await FURSAN_DB.ref('awardLogs/'+key).push().set({
+        student:name, criterion:'تصحيح يدوي', delta,
+        teacher:FURSAN_AUTH.currentUser.uid||'',
+        ts:firebase.database.ServerValue.TIMESTAMP
+      });
+    }catch(logErr){ console.warn('تعذر حفظ سجل التصحيح',logErr); }
+  }catch(e){ alert('تعذر تعديل النقاط: '+e.message); }
+}
+function drawFursanTeacher(){
+  const el=$('fursanTeacherList'); if(!el) return;
+  const q=norm(($('fursanTeacherSearch')&&$('fursanTeacherSearch').value)||'');
+  const all=fursanRows(), rows=all.filter(n=>!q||norm(n).includes(q));
+  el.innerHTML=rows.map(n=>{ const rank=all.indexOf(n)+1; const j=JSON.stringify(n).replace(/</g,'\\u003c'); return `<div class="fursan-teacher-row"><b style="text-align:center;color:var(--g)">${ar(rank)}</b><span style="font-weight:900">${esc(n)}</span><span class="tag gold" style="text-align:center">⭐ ${ar(fursanScore(n))}</span><span class="actions"><button class="btn g sm" onclick='openFursanCriteria(${j})'>⭐ نقاط إضافية +٢</button><button class="btn o sm" onclick='adjustFursanScore(${j},1)'>+١</button><button class="btn d sm" onclick='adjustFursanScore(${j},-1)'>−١</button></span></div>`; }).join('') || '<div class="note">لا يوجد طالب مطابق للبحث.</div>';
+}
+
+/* ── التنقل ── */
+function go(p){
+  document.querySelectorAll('.page').forEach(x => x.style.display = 'none');
+  const el = $(p); if (el) el.style.display = 'block';
+  document.querySelectorAll('#nav button').forEach(b => b.classList.toggle('on', b.dataset.p === p));
+  ({ home:drawHome, lessons:drawLessons, exams:drawExams, review:drawReview, labs:drawLabs,
+     board:drawBoard, me:drawMe, teacher:drawTeacher }[p] || (()=>{}))();
+  try{ window.scrollTo({ top:0, behavior:'smooth' }); }catch(e){}
+}
+function openOv(id){ $(id).classList.add('on'); }
+/* ══════ 🔒 البوابة: لا محتوى قبل الدخول ══════ */
+const authed = () => !!(S.student || S.teacher);
+function applyGate(){
+  const lock = !authed();
+  document.body.classList.toggle('gated', lock);
+  const t = (id, on) => { const e = $(id); if (e) e.classList.toggle('hide', !on); };
+  t('gateNote', lock);
+  if (lock) openOv('mWho');
+}
+function closeOv(id){
+  if (id === 'mWho' && !S.student && !S.teacher) return;   /* لا تُغلق البوابة إلا بعد دخول طالب صحيح أو معلم موثّق */
+  $(id).classList.remove('on'); if (id === 'mLesson' || id === 'mDaily') { stopSpeak(); drawLessons(); refresh(); } }
+
+/* ══════════ محرّك الأسئلة ══════════ */
+const QS = {};   /* حالة العرض لكل سؤال */
+
+function qHTML(key, n){
+  const q = QI[key].q, tp = q.t;
+  const label = { m:'اختيار من متعدد', b:'صواب أو خطأ', f:'أكمل الفراغ' }[tp];
+  let body = '';
+  if (tp === 'm'){
+    const opts = shuffle(q.o.map((t, i) => ({ t, ok:i === 0, why:i > 0 ? (q.x && q.x[i-1]) || '' : '' })));
+    QS[key] = { opts };
+    body = opts.map((o, i) => `<button class="opt" data-i="${i}" onclick="pick('${key}',${i},this)">${esc(o.t)}</button>`).join('');
+  } else if (tp === 'b'){
+    QS[key] = { opts:[{ t:'صواب ✓', ok:q.a === true }, { t:'خطأ ✕', ok:q.a === false }] };
+    body = `<div class="tf">${QS[key].opts.map((o,i)=>`<button class="opt" data-i="${i}" onclick="pick('${key}',${i},this)">${esc(o.t)}</button>`).join('')}</div>`;
+  } else {
+    QS[key] = { opts:[] };
+    body = `<div class="fill"><input class="inp" id="fi_${cssid(key)}" placeholder="اكتب الكلمة الناقصة"
+      onkeydown="if(event.key==='Enter')checkFill('${key}')"><button class="btn p" onclick="checkFill('${key}')">تحقّق</button></div>`;
+  }
+  return `<div class="q" id="q_${cssid(key)}" data-key="${key}">
+    <div class="qHead"><b class="qt">${ar(n)}. ${esc(q.q)}</b><span class="qType ${tp}">${label}</span></div>
+    <div class="qBody">${body}</div><div class="fb" id="fb_${cssid(key)}"></div></div>`;
+}
+const cssid = k => k.replace('#','_');
+
+function pick(key, i, btn){
+  const box = $('q_' + cssid(key)); if (!box || box.dataset.done) return;
+  box.dataset.done = '1';
+  const st = QS[key], o = st.opts[i], right = !!o.ok;
+  box.querySelectorAll('.opt').forEach((b, j) => { b.disabled = true; if (st.opts[j].ok) b.classList.add('right'); });
+  if (!right) btn.classList.add('wrong');
+  finish(key, right, right ? '' : (o.why || ''));
+}
+function checkFill(key){
+  const box = $('q_' + cssid(key)); if (!box || box.dataset.done) return;
+  const inp = $('fi_' + cssid(key)); const v = inp.value.trim();
+  if (!v) { inp.focus(); return; }
+  box.dataset.done = '1'; inp.disabled = true;
+  box.querySelector('.btn').disabled = true;
+  const right = QI[key].q.a.some(a => core(a) === core(v));
+  finish(key, right, right ? '' : 'الإجابة الصحيحة: <b>' + esc(QI[key].q.a[0]) + '</b>');
+}
+function finish(key, right, extra){
+  const box = $('q_' + cssid(key)), fb = $('fb_' + cssid(key)), q = QI[key].q;
+  box.classList.add(right ? 'ok' : 'no');
+  fb.className = 'fb show ' + (right ? 'y' : 'n');
+  fb.innerHTML = (right ? '✅ إجابة صحيحة' : '❌ ليست صحيحة') +
+    (extra ? '<span class="why">' + extra + '</span>' : '') +
+    (q.w ? '<span class="why">💡 ' + esc(q.w) + '</span>' : '');
+
+  if (!S.earned['seen:' + key]) { S.earned['seen:' + key] = 1; S.total++; if (right) S.right++; }
+  if (right && !S.earned['pts:' + key]) {
+    S.earned['pts:' + key] = 1;
+    const src = (QI[key] && QI[key].src) ? QI[key].src : 'سؤال العلوم';
+    awardFursanAuto('question', key, 'إجابة صحيحة — ' + src).then(got=>{
+      if(got && fb && !fb.querySelector('.fursan-auto-gain'))
+        fb.insertAdjacentHTML('beforeend','<span class="why fursan-auto-gain">⭐ +٢ نقطة في فرسان العلوم</span>');
+    });
+  }
+  /* صندوق الأخطاء */
+  if (!right) S.wrong[key] = { b:1, due:addDays(today(), 1) };
+  else if (S.wrong[key]) {
+    const b = S.wrong[key].b + 1;
+    if (b > 3) delete S.wrong[key];
+    else S.wrong[key] = { b, due:addDays(today(), b === 2 ? 3 : 7) };
+  }
+  checkBadges(); save(); refresh();
+  document.dispatchEvent(new CustomEvent('answered', { detail:{ key, right } }));
+}
+
+/* ══════════ الرئيسية ══════════ */
+function drawHome(){
+  drawBoard();
+  const pct = u => { const ks = unitBank(u).filter(k => k[0] === 'L');
+    const d = ks.filter(k => S.earned['pts:' + k]).length; return ks.length ? Math.round(d / ks.length * 100) : 0; };
+  $('trail').innerHTML = '<div class="trailIn">' + UNITS.map(u => {
+    const p = pct(u.id), cls = p >= 90 ? 'done' : p > 0 ? 'part' : '';
+    const short = u.name.replace(/^الوحدة\s+\S+:\s*/, '');
+    return `<button class="stn ${cls}" onclick="openUnit(${u.id})" title="${esc(u.name)}">
+      <span class="dot">${p >= 90 ? '★' : ar(u.id)}</span><b>${esc(short)}</b><small>${ar(p)}٪</small></button>`;
+  }).join('') + '</div>';
+  const due = dueKeys().length;
+  $('reviewBell').classList.toggle('hide', due === 0);
+  if (due) $('reviewBellTxt').textContent = 'لديك ' + ar(due) + ' سؤالًا في صندوق الأخطاء اليوم';
+  refresh();
+}
+function openUnit(id){ go('lessons'); $('fUnit').value = id; drawLessons(); }
+
+function refresh(){
+  const acc = S.total ? Math.round(S.right / S.total * 100) : 0;
+  const set = (id, v) => { const e = $(id); if (e) e.textContent = v; };
+  set('stPts', ar(S.pts)); set('stLsn', ar(S.viewed.length)); set('stAcc', ar(acc) + '٪'); set('stBdg', ar(S.badges.length));
+  set('mePts', ar(S.pts)); set('meLsn', ar(S.viewed.length)); set('meAcc', ar(acc) + '٪');
+}
+
+/* ══════════ الدروس ══════════ */
+function drawLessons(){
+  const qv = norm($('q').value), t = +$('fTerm').value, u = +$('fUnit').value;
+  const list = LESSONS.filter(l => (!t || l.term === t) && (!u || l.u === u) &&
+    (!qv || norm([l.t, l.unit, l.ch, l.s].join(' ')).includes(qv)));
+  $('lessonGrid').innerHTML = list.length ? list.map(l => {
+    const sc = S.lsnScore[l.id], op = lessonOpen(l.id);
+    return `<article class="card lsn${op ? '' : ' locked'}">
+      <button class="fav" onclick="fav(${l.id})" aria-label="مفضلة">${S.fav.includes(l.id) ? '★' : '☆'}</button>
+      <div class="row" style="gap:5px"><span class="tag">${l.term === 1 ? 'ف١' : 'ف٢'}</span>
+        <span class="tag">درس ${ar(l.id)}</span>
+        ${op ? '' : '<span class="tag">🔒 مقفل</span>'}
+        ${sc != null ? `<span class="done-chip">${ar(sc)}/١٠</span>` : ''}</div>
+      <h4>${op ? '' : '🔒 '}${esc(l.t)}</h4><div class="sm">${esc(l.unit)}</div>
+      <p>${op ? esc(l.s) : 'هذا الدرس مقفل. يُعطيك المعلم رمز فتحه عند انتهاء الحصة.'}</p>
+      ${op ? `<button class="btn p" style="width:100%" onclick="openLesson(${l.id})">فتح الدرس ←</button>`
+           : `<div class="lockBox">
+                <input class="inp" id="lk${l.id}" inputmode="numeric" autocomplete="off" placeholder="رمز الدرس" onkeydown="if(event.key==='Enter')tryUnlock(${l.id})">
+                <button class="btn g" onclick="tryUnlock(${l.id})">🔓 فتح</button>
+              </div>
+              <div class="fb" id="lkm${l.id}"></div>`}
+    </article>`; }).join('')
+    : '<div class="card" style="grid-column:1/-1;text-align:center">لا توجد نتائج مطابقة. جرّب كلمة أخرى.</div>';
+  const p = Math.round(S.viewed.length / LESSONS.length * 100);
+  $('lsnPct').textContent = ar(p) + '٪ مكتمل'; $('lsnBar').style.width = p + '%';
+}
+function fav(id){ S.fav = S.fav.includes(id) ? S.fav.filter(x => x !== id) : S.fav.concat(id); save(); drawLessons(); }
+
+let curLesson = null;
+function openLesson(id){
+  const l = LESSONS.find(x => x.id === id); if (!l) return;
+  if (!lessonOpen(id)) { alert('هذا الدرس مقفل. اطلب رمز الدرس من معلمك.'); return; }
+  curLesson = l;
+  if (!S.viewed.includes(id)) {
+    S.viewed.push(id);
+    if (!S.earned['open:' + id]) { S.earned['open:' + id] = 1; }
+    checkBadges(); save();
+    awardFursanAuto('lesson', id, 'فتح الدرس لأول مرة — ' + l.t);
+  }
+  $('lmUnit').textContent = l.unit + ' • ' + l.ch;
+  $('lmTitle').textContent = l.t;
+  $('lmSum').textContent = l.s;
+  $('lmLoc').classList.toggle('hide', !l.loc); if (l.loc) $('lmLoc').textContent = '🌊 ' + l.loc;
+  $('lmBul').innerHTML = l.b.map(x => '<li>' + esc(x) + '</li>').join('');
+  $('lmQuiz').innerHTML = l.q.map((q, i) => qHTML('L' + l.id + '#' + i, i + 1)).join('');
+  lsnScoreView(l);
+  openOv('mLesson');
+}
+function lsnScoreView(l){
+  const keys = l.q.map((q, i) => 'L' + l.id + '#' + i);
+  const done = keys.filter(k => S.earned['pts:' + k]).length;
+  $('lmScore').textContent = ar(done) + ' / ١٠';
+  S.lsnScore[l.id] = done; save();
+}
+document.addEventListener('answered', e => { if (curLesson && e.detail.key.startsWith('L' + curLesson.id + '#')) lsnScoreView(curLesson); });
+
+/* ══════════ اختبارات الوحدات ══════════ */
+function drawExams(){
+  $('examList').innerHTML = UNITS.map(u => {
+    const best = S.examScore[u.id], op = unitOpen(u.id);
+    const rem = LESSONS.filter(l => l.u === u.id && !lessonOpen(l.id)).length;
+    return `<div class="card"><div class="row" style="justify-content:space-between">
+      <b style="font-size:.98rem">${op ? '' : '🔒 '}${esc(u.name)}</b>
+      ${best != null ? `<span class="tag gold">أفضل نتيجة ${ar(best)}/٣٠</span>` : '<span class="tag">لم يُختبر</span>'}</div>
+      <p class="muted" style="margin:6px 0 10px">${op
+        ? '٣٠ سؤالًا مختارًا من بنك الوحدة (' + ar(unitBank(u.id).length) + ' سؤالًا).'
+        : 'يُفتح اختبار الوحدة بعد فتح جميع دروسها — بقي ' + ar(rem) + ' درسًا مقفلًا.'}</p>
+      ${op ? `<button class="btn g" onclick="startExam(${u.id})">ابدأ الاختبار</button>`
+           : `<button class="btn o" disabled style="opacity:.6">🔒 مقفل</button>`}</div>`; }).join('');
+}
+let curExam = null;
+function startExam(uid){
+  if (!unitOpen(uid)) { alert('اختبار الوحدة يُفتح بعد فتح جميع دروس الوحدة.'); return; }
+  const keys = shuffle(unitBank(uid)).slice(0, 30);
+  curExam = { uid, keys };
+  $('examArea').innerHTML = `<div class="card"><div class="sec" style="margin:0 0 8px">
+      <h3 style="font-size:1.05rem">${esc(UNITS.find(u=>u.id===uid).name)}</h3><span class="tag" id="exProg">٠ / ٣٠</span></div>
+    <div id="exQ">${keys.map((k, i) => qHTML(k, i + 1)).join('')}</div>
+    <button class="btn g" style="width:100%;margin-top:12px" onclick="endExam()">إنهاء الاختبار وعرض النتيجة</button></div>`;
+  try{ $('examArea').scrollIntoView({ behavior:'smooth' }); }catch(e){}
+}
+document.addEventListener('answered', () => { if (curExam) { const d = curExam.keys.filter(k => $('q_' + cssid(k)) && $('q_' + cssid(k)).dataset.done).length;
+  const e = $('exProg'); if (e) e.textContent = ar(d) + ' / ٣٠'; } });
+function endExam(){
+  if (!curExam) return;
+  const right = curExam.keys.filter(k => { const b = $('q_' + cssid(k)); return b && b.classList.contains('ok'); }).length;
+  const prev = S.examScore[curExam.uid];
+  if (prev == null || right > prev) S.examScore[curExam.uid] = right;
+  checkBadges(); save();
+  const pct = Math.round(right / 30 * 100);
+  const msg = pct >= 85 ? 'ممتاز! أتقنت الوحدة 🌟' : pct >= 60 ? 'جيد — راجع الأسئلة التي أخطأت فيها في صندوق الأخطاء.' : 'تحتاج إلى مراجعة الدروس مرة أخرى، وستتحسن بإذن الله.';
+  $('examArea').insertAdjacentHTML('beforeend',
+    `<div class="card scoreCard" style="margin-top:12px"><div class="big">${ar(right)} / ٣٠</div>
+     <p style="margin:6px 0 0">${msg}</p>
+     <div class="row" style="justify-content:center;margin-top:12px">
+       <button class="btn o sm" onclick="go('review')">صندوق الأخطاء</button>
+       <button class="btn o sm" onclick="startExam(${curExam.uid})">إعادة الاختبار</button></div></div>`);
+  curExam = null; refresh(); drawExams();
+  try{ window.scrollTo({ top:document.body.scrollHeight, behavior:'smooth' }); }catch(e){}
+}
+
+/* ══════════ صندوق الأخطاء ══════════ */
+const dueKeys = () => Object.keys(S.wrong).filter(k => QI[k] && S.wrong[k].due <= today());
+function drawReview(){
+  const due = dueKeys(), later = Object.keys(S.wrong).filter(k => QI[k] && S.wrong[k].due > today());
+  if (!due.length){
+    $('reviewArea').innerHTML = `<div class="card scoreCard"><div style="font-size:2.6rem">🎉</div>
+      <b>لا توجد أسئلة للمراجعة اليوم</b>
+      <p class="muted" style="margin-top:6px">${later.length ? 'لديك ' + ar(later.length) + ' سؤالًا مجدولًا لأيام قادمة.' : 'صندوق أخطائك فارغ تمامًا — أحسنت!'}</p></div>`;
+    return;
+  }
+  $('reviewArea').innerHTML = `<div class="card">
+    <div class="note warn">راجع ${ar(due.length)} سؤالًا. الإجابة الصحيحة تؤجّل السؤال، والخطأ يعيده غدًا.</div>
+    ${shuffle(due).map((k, i) => `<div class="muted" style="margin-top:12px;font-size:.76rem">${esc(QI[k].src)}</div>` + qHTML(k, i + 1)).join('')}
+    <button class="btn o" style="width:100%;margin-top:10px" onclick="drawReview()">تحديث القائمة</button></div>`;
+}
+
+/* ══════════ المختبر: تنبّأ ← لاحظ ← فسّر ══════════ */
+const LABS = [
+ {
+  "id": "cel",
+  "ls": 1,
+  "ic": "🔬",
+  "t": "خليتان تحت المجهر",
+  "p": "قارنّا خلية من ورقة نبات بخلية من جلد حيوان تحت المجهر. ما الفرق المتوقع؟",
+  "o": [
+   "خلية النبات لها جدار خلوي وأجسام خضراء، وخلية الحيوان ليس فيها ذلك",
+   "الخليتان متطابقتان تمامًا",
+   "خلية الحيوان أكبر دائمًا ولها جدار خلوي"
+  ],
+  "obs": "الملاحظة: خلايا الورقة منتظمة الشكل بحدود واضحة وبداخلها أجسام خضراء، وخلايا الجلد مستديرة لينة بلا لون أخضر.",
+  "exp": "التفسير: الجدار الخلوي يعطي الخلية النباتية شكلًا ثابتًا، والبلاستيدات الخضراء تصنع الغذاء. أما الغشاء والنواة والسيتوبلازم فتوجد في الخليتين معًا."
+ },
+ {
+  "id": "srt",
+  "ls": 2,
+  "ic": "🗂️",
+  "t": "صنّف الأزرار",
+  "p": "أعطينا كل مجموعة كيسًا من الأزرار المختلفة وطلبنا تقسيمها إلى مجموعتين. ما المتوقع؟",
+  "o": [
+   "تختلف طرق التقسيم بين المجموعات وتكون كلها صحيحة",
+   "توجد طريقة واحدة صحيحة فقط",
+   "لا يمكن تقسيمها إطلاقًا"
+  ],
+  "obs": "الملاحظة: مجموعة قسّمت حسب اللون، وأخرى حسب الحجم، وثالثة حسب عدد الثقوب.",
+  "exp": "التفسير: التصنيف يعتمد على الصفة التي نختارها. ولهذا اتفق العلماء على صفات محددة — مثل وجود العمود الفقري — حتى يكون التصنيف موحّدًا بينهم."
+ },
+ {
+  "id": "inv",
+  "ls": 3,
+  "ic": "🐛",
+  "t": "أين العمود الفقري؟",
+  "p": "قارنّا دودة أرض بسمكة صغيرة. في أيهما نتوقع أن نجد سلسلة عظام على طول الظهر؟",
+  "o": [
+   "في السمكة فقط، أما الدودة فجسمها لين بلا عمود فقري",
+   "في كليهما",
+   "في الدودة فقط"
+  ],
+  "obs": "الملاحظة: جسم الدودة لين يتلوى في كل اتجاه، وفي السمكة نتحسس سلسلة صلبة على طول الظهر.",
+  "exp": "التفسير: اللافقاريات كالديدان والحشرات والرخويات لا تملك عمودًا فقريًا، وبعضها يستعيض عنه بهيكل خارجي صلب مثل المفصليات."
+ },
+ {
+  "id": "vrt",
+  "ls": 4,
+  "ic": "🦇",
+  "t": "الخفاش... طائر أم ثديي؟",
+  "p": "الخفاش يطير مثل الطيور. إلى أي مجموعة نتوقع أن ينتمي؟",
+  "o": [
+   "الثدييات، لأنه يرضع صغاره الحليب وجسمه مغطى بالشعر",
+   "الطيور، لأنه يطير",
+   "الزواحف، لأنه ينام معلقًا"
+  ],
+  "obs": "الملاحظة: الخفاش ليس له ريش، وجسمه مغطى بشعر، وأنثاه ترضع صغارها.",
+  "exp": "التفسير: التصنيف يعتمد على الصفات الأساسية لا على السلوك. الريش صفة الطيور، والشعر والرضاعة صفة الثدييات، لذلك الخفاش ثديي وإن كان يطير."
+ },
+ {
+  "id": "sys",
+  "ls": 5,
+  "ic": "🫀",
+  "t": "النبض بعد الجري",
+  "p": "نقيس نبض الطالب قبل الجري في مكانه دقيقة، ثم بعده مباشرة. ما المتوقع؟",
+  "o": [
+   "يزيد النبض ويزيد معه عدد مرات التنفس",
+   "يزيد النبض وحده دون تغير في التنفس",
+   "لا يتغير شيء"
+  ],
+  "obs": "الملاحظة: النبض يرتفع بوضوح، والتنفس يصبح أسرع وأعمق، ثم يعودان تدريجيًا بعد الراحة.",
+  "exp": "التفسير: العضلات تحتاج غذاءً وأكسجين أكثر أثناء الجهد، فيسرع الجهاز التنفسي إدخال الهواء ويسرع الجهاز الدوري نقل الدم. الأجهزة تعمل معًا لا منفردة."
+ },
+ {
+  "id": "plt",
+  "ls": 6,
+  "ic": "🌱",
+  "t": "ماذا يحتاج النبات؟",
+  "p": "ثلاث نبتات: الأولى ماء وضوء، والثانية ماء في الظلام، والثالثة ضوء بلا ماء. أيها ينمو؟",
+  "o": [
+   "الأولى فقط",
+   "كلها تنمو بالتساوي",
+   "الثانية لأن الظلام يريح النبات"
+  ],
+  "obs": "الملاحظة: بعد أسبوع، الأولى خضراء قوية، والثانية شاحبة ضعيفة، والثالثة ذابلة.",
+  "exp": "التفسير: النبات يحتاج الماء والضوء معًا ليصنع غذاءه في البلاستيدات الخضراء. غياب أحدهما يوقف صنع الغذاء مهما توفّر الآخر — والماء والضوء عاملان لاحيويان في النظام البيئي."
+ },
+ {
+  "id": "chn",
+  "ls": 7,
+  "ic": "🌾",
+  "t": "ماذا لو اختفى العشب؟",
+  "p": "سلسلة غذائية: عشب ← أرنب ← ثعلب. إذا جفّ العشب، ما المتوقع؟",
+  "o": [
+   "تقل أعداد الأرانب أولًا ثم تقل أعداد الثعالب",
+   "لا يتأثر شيء لأن الثعلب لا يأكل العشب",
+   "تزيد أعداد الأرانب لأنها تتحرر من القيود"
+  ],
+  "obs": "الملاحظة على نموذج البطاقات: عند سحب بطاقات العشب يضطر الأرنب للبحث بعيدًا، ثم يقلّ غذاء الثعلب.",
+  "exp": "التفسير: الطاقة تنتقل في السلسلة من المنتِج (العشب) إلى المستهلكات. أي نقص في أول السلسلة يصل أثره إلى كل من بعده، حتى لو لم يأكل العشب مباشرة."
+ },
+ {
+  "id": "pnd",
+  "ls": 8,
+  "ic": "🌧️",
+  "t": "بركة يجفّ نصفها",
+  "p": "بركة صغيرة فيها أسماك وطيور ونباتات، جفّ نصف مائها في الصيف. ما المتوقع؟",
+  "o": [
+   "يزداد التنافس على الماء والغذاء، فتقل الأعداد أو تنتقل إلى أماكن أخرى",
+   "يبقى كل شيء كما هو",
+   "تزداد أعداد الأسماك لأن المكان صار أدفأ"
+  ],
+  "obs": "الملاحظة: تتزاحم الأسماك في مساحة أضيق، وتغادر بعض الطيور، وتذبل النباتات على الحواف.",
+  "exp": "التفسير: تغيّر عامل لاحيوي واحد — وهو الماء — يغيّر النظام البيئي كله. بعض المخلوقات تتكيف، وبعضها ينتقل، وبعضها يقل عدده."
+ },
+ {
+  "id": "ill",
+  "ls": 9,
+  "ic": "🩺",
+  "t": "أيها ينتقل بالعدوى؟",
+  "p": "بطاقات لأربع حالات: الزكام، وتسوّس الأسنان، وجدري الماء، والربو. أيها ينتقل من شخص إلى آخر؟",
+  "o": [
+   "الزكام وجدري الماء فقط",
+   "كلها تنتقل بالعدوى",
+   "لا شيء منها ينتقل"
+  ],
+  "obs": "الملاحظة عند ترتيب البطاقات: حالتان سببهما مسبب مرضي ينتقل، وحالتان لا تنتقلان بالمخالطة.",
+  "exp": "التفسير: ليست كل الأمراض معدية. المرض المعدي سببه مسبب مرضي ينتقل، أما التسوّس فسببه بقايا الطعام والأحماض، والربو حالة في الجهاز التنفسي لا تنتقل بالمخالطة."
+ },
+ {
+  "id": "hnd",
+  "ls": 10,
+  "ic": "🧼",
+  "t": "المصافحة اللامعة",
+  "p": "وضعنا قليلًا من مسحوق لامع على يد طالب واحد فقط، ثم صافح ثلاثة من زملائه وصافحوا غيرهم. ما المتوقع بعد دقائق؟",
+  "o": [
+   "يظهر اللمعان على أيدي كثيرين وعلى مقابض الأبواب",
+   "يبقى على يد الطالب الأول فقط",
+   "يختفي تمامًا بعد أول مصافحة"
+  ],
+  "obs": "الملاحظة: بقع لامعة على أيدي معظم الصف وعلى الأشياء التي لمسوها، مع أن المصدر يد واحدة.",
+  "exp": "التفسير: المسحوق يحاكي انتقال مسببات المرض باللمس. وغسل اليدين بالماء والصابون نحو ٢٠ ثانية يزيل معظمها، ولهذا يقلّ انتشار العدوى بغسل اليدين وتغطية الفم عند السعال."
+ },
+ {
+  "id": "egg",
+  "ls": 11,
+  "ic": "🥚",
+  "t": "البيضة في الخل",
+  "p": "وضعنا بيضة في كوب خل يومًا كاملًا. قشرة البيضة تشبه مينا السن. ما المتوقع؟",
+  "o": [
+   "تتآكل القشرة وتصبح لينة",
+   "تزداد القشرة صلابة",
+   "لا يتغير شيء"
+  ],
+  "obs": "الملاحظة: فقاعات تتصاعد من القشرة، وبعد يوم تصبح البيضة لينة مطاطية.",
+  "exp": "التفسير: الحمض يذيب المادة الصلبة في القشرة، وهذا يشبه ما تفعله الأحماض الناتجة عن بقايا السكر بمينا الأسنان. تنظيف الأسنان يزيل البقايا قبل أن تتكوّن الأحماض."
+ },
+ {
+  "id": "std",
+  "ls": 12,
+  "ic": "🍞",
+  "t": "كاشف النشا",
+  "p": "قطرة من محلول اليود على قطعة خبز وأخرى على قطعة لحم — بإشراف المعلم ودون تذوّق. ما المتوقع؟",
+  "o": [
+   "يتحول لون اليود إلى أزرق داكن على الخبز فقط",
+   "يتحول اللون على الاثنين",
+   "لا يتغير اللون إطلاقًا"
+  ],
+  "obs": "الملاحظة: بقعة زرقاء داكنة تظهر على الخبز، بينما يبقى لون اليود على اللحم بنيًا كما هو.",
+  "exp": "التفسير: اليود كاشف للنشا، والنشا من الكربوهيدرات التي تمدّ الجسم بالطاقة وتكثر في الخبز والأرز. أما اللحم فغني بالبروتين الذي يبني الأنسجة — ولهذا نحتاج غذاءً متنوعًا."
+ },
+ {
+  "id": "scr",
+  "ls": 13,
+  "ic": "🪨",
+  "t": "اختبار الخدش",
+  "p": "حاولنا خدش قطعة جبس وقطعة كوارتز بمسمار حديد. ما المتوقع؟",
+  "o": [
+   "يُخدش الجبس ولا يُخدش الكوارتز",
+   "يُخدش الاثنان بسهولة",
+   "لا يُخدش أي منهما"
+  ],
+  "obs": "الملاحظة: المسمار يترك أثرًا واضحًا على الجبس، ولا يترك أثرًا على الكوارتز.",
+  "exp": "التفسير: الصلادة خاصية مميزة للمعادن؛ المعدن الأقسى يخدش الألين ولا يُخدش به. ويستخدم العلماء اختبارات كالصلادة واللون والبريق والمخدش للتعرف على المعادن."
+ },
+ {
+  "id": "cyc",
+  "ls": 14,
+  "ic": "💧",
+  "t": "دورة الماء في كيس",
+  "p": "ماء ملوّن داخل كيس شفاف مغلق، علّقناه على نافذة مشمسة. ما المتوقع بعد ساعات؟",
+  "o": [
+   "قطرات ماء صافية تتكوّن أعلى الكيس ثم تنزل",
+   "يختفي الماء من الكيس نهائيًا",
+   "يزداد الماء الملوّن في القاع"
+  ],
+  "obs": "الملاحظة: قطرات صغيرة صافية على جدار الكيس من الداخل، تكبر ثم تنزلق إلى الأسفل.",
+  "exp": "التفسير: حرارة الشمس بخّرت الماء (تبخّر)، فبرد البخار على جدار الكيس وتحوّل إلى قطرات (تكاثف)، ثم سقطت (هطول). والقطرات صافية لأن البخار يترك الملوّن خلفه — ولهذا يعود الماء نقيًا في دورته."
+ },
+ {
+  "id": "day",
+  "ls": 15,
+  "ic": "🌍",
+  "t": "لماذا يتعاقب الليل والنهار؟",
+  "p": "أضأنا مصباحًا ثابتًا على كرة أرضية عليها ملصق صغير لمدينتنا، ثم أدرنا الكرة حول نفسها. ما المتوقع؟",
+  "o": [
+   "يضيء نصف الكرة فقط، والملصق يدخل الضوء ثم الظل مع الدوران",
+   "تضيء الكرة كلها في وقت واحد",
+   "يتغير الضوء فقط عندما نبعد الكرة عن المصباح"
+  ],
+  "obs": "الملاحظة: نصف الكرة مضيء ونصفها مظلم دائمًا، والملصق يمر من المنطقة المضيئة إلى المظلمة مع كل دورة.",
+  "exp": "التفسير: الليل والنهار سببهما دوران الأرض حول محورها، لا بُعدها عن الشمس. وهذا خطأ شائع: كثيرون يظنون أن الليل يحدث لأن الأرض تبتعد عن الشمس."
+ },
+ {
+  "id": "sol",
+  "ls": 16,
+  "ic": "🪐",
+  "t": "المسافات الحقيقية",
+  "p": "مثّلنا النظام الشمسي بخيط طوله عشرة أمتار في الفناء، الشمس في أوله ونبتون في آخره. أين نتوقع أن تقع الأرض؟",
+  "o": [
+   "قريبة جدًا من بداية الخيط، والكواكب الخارجية تشغل معظم الطول",
+   "في منتصف الخيط تمامًا",
+   "قريبة من نهاية الخيط"
+  ],
+  "obs": "الملاحظة: الكواكب الأربعة الداخلية تتزاحم في أول متر تقريبًا، بينما تتباعد الكواكب الخارجية على بقية الخيط.",
+  "exp": "التفسير: الرسوم في الكتب تقرّب الكواكب لتظهر في صفحة واحدة، لكنها ليست بمقياس رسم حقيقي. المسافات في النظام الشمسي أكبر بكثير مما توحي به الصور."
+ },
+ {
+  "id": "msr",
+  "ls": 17,
+  "ic": "⚖️",
+  "t": "أي أداة أستخدم؟",
+  "p": "أريد معرفة كمية الماء داخل زجاجة. ما الأداة الصحيحة؟",
+  "o": [
+   "المخبار المدرج",
+   "الميزان",
+   "المسطرة"
+  ],
+  "obs": "الملاحظة: نسكب الماء في المخبار ونقرأ التدريج عند مستوى سطح الماء.",
+  "exp": "التفسير: الحجم يقاس بالمخبار المدرج بالملّيلتر، والكتلة بالميزان بالجرام، والطول بالمسطرة بالسنتيمتر. لكل كمية أداة ووحدة خاصة بها."
+ },
+ {
+  "id": "chg",
+  "ls": 18,
+  "ic": "🧁",
+  "t": "الخل وصودا الخبز",
+  "p": "أضفنا ملعقة صودا خبز إلى كوب فيه خل. ما نوع التغير المتوقع؟",
+  "o": [
+   "تغيّر كيميائي، لأن غازًا جديدًا يتصاعد",
+   "تغيّر فيزيائي مثل ذوبان السكر",
+   "لا يحدث أي تغير"
+  ],
+  "obs": "الملاحظة: فوران ورغوة وفقاعات كثيرة تتصاعد، ويبرد الكوب قليلًا.",
+  "exp": "التفسير: تكوّن الغاز دليل على تكوّن مادة جديدة، وهذا تغيّر كيميائي لا يمكن إرجاعه بسهولة. أما ذوبان الثلج أو تقطيع الورق فتغيّر فيزيائي لأن المادة تبقى هي نفسها."
+ },
+ {
+  "id": "dis",
+  "ls": 19,
+  "ic": "🧪",
+  "t": "هل يذوب؟",
+  "p": "ماذا يحدث لملعقة سكر في كوب ماء بعد التحريك جيدًا؟",
+  "o": [
+   "يذوب فلا نراه، ويبقى طعمه في الماء",
+   "يبقى كما هو مكوّمًا في القاع",
+   "يتحول إلى مادة جديدة غير السكر"
+  ],
+  "obs": "الملاحظة: تختفي حبيبات السكر تدريجيًا ويصبح الماء صافيًا، لكن طعمه يتغير.",
+  "exp": "التفسير: تفرّقت حبيبات السكر بين جسيمات الماء فتكوّن محلول. السكر لم يتحول إلى مادة جديدة، لذلك التغير فيزيائي ويمكن استرجاعه بتبخير الماء. جرّب مع الرمل: لن يذوب لأنه لا يتفرق بين جسيمات الماء."
+ },
+ {
+  "id": "tug",
+  "ls": 20,
+  "ic": "🪢",
+  "t": "شدّ الحبل المتعادل",
+  "p": "فريقان متساويان في القوة يشدّان حبلًا في اتجاهين متعاكسين. ماذا نتوقع للعلامة في منتصف الحبل؟",
+  "o": [
+   "تبقى في مكانها لأن القوتين متزنتان",
+   "تتحرك نحو الفريق الأول",
+   "تتحرك بسرعة في اتجاهين معًا"
+  ],
+  "obs": "الملاحظة: الحبل مشدود بقوة والجميع يبذل جهدًا، ومع ذلك لا تتحرك العلامة، حتى يضعف أحد الفريقين فتتحرك نحو الأقوى.",
+  "exp": "التفسير: وجود قوة لا يعني بالضرورة حدوث حركة. القوى المتزنة — المتساوية المتعاكسة — لا تغيّر حركة الجسم، والقوى غير المتزنة هي التي تحرّكه في اتجاه القوة الأكبر."
+ },
+ {
+  "id": "fri",
+  "ls": 21,
+  "ic": "🚗",
+  "t": "السجاد أم البلاط؟",
+  "p": "دحرجنا سيارة لعبة بالدفعة نفسها مرة على البلاط ومرة على السجاد. أين تقطع مسافة أطول؟",
+  "o": [
+   "على البلاط، لأن الاحتكاك عليه أقل",
+   "على السجاد، لأن سطحه أنعم",
+   "المسافة نفسها في الحالتين"
+  ],
+  "obs": "الملاحظة: السيارة تنزلق بعيدًا على البلاط، وتتوقف بسرعة على السجاد.",
+  "exp": "التفسير: الاحتكاك قوة تقاوم الحركة بين السطحين المتلامسين، ويزداد كلما كان السطح أخشن. ولهذا تتوقف الأجسام المتحركة على الأرض ولا تستمر إلى ما لا نهاية."
+ },
+ {
+  "id": "heat",
+  "ls": 22,
+  "ic": "🌡️",
+  "t": "إلى أين تنتقل الحرارة؟",
+  "p": "وضعنا ملعقة معدنية في كوب شاي ساخن. بعد دقيقة، ماذا يحدث؟",
+  "o": [
+   "يسخن طرف الملعقة الخارجي لأن الحرارة انتقلت من الشاي",
+   "يبرد الشاي فقط ولا تتأثر الملعقة",
+   "تنتقل البرودة من الملعقة إلى الشاي"
+  ],
+  "obs": "الملاحظة: طرف الملعقة البعيد عن الشاي يصبح دافئًا، ودرجة حرارة الشاي تنخفض قليلًا.",
+  "exp": "التفسير: الحرارة تنتقل دائمًا من الأدفأ إلى الأبرد بالتلامس (التوصيل)، حتى تتقارب درجتا الحرارة. ولا يوجد شيء اسمه «انتقال البرودة» — هذا خطأ شائع؛ ما يحدث هو خروج الحرارة لا دخول البرودة."
+ },
+ {
+  "id": "cir",
+  "ls": 23,
+  "ic": "⚡",
+  "t": "الدائرة الكهربائية",
+  "p": "دائرة فيها بطارية ومصباح ومفتاح. إذا فتحنا المفتاح، ماذا يحدث للمصباح؟",
+  "o": [
+   "ينطفئ لأن مسار التيار انقطع",
+   "يضيء أكثر لأن الدائرة صارت مفتوحة",
+   "لا يتغير شيء"
+  ],
+  "obs": "الملاحظة: بمجرد فتح المفتاح ينطفئ المصباح فورًا، وبإغلاقه يضيء.",
+  "exp": "التفسير: التيار يحتاج مسارًا متصلًا كاملًا. الدائرة المغلقة = المسار متصل = المصباح مضيء. والدائرة المفتوحة = المسار مقطوع = المصباح مطفأ. انتبه: كلمة «مفتوحة» في الكهرباء تعني مقطوعة، وهي عكس ما يتبادر للذهن.",
+  "extra": "circuit"
+ },
+ {
+  "id": "mag",
+  "ls": 24,
+  "ic": "🧲",
+  "t": "من ينجذب للمغناطيس؟",
+  "p": "قرّبنا مغناطيسًا من مسمار حديد وملعقة بلاستيك وقطعة نحاس. ما المتوقع؟",
+  "o": [
+   "ينجذب مسمار الحديد فقط",
+   "تنجذب كلها لأنها معادن",
+   "لا ينجذب شيء منها"
+  ],
+  "obs": "الملاحظة: المسمار يقفز نحو المغناطيس، والبلاستيك والنحاس لا يتحركان.",
+  "exp": "التفسير: المغناطيس يجذب الحديد والنيكل والكوبلت فقط. وليس كل معدن مغناطيسيًا — النحاس والألومنيوم معدنان لكنهما لا ينجذبان، وهذا خطأ شائع يقع فيه كثيرون."
+ }
+];
+function drawLabs(){
+  const sel = $('fLabUnit');
+  if (sel && sel.options.length < 2)
+    UNITS.forEach(u => sel.insertAdjacentHTML('beforeend', `<option value="${u.id}">${esc(u.name)}</option>`));
+  const fu = sel ? +sel.value : 0, onlyOpen = $('fLabOpen') && $('fLabOpen').checked;
+  const withLsn = LABS.map(L => ({ L, l:LESSONS.find(x => x.id === L.ls) }))
+    .sort((a, b) => a.L.ls - b.L.ls)
+    .filter(x => (!fu || (x.l && x.l.u === fu)) && (!onlyOpen || lessonOpen(x.L.ls)));
+
+  $('labGrid').innerHTML = withLsn.length ? withLsn.map(({ L, l }) => {
+    const done = S.labs.includes(L.id), op = lessonOpen(L.ls);
+    return `<div class="card lab${op ? '' : ' locked'}" id="lab_${L.id}">
+      <div class="ic">${op ? L.ic : '🔒'}</div>
+      <span class="tag">درس ${ar(L.ls)} • ${esc(l ? l.t : '')}</span>
+      <h4>${esc(L.t)}</h4>
+      ${op ? `<p>${esc(L.p)}</p>
+      <div id="labIn_${L.id}">
+        <div class="poe"><span class="step">١ • تنبّأ</span>
+        ${shuffle(L.o.map((t, i) => ({ t, ok:i === 0 }))).map(o =>
+          `<button class="opt" onclick="labPick('${L.id}',${o.ok},this)">${esc(o.t)}</button>`).join('')}</div>
+      </div>
+      ${done ? '<div class="tag gold" style="margin-top:8px;display:inline-block">أنجزت هذه التجربة</div>' : ''}`
+      : `<p>هذه التجربة مرتبطة بالدرس ${ar(L.ls)}. افتح الدرس برمزه أولًا لتظهر لك التجربة.</p>
+         <button class="btn o sm" onclick="go('lessons')">اذهب إلى الدروس</button>`}
+    </div>`; }).join('')
+    : '<div class="card" style="grid-column:1/-1;text-align:center">لا توجد تجارب مطابقة لهذا التصفية.</div>';
+
+  const dn = LABS.filter(L => S.labs.includes(L.id)).length;
+  const op = LABS.filter(L => lessonOpen(L.ls)).length;
+  const st = $('labStat');
+  if (st) st.textContent = 'أنجزت ' + ar(dn) + ' من ' + ar(LABS.length) + ' تجربة • المتاح لك الآن ' + ar(op);
+}
+function labPick(id, ok, btn){
+  const L = LABS.find(x => x.id === id), box = $('lab_' + id);
+  if (!L || !lessonOpen(L.ls)) return;
+  if (box.dataset.done) return; box.dataset.done = '1';
+  box.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  btn.classList.add(ok ? 'right' : 'wrong');
+  const firstLabSuccess = ok && !S.labs.includes(id);
+  if (firstLabSuccess) {
+    S.labs.push(id);
+    awardFursanAuto('lab', id, 'إنجاز التجربة لأول مرة — ' + L.t);
+  }
+  save(); refresh();
+  let extra = '';
+  if (L.extra === 'circuit')
+    extra = `<div style="margin-top:10px"><div class="lampBox" id="lamp">💡</div>
+      <button class="btn p sm" id="swBtn" onclick="toggleCircuit()">المفتاح: مغلق (يمر التيار)</button></div>`;
+  $('labIn_' + id).insertAdjacentHTML('beforeend',
+    `<div class="poe" style="border-style:solid;background:#eef7f9;border-color:#c3e0e5">
+       <span class="step">٢ • لاحظ</span><div style="font-size:.88rem">${esc(L.obs)}</div>${extra}</div>
+     <div class="poe" style="border-style:solid;background:#fdf7ec;border-color:#eddcb8">
+       <span class="step" style="color:#8a5710">٣ • فسّر</span><div style="font-size:.88rem">${esc(L.exp)}</div></div>
+     <div class="${ok ? 'fb show y' : 'fb show n'}">${ok ? '✅ توقّعك صحيح — أحسنت' : '❌ توقّعك لم يكن صحيحًا — اقرأ التفسير جيدًا'}</div>`);
+}
+function toggleCircuit(){
+  const b = $('swBtn'), lamp = $('lamp');
+  const closed = b.dataset.open !== '1';   /* الحالة الحالية: مغلقة = يمر التيار */
+  if (closed){ b.dataset.open = '1'; b.textContent = 'المفتاح: مفتوح (لا يمر التيار)';
+    lamp.style.opacity = '.25'; lamp.textContent = '🔌'; }
+  else { b.dataset.open = '0'; b.textContent = 'المفتاح: مغلق (يمر التيار)';
+    lamp.style.opacity = '1'; lamp.textContent = '💡'; }
+}
+
+/* ══════════ ملفي والشارات ══════════ */
+const BADGES = [
+ ['b1','🔬','أول درس',       () => S.viewed.length >= 1],
+ ['b5','📚','٥ دروس',        () => S.viewed.length >= 5],
+ ['b12','🗂️','نصف المنهج',   () => S.viewed.length >= 12],
+ ['ball','👑','كل الدروس',    () => S.viewed.length >= LESSONS.length],
+ ['ex1','📋','أول اختبار وحدة',() => Object.keys(S.examScore).length >= 1],
+ ['ex25','🎯','٢٥ من ٣٠',    () => Object.values(S.examScore).some(v => v >= 25)],
+ ['lab','🧪','عالم مختبر',    () => S.labs.length >= LABS.length],
+ ['acc','🎖️','دقة ٨٠٪',     () => S.total >= 20 && S.right / S.total >= .8],
+ ['p100','⭐','١٠٠ نقطة',    () => S.pts >= 100],
+ ['p300','🏆','٣٠٠ نقطة',    () => S.pts >= 300],
+ ['rev','🔁','مراجع مثابر',   () => (S.earned['revCount'] || 0) >= 10],
+ ['day','📅','مهمة اليوم',    () => !!S.daily.done]
+];
+function checkBadges(){ BADGES.forEach(b => { if (b[3]() && !S.badges.includes(b[0])) S.badges.push(b[0]); }); }
+function drawMe(){
+  $('meName').textContent = S.student || 'لم تختر اسمك بعد';
+  const p = Math.round(S.viewed.length / LESSONS.length * 100);
+  $('meBar').style.width = p + '%';
+  $('meBarTxt').textContent = ar(S.viewed.length) + ' من ' + ar(LESSONS.length) + ' درسًا (' + ar(p) + '٪)';
+  checkBadges(); save();
+  $('badgeGrid').innerHTML = BADGES.map(b =>
+    `<div class="bdg ${S.badges.includes(b[0]) ? '' : 'lock'}"><i>${b[1]}</i><b>${esc(b[2])}</b></div>`).join('');
+  refresh();
+}
+function parentReport(){
+  const acc = S.total ? Math.round(S.right / S.total * 100) : 0;
+  const strong = Object.entries(S.examScore).sort((a, b) => b[1] - a[1])[0];
+  const weakKeys = Object.keys(S.wrong).filter(k => QI[k]);
+  const weakUnits = [...new Set(weakKeys.map(k => QI[k].u))].map(u => UNITS.find(x => x.id === u).name);
+  const txt =
+`📘 تقرير الطالب: ${S.student || '—'}
+مادة العلوم — الصف الرابع الابتدائي
+
+• الدروس المنجزة: ${ar(S.viewed.length)} من ${ar(LESSONS.length)}
+• نقاط فرسان العلوم: ${ar(S.pts)}
+• دقة الإجابات: ${ar(acc)}٪
+• الشارات: ${ar(S.badges.length)} من ${ar(BADGES.length)}
+${strong ? '• أفضل اختبار وحدة: ' + ar(strong[1]) + ' من ٣٠' : ''}
+${weakUnits.length ? '• يحتاج مراجعة في: ' + weakUnits.slice(0, 2).join('، ') : '• لا توجد أخطاء معلّقة للمراجعة'}
+
+نشكر متابعتكم — معلم العلوم`;
+  $('prArea').innerHTML = `<div class="card" style="margin-top:12px">
+    <textarea class="inp" id="prTxt" readonly style="min-height:190px">${esc(txt)}</textarea>
+    <div class="row" style="margin-top:9px"><button class="btn p sm" onclick="copyEl('prTxt')">📋 نسخ التقرير</button>
+    <span class="muted">انسخه وأرسله لولي الأمر.</span></div></div>`;
+}
+function copyEl(id){ const t = $(id); t.select(); t.setSelectionRange(0, 99999);
+  if (navigator.clipboard) navigator.clipboard.writeText(t.value); else document.execCommand('copy'); }
+
+/* ══════════ الشهادة ══════════ */
+function certRank(){
+  const p = S.pts;
+  return p >= 300 ? { t:'فارس خبير', s:5, m:'👑' } : p >= 200 ? { t:'فارس متقدّم', s:4, m:'🏆' }
+       : p >= 120 ? { t:'فارس صاعد', s:3, m:'🛡️' } : p >= 60 ? { t:'مستكشف', s:2, m:'🔭' }
+       : { t:'مبتدئ واعد', s:1, m:'🔬' };
+}
+function certHTML(){
+  const acc = S.total ? Math.round(S.right / S.total * 100) : 0;
+  const code = 'FRS-' + hash(S.student + '|' + S.pts + '|' + S.viewed.length).toString(36).toUpperCase();
+  const d = new Date().toLocaleDateString('ar-SA-u-ca-islamic-umalqura');
+  const R = certRank();
+  const stars = '★'.repeat(R.s) + '☆'.repeat(5 - R.s);
+  return `<div class="cert">
+    <div class="cframe">
+    <svg class="cwm" viewBox="0 0 200 200" aria-hidden="true">
+      <g fill="none" stroke="#0b3d5c" stroke-width="5">
+        <ellipse cx="100" cy="100" rx="94" ry="38"/>
+        <ellipse cx="100" cy="100" rx="94" ry="38" transform="rotate(60 100 100)"/>
+        <ellipse cx="100" cy="100" rx="94" ry="38" transform="rotate(120 100 100)"/>
+      </g><circle cx="100" cy="100" r="15" fill="#0b3d5c"/></svg>
+      <span class="cn a"></span><span class="cn b"></span><span class="cn c"></span><span class="cn d"></span>
+      <div class="chead"><span>المملكة العربية السعودية • وزارة التعليم</span><span>${esc($('cSchool').value)}</span></div>
+      <div class="cribbon">شهادة إنجاز</div>
+      <div class="cmedal">${R.m}</div>
+      <p class="cintro">يشهد «مختبر الرازي التفاعلي» بأن الطالب</p>
+      <div class="nm">${esc(S.student || '—')}</div>
+      <p class="cbody">قد خاض رحلة العلوم للصف الرابع الابتدائي بجدٍّ ومثابرة، وأتمّ دروسه وتجاربه بروح الباحث المتسائل،
+        فاستحقّ أن يُدوَّن اسمه بين فرسان مختبر الرازي التفاعلي تقديرًا لاجتهاده.</p>
+      <div class="cstars">${stars}<b>لقب: ${R.t}</b></div>
+      <div class="meta"><span>الدروس: <b>${ar(S.viewed.length)}/${ar(LESSONS.length)}</b></span>
+        <span>النقاط: <b>${ar(S.pts)}</b></span><span>دقة الإجابات: <b>${ar(acc)}٪</b></span>
+        <span>الشارات: <b>${ar(S.badges.length)}</b></span></div>
+      <div class="csig">
+        <div class="sigline">التاريخ<i>${esc(d)}</i></div>
+        <div class="seal"><em>🔬</em>فرسان<br>العلوم</div>
+        <div class="sigline">معلم المادة<i>${esc($('cTeacher').value) || '…………'}</i></div>
+      </div>
+      <div class="code">${code}</div>
+    </div></div>`;
+}
+function makeCert(){
+  if (!S.student) { openWho(); return; }
+  $('certArea').innerHTML = certHTML();
+  $('cPrint').disabled = false;
+}
+function printCert(){ $('printZone').innerHTML = certHTML(); window.print(); }
+function printBoard(){
+  const rows=fursanRows().slice(0,20);
+  $('printZone').innerHTML=`<div style="padding:18px" dir="rtl"><h2 style="text-align:center">⚔️ فرسان العلوم — الصف الرابع</h2><p style="text-align:center;color:#666">مدرسة أبي بكر الرازي الابتدائية</p><table style="width:100%;border-collapse:collapse"><thead><tr><th>#</th><th>الفارس</th><th>اللقب</th><th>النقاط</th></tr></thead><tbody>${rows.map((n,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(n)}</td><td>الفارس ${FURSAN_TITLES[i]||ar(i+1)}</td><td>⭐ ${ar(fursanScore(n))}</td></tr>`).join('')}</tbody></table><p style="margin-top:14px;font-size:.8rem;color:#666">تُضاف نقطتان تلقائيًا لفتح الدرس أول مرة، ولكل إجابة صحيحة أول مرة، ولإنجاز التجربة أول مرة؛ ويمكن للمعلم إضافة نقاط وفق المعايير.</p></div>`;
+  window.print();
+}
+
+/* ══════════ المهمة اليومية ══════════ */
+function startDaily(){
+  const d = today();
+  const r = rng(hash(d));
+  const all = Object.keys(QI).filter(keyOpen);
+  if (!all.length) { alert('افتح درسًا واحدًا على الأقل لتظهر مهمة اليوم.'); return; }
+  const pickd = [];
+  while (pickd.length < 5 && pickd.length < all.length){
+    const k = all[Math.floor(r() * all.length)];
+    if (!pickd.includes(k)) pickd.push(k);
+  }
+  $('dailyDate').textContent = 'أسئلة تتغيّر كل يوم • ' + ar(d);
+  const done = S.daily.d === d;
+  $('dailyArea').innerHTML = (done ? '<div class="note warn">أنجزت مهمة اليوم — يمكنك حلّها مرة أخرى للمراجعة.</div>' : '')
+    + pickd.map((k, i) => qHTML(k, i + 1)).join('');
+  if (!done) { S.daily = { d, done:true }; checkBadges(); save(); }
+  openOv('mDaily');
+}
+
+/* ══════════ لوحة المعلم ══════════ */
+function openPin(){ $('pinIn').value = ''; $('pinMsg').classList.add('hide'); openOv('mPin'); setTimeout(() => $('pinIn').focus(), 50); }
+async function tryPin(){
+  const email = ($('teacherEmail').value || '').trim();
+  const password = $('pinIn').value;
+  const m = $('pinMsg');
+  if (!email || !password) { m.textContent = 'أدخل بريد المعلم وكلمة المرور.'; m.classList.remove('hide'); return; }
+  m.textContent = 'جارٍ التحقق من مختبر العلوم وفرسان العلوم…'; m.classList.remove('hide');
+  let fursanOK=false, labOK=false;
+  try { await FURSAN_AUTH.signInWithEmailAndPassword(email, password); fursanOK=true; } catch(e){}
+  try { await FB_AUTH.signInWithEmailAndPassword(email, password); labOK=true; } catch(e){}
+  if (!fursanOK) {
+    if (labOK) try{ await FB_AUTH.signOut(); }catch(e){}
+    S.teacher = false; save();
+    m.textContent = 'بيانات دخول فرسان العلوم غير صحيحة. استخدم حساب المعلم المسجل في فرسان العلوم.';
+    m.classList.remove('hide'); return;
+  }
+  S.teacher = true; save();
+  closeOv('mPin');
+  closeOv('mWho');
+  applyGate();
+  go('teacher');
+  m.textContent = labOK ? 'تم الربط الكامل.' : 'تم دخول فرسان العلوم. إدارة كشف المختبر تحتاج حسابًا مطابقًا في قاعدة المختبر.';
+  m.classList.add('hide');
+}
+function setPin(){ alert('تم استبدال رمز المعلم بتسجيل دخول Firebase الآمن.'); }
+function drawCodes(){
+  const el = $('codesMode'); if (!el) return;
+  el.textContent = !LOCK.ON ? 'الأقفال معطّلة حاليًا — جميع الدروس مفتوحة للطلاب.'
+    : LOCK.MODE === 'daily' ? 'الرموز تتغيّر تلقائيًا كل يوم — هذه رموز يوم ' + ar(today()) + ' فقط.'
+    : 'رموز ثابتة طوال العام الدراسي.';
+  $('codesTable').innerHTML = LESSONS.map(l =>
+    `<tr><td>${ar(l.id)}</td><td>${esc(l.t)}</td>
+     <td class="codeCell">${isFree(l.id) ? '<span class="tag">مفتوح بلا رمز</span>' : fmtCode(l.id)}</td></tr>`).join('');
+  $('codesTxt').value = LESSONS.map(l =>
+    l.id + '. ' + l.t + ' : ' + (isFree(l.id) ? 'مفتوح بلا رمز' : fmtCode(l.id))).join('\n');
+}
+function printCodes(){
+  $('printZone').innerHTML = `<div style="padding:18px" dir="rtl"><h2 style="text-align:center">🔑 رموز فتح الدروس — مختبر الرازي التفاعلي</h2>
+    <p style="text-align:center;color:#666">للمعلم فقط — لا يُوزَّع على الطلاب</p>
+    <table style="width:100%;border-collapse:collapse"><thead><tr>
+    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">#</th>
+    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">الدرس</th>
+    <th style="border-bottom:2px solid #333;text-align:right;padding:8px">الرمز</th></tr></thead><tbody>
+    ${LESSONS.map(l => `<tr><td style="padding:7px;border-bottom:1px solid #ddd">${ar(l.id)}</td>
+      <td style="padding:7px;border-bottom:1px solid #ddd">${esc(l.t)}</td>
+      <td style="padding:7px;border-bottom:1px solid #ddd;direction:ltr;text-align:left;font-family:monospace;font-weight:700">${isFree(l.id) ? 'مفتوح' : fmtCode(l.id)}</td></tr>`).join('')}
+    </tbody></table></div>`;
+  window.print();
+}
+function drawTeacher(){
+  drawCodes(); drawStCodes(); drawFursanTeacher();
+  $('rosterCount').textContent = ar(ROSTER_NAMES.length) + ' طالبًا';
+  const rm = $('rosterManageTable');
+  if (rm) rm.innerHTML = ROSTER.length ? ROSTER.map((r,i) =>
+    `<tr><td>${ar(i+1)}</td><td>${esc(r[0])}</td><td class="codeCell">${esc(String(r[1]))}</td>
+     <td><button class="btn d sm" onclick="deleteStudentFirebase(${i})">🗑️ حذف</button></td></tr>`).join('')
+    : '<tr><td colspan="4" class="muted">لا يوجد طلاب في الكشف.</td></tr>';
+}
+async function addStudentFirebase(){
+  const nameEl = $('newStudentName'), codeEl = $('newStudentCode'), msg = $('rosterMsg');
+  const name = (nameEl.value || '').trim().replace(/\s+/g,' ');
+  const code = de(codeEl.value || '').replace(/\D/g,'');
+  const show = (t,bad=false) => { msg.textContent=t; msg.className='tag ' + (bad ? 'gold' : 'sea'); };
+  if (!FB_AUTH.currentUser) return show('سجّل دخول المعلم أولًا.', true);
+  if (name.length < 3) return show('اكتب اسم الطالب كاملًا.', true);
+  if (code.length !== 4) return show('رمز الطالب يجب أن يكون ٤ أرقام.', true);
+  if (ROSTER.some(r => norm(r[0]) === norm(name))) return show('هذا الطالب موجود مسبقًا.', true);
+  if (ROSTER.some(r => String(r[1]) === code)) return show('هذا الرمز مستخدم لطالب آخر.', true);
+  const backup = ROSTER.map(r => [...r]);
+  ROSTER.push([name, code]); rebuildRosterMaps(); drawTeacher();
+  try {
+    await saveRosterToFirebase();
+    nameEl.value=''; codeEl.value=''; show('تمت إضافة الطالب وحفظه في Firebase ✓');
+  } catch(e) {
+    ROSTER = backup; rebuildRosterMaps(); drawTeacher(); show('تعذر الحفظ: ' + e.message, true);
+  }
+}
+async function deleteStudentFirebase(i){
+  if (!FB_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا.');
+  const r = ROSTER[i]; if (!r) return;
+  if (!confirm('حذف الطالب «' + r[0] + '» من كشف الدخول؟')) return;
+  const backup = ROSTER.map(x => [...x]);
+  ROSTER.splice(i,1); rebuildRosterMaps(); drawTeacher();
+  try {
+    await saveRosterToFirebase();
+    if (S.student && norm(S.student) === norm(r[0])) { S.student=''; save(); }
+  } catch(e) {
+    ROSTER = backup; rebuildRosterMaps(); drawTeacher();
+    alert('تعذر الحذف من Firebase: ' + e.message);
+  }
+}
+
+function drawStCodes(){
+  const el = $('stCodesTable'); if (!el) return;
+  el.innerHTML = ROSTER.length
+    ? ROSTER.map((r, i) => `<tr><td>${ar(i + 1)}</td><td>${esc(r[0])}</td><td class="codeCell">${esc(String(r[1]))}</td></tr>`).join('')
+    : '<tr><td colspan="3" class="muted">لا توجد أسماء في الكشف.</td></tr>';
+  $('stCodesTxt').value = ROSTER.map(r => r[0] + ' : ' + r[1]).join('\n');
+}
+function exportStCodes(){
+  dl('رموز-دخول-الطلاب.csv', 'الطالب,الرمز\n' + ROSTER.map(r => `${r[0]},${r[1]}`).join('\n'));
+}
+function printStCodes(){
+  if (!ROSTER.length) return alert('كشف الفصل فارغ.');
+  $('printZone').innerHTML = `<div style="padding:12px">
+    <h2 style="text-align:center;margin:0 0 12px">🛡️ رموز دخول مختبر الرازي التفاعلي</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">${ROSTER_NAMES.map(n =>
+      `<div style="border:2px dashed #0e5a83;border-radius:10px;padding:9px;text-align:center">
+        <div style="font-weight:800;font-size:.82rem;line-height:1.35">${esc(n)}</div>
+        <div style="font-family:ui-monospace,monospace;font-size:1.45rem;font-weight:900;letter-spacing:5px;direction:ltr;color:#0e5a83">${studentCode(n)}</div>
+        <div style="font-size:.62rem;color:#777">مختبر الرازي التفاعلي • الصف الرابع</div></div>`).join('')}</div></div>`;
+  window.print();
+}
+function dl(name, text){
+  const b = new Blob(['\ufeff' + text], { type:'text/csv;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+function exportRoster(){ dl('كشف-الفصل.csv', 'م,الطالب,الرمز\n' + ROSTER.map((r,i) => `${i+1},${r[0]},${r[1]}`).join('\n')); }
+function exportResults(){
+  const rows=fursanRows();
+  dl('نقاط-فرسان-العلوم.csv','الترتيب,الطالب,النقاط\n'+rows.map((n,i)=>`${i+1},${n},${fursanScore(n)}`).join('\n'));
+}
+async function teacherLogout(){ try { await FB_AUTH.signOut(); } catch(e){} try { await FURSAN_AUTH.signOut(); } catch(e){} S.teacher = false; save(); applyGate(); go('home'); }
+function wipe(){ if (confirm('سيُمسح كل شيء على هذا الجهاز. متابعة؟')) { localStorage.removeItem(KEY); location.reload(); } }
+
+/* ══════════ اختيار الطالب ══════════ */
+function openWho(){
+  applyGate();
+  $('whoInput').value = S.student || '';
+  $('whoCode').value = '';
+  $('whoMsg').classList.add('hide');
+  whoSuggest();
+  openOv('mWho');
+}
+function whoSuggest(){
+  const box = $('whoList'); if (!box) return;
+  const q = norm($('whoInput').value);
+  if (q.length < 2){ box.innerHTML = ''; return; }
+  const hits = ROSTER_NAMES.filter(n => norm(n).includes(q)).slice(0, 6);
+  box.innerHTML = hits.length
+    ? '<div class="grid" style="grid-template-columns:1fr;gap:5px;margin-top:8px">' + hits.map(n =>
+        `<button class="btn o sm" onclick="pickSuggest('${esc(n).replace(/'/g, '&#39;')}')">${esc(n)}</button>`).join('') + '</div>'
+    : '<div class="note warn" style="margin-top:8px">لا يوجد اسم مطابق في كشف الفصل.</div>';
+}
+function pickSuggest(n){ $('whoInput').value = n; $('whoList').innerHTML = ''; $('whoCode').focus(); }
+function tryLogin(){
+  const msg = $('whoMsg');
+  const fail = t => { msg.textContent = t; msg.classList.remove('hide'); };
+  const raw = $('whoInput').value.trim();
+  if (!raw) return fail('اكتب اسمك الكامل أولًا.');
+  const real = findInRoster(raw);
+  if (!real) return fail('هذا الاسم غير موجود في كشف الفصل. اكتبه كاملًا كما سجّله المعلم.');
+  const code = de($('whoCode').value).replace(/\D/g, '');
+  if (code.length !== 4) return fail('اكتب رمزك المكوّن من ٤ أرقام.');
+  if (code !== studentCode(real)) return fail('الرمز غير صحيح — اطلب رمزك الخاص من معلم المادة.');
+  setName(real);
+}
+function setName(n){ S.student = n; save(); applyGate(); closeOv('mWho'); go('home'); drawMe(); drawBoard(); refresh(); }
+function logoutStudent(){
+  if (!confirm('تسجيل الخروج؟ ستحتاج اسمك ورمزك للدخول مرة أخرى.')) return;
+  S.student = ''; S.teacher = false; save(); applyGate(); openWho();
+}
+
+/* ══════════ وضع العرض ══════════ */
+let PJ = { pool:[], i:-1, t:null, left:30, A:0, B:0, cur:null };
+function openProjector(){
+  PJ = { pool:[], i:-1, t:null, left:30, A:0, B:0, cur:null };
+  $('tA').textContent = ar(0); $('tB').textContent = ar(0);
+  $('projTimer').textContent = '';
+  $('projQ').textContent = 'اختر الوحدة التي تريد عرض أسئلتها';
+  $('projOpts').innerHTML = UNITS.map(u =>
+    `<div style="cursor:pointer" onclick="projStart(${u.id})">${esc(u.name)}</div>`).join('')
+    + `<div style="cursor:pointer;background:#8a6108" onclick="projStart(0)">كل الوحدات معًا</div>`;
+  $('proj').classList.add('on');
+}
+function projStart(uid){
+  PJ.pool = shuffle(uid ? unitBank(uid) : Object.keys(QI)).filter(k => QI[k].q.t !== 'f');
+  PJ.i = -1; projNext();
+}
+function projNext(){
+  clearInterval(PJ.t);
+  PJ.i++;
+  if (PJ.i >= PJ.pool.length) { $('projQ').textContent = 'انتهت الأسئلة 🎉'; $('projOpts').innerHTML = ''; return; }
+  const k = PJ.pool[PJ.i], q = QI[k].q;
+  let opts;
+  if (q.t === 'm') opts = shuffle(q.o.map((t, i) => ({ t, ok:i === 0 })));
+  else opts = [{ t:'صواب ✓', ok:q.a === true }, { t:'خطأ ✕', ok:q.a === false }];
+  PJ.cur = opts;
+  $('projQ').textContent = ar(PJ.i + 1) + '. ' + q.q;
+  $('projOpts').innerHTML = opts.map(o => `<div>${esc(o.t)}</div>`).join('');
+  PJ.left = 30; $('projTimer').textContent = ar(30);
+  PJ.t = setInterval(() => { PJ.left--; $('projTimer').textContent = ar(Math.max(0, PJ.left));
+    if (PJ.left <= 0) { clearInterval(PJ.t); projReveal(); } }, 1000);
+}
+function projReveal(){
+  clearInterval(PJ.t);
+  if (!PJ.cur) return;
+  [...$('projOpts').children].forEach((el, i) => { if (PJ.cur[i] && PJ.cur[i].ok) el.classList.add('right'); });
+}
+function teamPt(t){ PJ[t]++; $('t' + t).textContent = ar(PJ[t]); }
+function closeProjector(){ clearInterval(PJ.t); $('proj').classList.remove('on'); }
+
+/* ══════════ القراءة الصوتية ══════════ */
+let arVoice = null;
+function loadVoices(){
+  if (!('speechSynthesis' in window)) return;
+  const v = speechSynthesis.getVoices().find(x => /^ar/i.test(x.lang));
+  if (v) { arVoice = v; $('lmSpeak').classList.remove('hide'); }
+}
+function speakLesson(){
+  if (!arVoice || !curLesson) return;
+  if (speechSynthesis.speaking) { stopSpeak(); return; }
+  const u = new SpeechSynthesisUtterance(curLesson.s + '. أهم الأفكار: ' + curLesson.b.join('. '));
+  u.voice = arVoice; u.lang = arVoice.lang; u.rate = .92;
+  speechSynthesis.speak(u);
+}
+function stopSpeak(){ if ('speechSynthesis' in window) speechSynthesis.cancel(); }
+
+/* ══════════ إعدادات ══════════ */
+function cycleFont(){
+  S.font = (S.font + 1) % 3; save(); applyFont();
+}
+function applyFont(){ document.body.classList.remove('fs-l', 'fs-xl');
+  if (S.font === 1) document.body.classList.add('fs-l');
+  if (S.font === 2) document.body.classList.add('fs-xl'); }
+
+/* ══════════ التشغيل ══════════ */
+function syncTeacherAuthState(){
+  S.teacher = !!(FB_AUTH.currentUser || FURSAN_AUTH.currentUser);
+  save(); applyGate();
+  if(S.teacher){ try{ drawTeacher(); }catch(e){} }
+}
+FB_AUTH.onAuthStateChanged(async user => {
+  syncTeacherAuthState();
+  if (user) {
+    try { await ensureRosterOnFirebase(); } catch(e) { console.warn('تعذر تهيئة كشف الطلاب', e); }
+  }
+});
+FURSAN_AUTH.onAuthStateChanged(() => syncTeacherAuthState());
+listenRosterFromFirebase();
+listenFursanScores();
+
+function init(){
+  $('fUnit').innerHTML = '<option value="0">كل الوحدات</option>' +
+    UNITS.map(u => `<option value="${u.id}">${esc(u.name)}</option>`).join('');
+  document.querySelectorAll('#nav button').forEach(b => b.onclick = () => go(b.dataset.p));
+  applyFont();
+  go('home');
+  applyGate();
+  if (!authed()) { openOv('mWho'); setTimeout(() => { try{ $('whoInput').focus(); }catch(e){} }, 300); }
+  if ('speechSynthesis' in window) { loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http'))
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  document.addEventListener('answered', e => { if (S.wrong[e.detail.key] === undefined && e.detail.right)
+    S.earned['revCount'] = (S.earned['revCount'] || 0) + 1; });
+}
+init();
+</script>
+</body></html>
