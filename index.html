@@ -14,10 +14,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="alrazi-icon-192.png?v=20260902">
 <link rel="apple-touch-icon" sizes="180x180" href="alrazi-apple-touch-icon-180.png?v=20260902">
 <title>مختبر الرازي التفاعلي | العلوم للصف الرابع</title>
-<!-- إصدار: بنر فرسان العلوم - أفضل 10 في الرئيسية -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
+<!-- إصدار 2026-09-11: تحسينات التجربة مع إبقاء مصادر النقاط ومفاتيحها الأصلية. -->
 <style>
 :root{
  --g:#0d5476; --g2:#1a7ba9; --g3:#e4f2fa; --gold:#f0a929; --gold2:#c9800e;
@@ -29,7 +26,7 @@
 body.fs-l{--fs:18.5px} body.fs-xl{--fs:21px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:Tajawal,"Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
+body{margin:0;font-family:Arial,"Arial Unicode MS",Helvetica,sans-serif;
  background:var(--bg);color:var(--ink);line-height:1.85;font-size:var(--fs)}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;border:0;background:none}
@@ -367,7 +364,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  </nav>
 </header>
 
-<main>
+<main><div class="wrap"><div class="note" role="status" id="requestNotice">المكافآت بطلب إلى المعلم؛ تضاف النقطتان بعد الاعتماد فقط.</div><button class="btn o sm" onclick="retryRewardRequests()">إعادة إرسال الطلبات المتعذرة</button></div>
 <!-- الرئيسية -->
 <section id="home" class="page"><div class="wrap">
  <section class="home-fursan-banner" aria-label="أفضل عشرة فرسان في العلوم">
@@ -438,7 +435,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
 <!-- المختبر -->
 <section id="labs" class="page"><div class="wrap">
- <div class="sec"><div><h3>🧪 مختبر العلوم</h3><p>لكل درس من الـ٢٤ تجربة خاصة به. في كل تجربة: توقّع أولًا، ثم لاحظ، ثم فسّر. عند إنجاز التجربة بشكل صحيح لأول مرة تُضاف نقطتان تلقائيًا إلى رصيد فرسان العلوم.</p></div>
+ <div class="sec"><div><h3>🧪 مختبر العلوم</h3><p>لكل درس من الـ٢٤ تجربة خاصة به. في كل تجربة: توقّع أولًا، ثم لاحظ، ثم فسّر. عند إنجاز التجربة يُرسل طلب مكافأة. تضاف النقطتان إلى رصيد فرسان العلوم بعد اعتماد المعلم.</p></div>
   <span class="tag sea">تنبّأ • لاحظ • فسّر</span></div>
  <div class="row" style="margin-bottom:12px">
   <span class="tag" id="labStat"></span>
@@ -455,13 +452,13 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
   <div class="fursan-title"><h2>⚔️ فرسان العلوم</h2><p>مدرسة أبي بكر الرازي • الصف الرابع الابتدائي</p><span class="fursan-ribbon">التفوق هدفنا والتميز طريقتنا</span></div>
   <div class="fursan-podium" id="fursanPodium"></div>
  </div>
- <div class="fursan-my" id="fursanMyScore">رصيد فرسان العلوم مرتبط تلقائيًا بالتعلّم: فتح درس +٢، إجابة صحيحة +٢، إنجاز تجربة +٢، مع إمكانية منح المعلم نقاطًا إضافية وفق المعايير.</div>
+ <div class="fursan-my" id="fursanMyScore">رصيد فرسان العلوم يعرض النقاط المعتمدة. أنشطة التعلم تُرسل للمراجعة قبل إضافة نقطتين.</div>
  <div class="fursan-grid">
   <div class="card">
    <h3 style="font-size:1.05rem;margin-bottom:6px">⭐ كيف أحصل على نقاط فرسان العلوم؟</h3>
-   <p class="muted" style="margin-top:0">تُضاف <b>نقطتان تلقائيًا</b> عند فتح درس لأول مرة، و<b>نقطتان</b> لكل إجابة صحيحة لأول مرة، و<b>نقطتان</b> عند إنجاز تجربة لأول مرة. كما يستطيع المعلم منح نقاط إضافية وفق المعايير المعتمدة.</p>
+   <p class="muted" style="margin-top:0">تُرسل طلبات مكافآت للدروس والإجابات والتجارب. يراجع المعلم الطلب، ثم يعتمد نقطتين أو يرفضه. يستطيع المعلم أيضًا منح نقاط مباشرة وفق المعايير.</p>
    <div class="note" style="margin:10px 0 12px;line-height:2">
-    <b>النقاط التلقائية:</b> 📚 فتح درس لأول مرة <b>+٢</b> • ✅ إجابة صحيحة لأول مرة <b>+٢</b> • 🧪 إنجاز تجربة لأول مرة <b>+٢</b>
+    <b>مكافآت بعد اعتماد المعلم:</b> 📚 فتح درس لأول مرة <b>+٢</b> • ✅ إجابة صحيحة لأول مرة <b>+٢</b> • 🧪 إنجاز تجربة لأول مرة <b>+٢</b>
    </div>
    <div id="fursanCriteriaPreview"></div>
    <button class="btn o sm" style="width:100%;margin-top:9px" onclick="openFursanCriteria()">عرض معايير النقاط الإضافية للمعلم</button>
@@ -474,8 +471,8 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 </div></section>
 
 <!-- ملفي -->
-<section id="me" class="page"><div class="wrap">
- <div class="sec"><div><h3>🎒 ملفي</h3><p>رصيد فرسان العلوم يتحدث تلقائيًا مع فتح الدروس والإجابات الصحيحة والتجارب، إضافةً إلى نقاط المعلم.</p></div>
+<section id="me" class="page"><div class="wrap"><div class="card" style="padding:20px"><h2>طلبات مكافآتي على هذا الجهاز</h2><button class="btn o" onclick="refreshStudentRequests()">تحديث حالة الطلبات</button><div id="studentRequests" aria-live="polite"></div></div>
+ <div class="sec"><div><h3>🎒 ملفي</h3><p>رصيدك يعرض النقاط المعتمدة. تابع طلبات مكافآتك أدناه وحدّث حالتها بعد مراجعة المعلم.</p></div>
   <button class="btn o sm" onclick="go('board')">⚔️ لوحة فرسان العلوم</button></div>
  <div class="grid" style="grid-template-columns:1fr 1.6fr">
   <div class="card" style="text-align:center">
@@ -526,7 +523,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 
 
 <!-- لوحة المعلم -->
-<section id="teacher" class="page"><div class="wrap">
+<section id="teacher" class="page"><div class="wrap"><div class="card" style="padding:20px;margin-bottom:20px"><h2>طلبات مكافآت الطلاب</h2><p>راجع الطالب والنشاط قبل الاعتماد. هذه طلبات مشاركة، وليست إثباتًا آليًا لهوية الطالب أو صحة الإنجاز.</p><button class="btn p" onclick="activateRewardRequests()">تفعيل / تحديث كشف استقبال الطلبات</button> <button class="btn o" onclick="listenRewardRequests()">تحديث الطلبات</button><div id="teacherRequests" aria-live="polite"></div></div>
  <div class="sec"><div><h3>👨‍🏫 لوحة المعلم</h3><p>نقاط فرسان العلوم مرتبطة مباشرة بلوحة فرسان العلوم الأصلية، وكشف الطلاب متزامن عبر Firebase.</p></div>
   <button class="btn g sm" onclick="openProjector()">📺 وضع العرض</button></div>
 
@@ -563,7 +560,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  </div>
 
  <div class="card" style="margin-top:13px">
-  <div class="sec" style="margin:0 0 10px"><div><h3 style="font-size:1.05rem">⚔️ إدارة فرسان العلوم</h3><p>هذه هي الطريقة الوحيدة لمنح نقاط فرسان العلوم. اختيار معيار = +٢ نقطة، وتظهر النتيجة فورًا هنا وفي لوحة فرسان العلوم الأصلية على جميع الأجهزة.</p></div>
+  <div class="sec" style="margin:0 0 10px"><div><h3 style="font-size:1.05rem">⚔️ إدارة فرسان العلوم</h3><p>يمنح المعلم النقاط عبر اعتماد الطلبات أو اختيار معيار. اختيار معيار = +٢ نقطة، وتظهر النتيجة فورًا هنا وفي لوحة فرسان العلوم الأصلية على جميع الأجهزة.</p></div>
    <button class="btn o sm" onclick="openFursanCriteria()">📋 المعايير الـ٢٠</button></div>
   <input id="fursanTeacherSearch" class="inp" type="search" placeholder="ابحث عن اسم الطالب…" oninput="drawFursanTeacher()">
   <div id="fursanTeacherList" style="margin-top:10px;max-height:520px;overflow:auto"></div>
@@ -632,13 +629,13 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
  <div class="mdlH"><div><small>دخول الفارس</small><h2>🛡️ اسمك ورمزك</h2></div></div>
  <div class="mdlB">
   <label class="lbl">اسمك الكامل كما هو في كشف الفصل</label>
-  <input id="whoInput" class="inp" autocomplete="off" oninput="whoSuggest()" placeholder="الاسم الأول واسم الأب والعائلة">
+  <input id="whoInput" aria-label="اسم الطالب الكامل" class="inp" autocomplete="off" oninput="whoSuggest()" placeholder="الاسم الأول واسم الأب والعائلة">
   <div id="whoList"></div>
   <label class="lbl" style="margin-top:12px">رمزك الخاص (٤ أرقام من المعلم)</label>
-  <input id="whoCode" class="inp" inputmode="numeric" maxlength="4" placeholder="- - - -"
+  <input id="whoCode" type="password" aria-label="رمز الطالب الحالي" class="inp" inputmode="numeric" maxlength="4" placeholder="- - - -"
    style="letter-spacing:8px;text-align:center;direction:ltr;font-family:ui-monospace,monospace;font-weight:900"
    onkeydown="if(event.key==='Enter')tryLogin()">
-  <div id="whoMsg" class="note warn hide" style="margin-top:10px"></div>
+  <div id="whoMsg" role="alert" class="note warn hide" style="margin-top:10px"></div>
   <div class="row" style="margin-top:12px">
    <button class="btn p" onclick="tryLogin()">دخول الطالب</button>
    <button class="btn o" id="teacherGateBtn" onclick="openPin()">🔐 دخول المعلم</button>
@@ -746,12 +743,7 @@ function listenRosterFromFirebase(){
     }
   }, err => console.warn('تعذرت مزامنة كشف الطلاب', err));
 }
-async function ensureRosterOnFirebase(){
-  if (!FB_AUTH.currentUser) return;
-  const ref = FB_DB.ref('roster');
-  const snap = await ref.once('value');
-  if (!snap.exists()) await ref.set(ROSTER);
-}
+async function ensureRosterOnFirebase(){/* No automatic database initialization on login. */}
 async function saveRosterToFirebase(){
   if (!FB_AUTH.currentUser) throw new Error('سجّل دخول المعلم أولًا.');
   await FB_DB.ref('roster').set(ROSTER);
@@ -948,7 +940,7 @@ const FURSAN_CRITERIA = [
  'التفاعل مع الأنشطة والتجارب العلمية.','اتباع تعليمات السلامة أثناء التجارب.','المحافظة على أدوات وممتلكات الصف.','التحسن والتطور في المستوى.','الحصول على الدرجة الكاملة في نشاط أو اختبار قصير.'
 ];
 const FURSAN_TITLES=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون'];
-let FURSAN_RAW = {}, FURSAN_TARGET = '';
+let FURSAN_RAW = {}, FURSAN_TARGET = '', SCORES_READY=false;
 const fursanKey = n => String(n||'').replace(/[.#$\[\]\/]/g,'_');
 const fursanScore = n => Number(FURSAN_RAW[fursanKey(n)])||0;
 function fursanRows(){ return ROSTER_NAMES.slice().sort((a,b)=>fursanScore(b)-fursanScore(a)||a.localeCompare(b,'ar')); }
@@ -966,40 +958,14 @@ function fursanCanonicalStudent(){
   نستخدم مفتاحًا ثابتًا داخل awardLogs لكل إنجاز لمنع تكرار النقاط عند إعادة فتح الدرس
   أو إعادة حل السؤال على الجهاز نفسه، ومع المزامنة تُحفظ علامة الإنجاز في Firebase أيضًا.
 */
-async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
-  const student=fursanCanonicalStudent();
-  if(!student) return false;
-  const localKey='fauto:'+type+':'+id;
-  if(S.earned[localKey]===1 || S.earned[localKey]==='pending') return false;
-  S.earned[localKey]='pending'; save();
-  const sk=fursanKey(student), ev=fursanAutoEventKey(type,id);
-  const receipt=FURSAN_DB.ref('awardLogs/'+sk+'/'+ev);
-  let claimed=false;
-  try{
-    const tx=await receipt.transaction(v=>{
-      if(v) return; // سبق تسجيل هذا الإنجاز في قاعدة فرسان العلوم
-      return {
-        student, criterion:'مكافأة تلقائية: '+label,
-        eventType:type, eventId:String(id), delta:points,
-        automatic:true, source:'مختبر الرازي',
-        ts:firebase.database.ServerValue.TIMESTAMP
-      };
-    });
-    claimed=!!(tx&&tx.committed);
-    if(claimed){
-      await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
-    }
-    S.earned[localKey]=1; save();
-    return claimed;
-  }catch(e){
-    console.warn('تعذر إضافة نقاط فرسان العلوم تلقائيًا',e);
-    if(claimed){ try{ await receipt.remove(); }catch(_e){} }
-    delete S.earned[localKey]; save();
-    return false;
-  }
+async function awardFursanAuto(type,id,label,points=2){
+ const student=fursanCanonicalStudent();if(!student||!rewardLabel(type,id))return false;
+ const ev=fursanAutoEventKey(type,id),queue=localRequests(student);
+ if(!queue[ev]){queue[ev]={type,id:String(id),state:'unsent'};try{storeRequests(student,queue);}catch(e){requestNotice('تعذر حفظ الطلب على هذا الجهاز. اسمح بالتخزين ثم أعد المحاولة.');return false;}}
+ await retryRewardRequests();return false;
 }
 function syncMyFursanPoints(){
-  if(!S.student) return;
+  if(!S.student || !SCORES_READY) return;
   const canonical = ROSTER_NAMES.find(n=>norm(n)===norm(S.student)) || S.student;
   const p = fursanScore(canonical);
   if(S.pts !== p){ S.pts=p; save(); }
@@ -1016,7 +982,7 @@ function drawFursanBoard(){
   if(prev) prev.innerHTML=FURSAN_CRITERIA.slice(0,5).map((c,i)=>`<div class="fursan-crit-item"><span class="fursan-crit-num">${ar(i+1)}</span><span>${esc(c)}</span></div>`).join('')+`<p class="muted" style="text-align:center;margin:8px 0 0">و${ar(FURSAN_CRITERIA.length-5)} معيارًا آخر</p>`;
   const list=$('fursanRankList');
   if(list){ const publicRows=rows.slice(0,20); list.innerHTML=publicRows.map((n,i)=>`<div class="fursan-rank ${i<3?'top'+(i+1):''}"><span class="idx">${ar(i+1)}</span><span class="name">${esc(n)}</span><span class="title">الفارس ${FURSAN_TITLES[i]||ar(i+1)}</span><span class="score">⭐ ${ar(fursanScore(n))}</span></div>`).join('') || '<div class="note">لا توجد أسماء في الكشف.</div>'; }
-  const my=$('fursanMyScore'); if(my) my.innerHTML=S.student?`🛡️ <b>${esc(S.student)}</b> — رصيدك في فرسان العلوم: <b>${fursanPts(fursanScore(S.student))}</b>`:'رصيد فرسان العلوم مرتبط تلقائيًا بالتعلّم: فتح درس +٢، إجابة صحيحة +٢، إنجاز تجربة +٢، مع إمكانية منح المعلم نقاطًا إضافية وفق المعايير.';
+  const my=$('fursanMyScore'); if(my) my.innerHTML=S.student?`🛡️ <b>${esc(S.student)}</b> — رصيدك في فرسان العلوم: <b>${fursanPts(fursanScore(S.student))}</b>`:'رصيد فرسان العلوم يعرض النقاط المعتمدة. أنشطة التعلم تُرسل للمراجعة قبل إضافة نقطتين.';
   const homeTop=$('homeFursanTop10');
   if(homeTop){
     const top10=rows.slice(0,10);
@@ -1029,17 +995,17 @@ function drawFursanBoard(){
       </article>`;
     }).join('') || '<div class="home-fursan-card"><strong>لا توجد أسماء في الكشف.</strong></div>';
   }
-  const sy=$('fursanSync'); if(sy){ sy.textContent='متزامن الآن ✓'; sy.className='tag sea'; }
+  const sy=$('fursanSync'); if(sy){ sy.textContent=SCORES_READY?'الأرصدة المحفوظة متزامنة ✓':'جارٍ تحميل الأرصدة…'; sy.className='tag sea'; }
 }
 function drawBoard(){ syncMyFursanPoints(); drawFursanBoard(); }
 function listenFursanScores(){
   FURSAN_DB.ref('scores').on('value',snap=>{
-    FURSAN_RAW=snap.val()||{};
+    FURSAN_RAW=snap.val()||{}; SCORES_READY=true;
     syncMyFursanPoints(); drawFursanBoard();
     try{refresh();}catch(e){}
     try{drawFursanTeacher();}catch(e){}
   },err=>{
-    console.warn('تعذرت مزامنة فرسان العلوم',err);
+    SCORES_READY=false; console.warn('تعذرت مزامنة فرسان العلوم',err);
     const sy=$('fursanSync'); if(sy){sy.textContent='تعذرت مزامنة فرسان العلوم';sy.className='tag gold';}
   });
 }
@@ -1047,13 +1013,13 @@ function openFursanCriteria(studentName){
   FURSAN_TARGET=studentName||'';
   const title=$('fursanCritTitle'), sub=$('fursanCritSub'), list=$('fursanCritList');
   if(title) title.textContent=FURSAN_TARGET?'منح نقاط إضافية للفارس':'معايير النقاط الإضافية — فرسان العلوم';
-  if(sub) sub.textContent=FURSAN_TARGET?`${FURSAN_TARGET} — اختر المعيار المستحق (+٢ نقطة إضافية)`:'هذه المعايير تمنح نقاطًا إضافية من المعلم، إلى جانب النقاط التلقائية للدروس والأسئلة والتجارب.';
+  if(sub) sub.textContent=FURSAN_TARGET?`${FURSAN_TARGET} — اختر المعيار المستحق (+٢ نقطة إضافية)`:'هذه المعايير تمنح نقاطًا إضافية من المعلم، إلى جانب طلبات مكافآت الدروس والأسئلة والتجارب.';
   if(list) list.innerHTML=FURSAN_CRITERIA.map((c,i)=>`<button class="fursan-criterion-btn" ${FURSAN_TARGET?'':'disabled'} onclick="awardFursanCriterion(${i})">${ar(i+1)}. ${esc(c)} ${FURSAN_TARGET?'<b style="color:#9a6800">(+٢)</b>':''}</button>`).join('');
   openOv('mFursanCrit');
 }
 async function awardFursanCriterion(i){
   if(!FURSAN_TARGET) return;
-  if(!FURSAN_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  if(!isRewardTeacher()) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
   const name=FURSAN_TARGET, criterion=FURSAN_CRITERIA[i], key=fursanKey(name);
   try{
     await FURSAN_DB.ref('scores/'+key).transaction(v=>(Number(v)||0)+2);
@@ -1068,7 +1034,7 @@ async function awardFursanCriterion(i){
   }catch(e){ alert('تعذر منح النقاط: '+e.message); }
 }
 async function adjustFursanScore(name,delta){
-  if(!FURSAN_AUTH.currentUser) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  if(!isRewardTeacher()) return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
   const key=fursanKey(name);
   try{
     await FURSAN_DB.ref('scores/'+key).transaction(v=>Math.max(0,(Number(v)||0)+delta));
@@ -1090,6 +1056,7 @@ function drawFursanTeacher(){
 
 /* ── التنقل ── */
 function go(p){
+  if(p==='teacher'&&!isRewardTeacher()){openPin();return;}
   document.querySelectorAll('.page').forEach(x => x.style.display = 'none');
   const el = $(p); if (el) el.style.display = 'block';
   document.querySelectorAll('#nav button').forEach(b => b.classList.toggle('on', b.dataset.p === p));
@@ -1162,7 +1129,7 @@ function finish(key, right, extra){
     (q.w ? '<span class="why">💡 ' + esc(q.w) + '</span>' : '');
 
   if (!S.earned['seen:' + key]) { S.earned['seen:' + key] = 1; S.total++; if (right) S.right++; }
-  if (right && !S.earned['pts:' + key]) {
+  if (right) {
     S.earned['pts:' + key] = 1;
     const src = (QI[key] && QI[key].src) ? QI[key].src : 'سؤال العلوم';
     awardFursanAuto('question', key, 'إجابة صحيحة — ' + src).then(got=>{
@@ -1744,6 +1711,7 @@ const BADGES = [
 ];
 function checkBadges(){ BADGES.forEach(b => { if (b[3]() && !S.badges.includes(b[0])) S.badges.push(b[0]); }); }
 function drawMe(){
+  drawStudentRequests();
   $('meName').textContent = S.student || 'لم تختر اسمك بعد';
   const p = Math.round(S.viewed.length / LESSONS.length * 100);
   $('meBar').style.width = p + '%';
@@ -1827,7 +1795,7 @@ function makeCert(){
 function printCert(){ $('printZone').innerHTML = certHTML(); window.print(); }
 function printBoard(){
   const rows=fursanRows().slice(0,20);
-  $('printZone').innerHTML=`<div style="padding:18px" dir="rtl"><h2 style="text-align:center">⚔️ فرسان العلوم — الصف الرابع</h2><p style="text-align:center;color:#666">مدرسة أبي بكر الرازي الابتدائية</p><table style="width:100%;border-collapse:collapse"><thead><tr><th>#</th><th>الفارس</th><th>اللقب</th><th>النقاط</th></tr></thead><tbody>${rows.map((n,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(n)}</td><td>الفارس ${FURSAN_TITLES[i]||ar(i+1)}</td><td>⭐ ${ar(fursanScore(n))}</td></tr>`).join('')}</tbody></table><p style="margin-top:14px;font-size:.8rem;color:#666">تُضاف نقطتان تلقائيًا لفتح الدرس أول مرة، ولكل إجابة صحيحة أول مرة، ولإنجاز التجربة أول مرة؛ ويمكن للمعلم إضافة نقاط وفق المعايير.</p></div>`;
+  $('printZone').innerHTML=`<div style="padding:18px" dir="rtl"><h2 style="text-align:center">⚔️ فرسان العلوم — الصف الرابع</h2><p style="text-align:center;color:#666">مدرسة أبي بكر الرازي الابتدائية</p><table style="width:100%;border-collapse:collapse"><thead><tr><th>#</th><th>الفارس</th><th>اللقب</th><th>النقاط</th></tr></thead><tbody>${rows.map((n,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(n)}</td><td>الفارس ${FURSAN_TITLES[i]||ar(i+1)}</td><td>⭐ ${ar(fursanScore(n))}</td></tr>`).join('')}</tbody></table><p style="margin-top:14px;font-size:.8rem;color:#666">تعرض القائمة النقاط المعتمدة. تُمنح مكافآت التعلم بعد مراجعة المعلم، ويمكنه إضافة نقاط وفق المعايير.</p></div>`;
   window.print();
 }
 
@@ -1861,7 +1829,7 @@ async function tryPin(){
   let fursanOK=false, labOK=false;
   try { await FURSAN_AUTH.signInWithEmailAndPassword(email, password); fursanOK=true; } catch(e){}
   try { await FB_AUTH.signInWithEmailAndPassword(email, password); labOK=true; } catch(e){}
-  if (!fursanOK) {
+  if (!fursanOK || !isRewardTeacher()) {
     if (labOK) try{ await FB_AUTH.signOut(); }catch(e){}
     S.teacher = false; save();
     m.textContent = 'بيانات دخول فرسان العلوم غير صحيحة. استخدم حساب المعلم المسجل في فرسان العلوم.';
@@ -1901,6 +1869,7 @@ function printCodes(){
   window.print();
 }
 function drawTeacher(){
+  drawRewardRequests();
   drawCodes(); drawStCodes(); drawFursanTeacher();
   $('rosterCount').textContent = ar(ROSTER_NAMES.length) + ' طالبًا';
   const rm = $('rosterManageTable');
@@ -2009,9 +1978,13 @@ function tryLogin(){
   if (code !== studentCode(real)) return fail('الرمز غير صحيح — اطلب رمزك الخاص من معلم المادة.');
   setName(real);
 }
-function setName(n){ S.student = n; save(); applyGate(); closeOv('mWho'); go('home'); drawMe(); drawBoard(); refresh(); }
+function setName(n){
+ if(S.student&&S.student!==n)try{localStorage.setItem(KEY+':profile:'+norm(S.student),JSON.stringify(S));}catch(e){}
+ if(S.student!==n){let prior=null;try{prior=JSON.parse(localStorage.getItem(KEY+':profile:'+norm(n)));}catch(e){}const font=S.font;S=Object.assign(JSON.parse(JSON.stringify(FRESH)),prior&&prior.student===n?prior:{},{font});}
+ S.student = n; save(); applyGate(); closeOv('mWho'); go('home'); drawMe(); drawBoard(); refresh(); }
 function logoutStudent(){
   if (!confirm('تسجيل الخروج؟ ستحتاج اسمك ورمزك للدخول مرة أخرى.')) return;
+  if(S.student)try{localStorage.setItem(KEY+':profile:'+norm(S.student),JSON.stringify(S));}catch(e){}
   S.student = ''; S.teacher = false; save(); applyGate(); openWho();
 }
 
@@ -2079,11 +2052,101 @@ function applyFont(){ document.body.classList.remove('fs-l', 'fs-xl');
   if (S.font === 2) document.body.classList.add('fs-xl'); }
 
 /* ══════════ التشغيل ══════════ */
-function syncTeacherAuthState(){
-  S.teacher = !!(FB_AUTH.currentUser || FURSAN_AUTH.currentUser);
-  save(); applyGate();
-  if(S.teacher){ try{ drawTeacher(); }catch(e){} }
+function syncTeacherAuthState(){S.teacher=isRewardTeacher();save();applyGate();listenRewardRequests();if(S.teacher){try{drawTeacher();}catch(e){}}}
+const REWARD_TEACHER='Dm8g0RXYBoVm1BAFP2KUWKRCZIC2';
+let REQUEST_CACHE={},REQUEST_REF=null,REQUEST_BUSY=false,REQUEST_ERROR='',REQUEST_ITEMS=[];
+const isRewardTeacher=()=>!!(FURSAN_AUTH.currentUser&&FURSAN_AUTH.currentUser.uid===REWARD_TEACHER);
+function rewardLabel(type,id){
+ if(type==='lesson'){const l=LESSONS.find(x=>String(x.id)===String(id));return l?'فتح درس: '+l.t:'';}
+ if(type==='lab'){const l=LABS.find(x=>String(x.id)===String(id));return l?'تجربة: '+l.t:'';}
+ if(type==='question'&&QI[id])return 'إجابة: '+QI[id].q.q;
+ return '';
 }
+function requestNotice(t){const el=$('requestNotice');if(el)el.textContent=t;}
+function myRequestKey(n){return KEY+':rewardQueue:'+fursanKey(n);}
+function localRequests(n){try{return JSON.parse(localStorage.getItem(myRequestKey(n)))||{};}catch(e){return {};}}
+function storeRequests(n,v){localStorage.setItem(myRequestKey(n),JSON.stringify(v));}
+function rewardTimeout(p){return new Promise((resolve,reject)=>{const t=setTimeout(()=>reject(Error('connection-timeout')),12000);p.then(v=>{clearTimeout(t);resolve(v);},e=>{clearTimeout(t);reject(e);});});}
+async function sendRewardRequest(student,type,id){
+ if(navigator.onLine===false)throw Error('offline');
+ const label=rewardLabel(type,id);if(!label||!ROSTER_NAMES.includes(student))throw Error('invalid-event');
+ const ev=fursanAutoEventKey(type,id),ref=FURSAN_DB.ref('rewardRequests/'+fursanKey(student)+'/'+ev);
+ const old=await rewardTimeout(ref.once('value'));if(old.exists())return old.val().status;
+ const record={student,eventType:type,eventId:String(id),label:label.slice(0,240),points:2,status:'pending',createdAt:firebase.database.ServerValue.TIMESTAMP};
+ try{await rewardTimeout(ref.set(record));}catch(e){const existing=await rewardTimeout(ref.once('value'));if(existing.exists())return existing.val().status;throw e;}
+ return 'pending';
+}
+async function retryRewardRequests(){
+ const n=fursanCanonicalStudent();if(!n||REQUEST_BUSY)return;REQUEST_BUSY=true;
+ let failed=0;const tried=new Set();
+ try{
+  while(true){
+   const entry=Object.entries(localRequests(n)).find(([ev,r])=>r.state==='unsent'&&!tried.has(ev));
+   if(!entry)break;const [ev,r]=entry;tried.add(ev);
+   try{const state=await sendRewardRequest(n,r.type,r.id);const latest=localRequests(n);if(latest[ev])latest[ev].state=state;storeRequests(n,latest);}catch(e){failed++;break;}
+  }
+  requestNotice(failed?'تعذر إرسال بعض الطلبات. تحقق من الإنترنت والقواعد، ثم اضغط إعادة الإرسال.':'تم إرسال الطلبات المتاحة؛ تضاف النقاط بعد اعتماد المعلم.');
+ }finally{REQUEST_BUSY=false;drawStudentRequests();}
+}
+function drawStudentRequests(){
+ const el=$('studentRequests');if(!el)return;
+ const n=fursanCanonicalStudent(),queue=n?localRequests(n):{};
+ const labels={unsent:'الإرسال غير مؤكّد — أعد المحاولة',pending:'بانتظار المعلم',approved:'معتمد',rejected:'غير معتمد',alreadyAwarded:'محتسب سابقًا'};
+ el.innerHTML=Object.values(queue).slice(-30).reverse().map(r=>'<div style="padding:8px;border-bottom:1px solid #ddd">'+esc(rewardLabel(r.type,r.id))+' — <b>'+esc(labels[r.state]||r.state)+'</b></div>').join('')||'لا توجد طلبات من هذا الجهاز بعد.';
+}
+async function refreshStudentRequests(){
+ const n=fursanCanonicalStudent();if(!n)return;const queue=localRequests(n);
+ try{for(const [ev,r]of Object.entries(queue)){if(r.state==='unsent')continue;const snap=await FURSAN_DB.ref('rewardRequests/'+fursanKey(n)+'/'+ev).once('value');if(snap.exists())r.state=snap.val().status;}
+ storeRequests(n,queue);drawStudentRequests();}catch(e){requestNotice('تعذر تحديث حالة الطلبات. حاول عند توفر الاتصال.');}
+}
+function listenRewardRequests(){
+ if(REQUEST_REF){REQUEST_REF.off();REQUEST_REF=null;}
+ REQUEST_CACHE={};REQUEST_ERROR='';
+ if(!isRewardTeacher()){drawRewardRequests();return;}
+ REQUEST_REF=FURSAN_DB.ref('rewardRequests');
+ REQUEST_REF.on('value',s=>{REQUEST_CACHE=s.val()||{};REQUEST_ERROR='';drawRewardRequests();},e=>{REQUEST_ERROR='تعذر تحميل الطلبات. تأكد من نشر القواعد المرفقة في fursan-science.';drawRewardRequests();});
+}
+function drawRewardRequests(){
+ const el=$('teacherRequests');if(!el)return;
+ if(!isRewardTeacher()){el.textContent='سجّل بحساب المعلم المعتمد لعرض الطلبات.';return;}
+ REQUEST_ITEMS=[];
+ for(const [sk,items]of Object.entries(REQUEST_CACHE))for(const [ev,r]of Object.entries(items||{}))if(r&&r.status==='pending')REQUEST_ITEMS.push({sk,ev,r});
+ REQUEST_ITEMS.sort((a,b)=>(a.r.createdAt||0)-(b.r.createdAt||0));
+ el.innerHTML='<p role="status">'+esc(REQUEST_ERROR||('طلبات بانتظار المراجعة: '+REQUEST_ITEMS.length))+'</p>'+REQUEST_ITEMS.slice(0,100).map(({r},i)=>'<article style="border:1px solid #c5d8df;border-radius:12px;padding:14px;margin:10px 0;background:#fff"><strong>'+esc(r.student)+'</strong><p>'+esc(rewardLabel(r.eventType,r.eventId)||'نشاط غير معروف — ارفض الطلب')+'</p><p>المكافأة المطلوبة: نقطتان</p><button class="btn p" '+(REQUEST_BUSY?'disabled':'')+' onclick="reviewRewardRequest('+i+',true)">اعتماد +٢</button> <button class="btn o" '+(REQUEST_BUSY?'disabled':'')+' onclick="reviewRewardRequest('+i+',false)">رفض</button></article>').join('');
+ if(REQUEST_ITEMS.length>100)el.innerHTML+='<p>تُعرض أقدم ١٠٠ طلب؛ تظهر البقية بعد مراجعتها.</p>';
+}
+function applyRewardDecision(root,sk,ev,approve,at){
+ if(!root||!root.rewardRequests)return;
+ const r=root.rewardRequests[sk]&&root.rewardRequests[sk][ev];
+ if(!r||r.status!=='pending')return;
+ if(approve&&(!ROSTER_NAMES.includes(r.student)||fursanKey(r.student)!==sk||fursanAutoEventKey(r.eventType,r.eventId)!==ev||!rewardLabel(r.eventType,r.eventId)||r.points!==2))throw Error('invalid-request');
+ const next=JSON.parse(JSON.stringify(root)),req=next.rewardRequests[sk][ev];
+ req.reviewedAt=at;req.reviewer=REWARD_TEACHER;
+ if(!approve){req.status='rejected';return next;}
+ if(next.awardLogs&&next.awardLogs[sk]&&next.awardLogs[sk][ev]){req.status='alreadyAwarded';return next;}
+ const old=next.scores&&next.scores[sk];
+ if(old!==undefined&&(!Number.isFinite(Number(old))||Number(old)<0))throw Error('invalid-score');
+ next.scores=next.scores||{};next.scores[sk]=(Number(old)||0)+2;
+ next.awardLogs=next.awardLogs||{};next.awardLogs[sk]=next.awardLogs[sk]||{};
+ next.awardLogs[sk][ev]={student:r.student,eventType:r.eventType,eventId:r.eventId,delta:2,teacher:REWARD_TEACHER,ts:at,criterion:'اعتماد طلب: '+rewardLabel(r.eventType,r.eventId),source:'teacher-approved-request'};
+ req.status='approved';return next;
+}
+async function reviewRewardRequest(index,approve){
+ if(!isRewardTeacher()||REQUEST_BUSY)return;
+ const item=REQUEST_ITEMS[index];if(!item)return;
+ if(!confirm((approve?'اعتماد نقطتين للطالب ':'رفض طلب الطالب ')+item.r.student+'؟'))return;
+ REQUEST_BUSY=true;drawRewardRequests();
+ try{
+  const ref=FURSAN_DB.ref();await ref.once('value');
+  await ref.transaction(root=>applyRewardDecision(root,item.sk,item.ev,approve,Date.now()),undefined,false);
+ }catch(e){alert('لم يكتمل الاعتماد. حدّث الطلبات ثم أعد المحاولة؛ لا تضف النقاط يدويًا لتعويض محاولة غير مؤكدة.');}
+ finally{REQUEST_BUSY=false;drawRewardRequests();}
+}
+async function activateRewardRequests(){
+ if(!isRewardTeacher())return;
+ try{const map={};ROSTER_NAMES.forEach(n=>{map[fursanKey(n)]=n;});await FURSAN_DB.ref('requestRoster').set(map);alert('تم تفعيل استقبال الطلبات لأسماء الكشف الحالي. كرّر هذا الزر بعد إضافة طالب جديد.');}catch(e){alert('تعذر تفعيل الطلبات. انشر القواعد المرفقة في مشروع fursan-science ثم حاول مجددًا.');}
+}
+
 FB_AUTH.onAuthStateChanged(async user => {
   syncTeacherAuthState();
   if (user) {
