@@ -15,6 +15,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="alrazi-apple-touch-icon-180.png?v=20260902">
 <title>مختبر الرازي التفاعلي | العلوم للصف الرابع</title>
 <!-- إصدار 2026-09-11: تحسينات التجربة مع إبقاء مصادر النقاط ومفاتيحها الأصلية. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap">
 <style>
 :root{
  --g:#0d5476; --g2:#1a7ba9; --g3:#e4f2fa; --gold:#f0a929; --gold2:#c9800e;
@@ -26,7 +29,7 @@
 body.fs-l{--fs:18.5px} body.fs-xl{--fs:21px}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:Arial,"Arial Unicode MS",Helvetica,sans-serif;
+body{margin:0;font-family:Tajawal,"Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
  background:var(--bg);color:var(--ink);line-height:1.85;font-size:var(--fs)}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;border:0;background:none}
@@ -337,6 +340,94 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
 .lockBox{display:flex;gap:6px;align-items:center}
 .lockBox .inp{flex:1;min-width:0;text-align:center;letter-spacing:2px;direction:ltr;font-family:ui-monospace,monospace}
 .codeCell{direction:ltr;text-align:left;font-family:ui-monospace,monospace;font-weight:900;letter-spacing:1px}
+
+/* Original Tajawal typography + glass icons: presentation only, 2026-09-12 */
+.mark,.glass-icon,.quick i,.stn .dot,.lsn .fav{
+ position:relative;isolation:isolate;overflow:hidden;
+ border:1px solid rgba(255,255,255,.72);
+ background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(192,226,244,.48) 55%,rgba(145,207,231,.55));
+ box-shadow:inset 0 1px 0 #fff9,inset 0 -2px 5px #0d54761a,0 7px 16px #0d54761c;
+ -webkit-backdrop-filter:blur(10px) saturate(145%);backdrop-filter:blur(10px) saturate(145%);
+ transition:transform .25s ease,box-shadow .25s ease;
+}
+.mark{background:linear-gradient(145deg,#ffffff55,#8cdbff26);border-color:#ffffff65;box-shadow:inset 0 1px 1px #ffffff88,0 6px 18px #002f4c33}
+.glass-icon{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;flex:none;font-size:23px;line-height:1;vertical-align:middle;color:#123a51}
+.iconBtn{background:linear-gradient(145deg,#ffffff27,#ffffff0d);border-color:#ffffff40;box-shadow:inset 0 1px 0 #ffffff38,0 5px 14px #002c4426;transition:background .25s,transform .25s}
+.iconBtn .glass-icon{background:linear-gradient(145deg,#ffffffb8,#d3f0ff70);margin-bottom:2px}
+.iconBtn .ibT,.brand small{color:#edf8ff}
+.nav button{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff2b;background:linear-gradient(145deg,#ffffff22,#ffffff0c);color:#f0f9ff}
+.nav .glass-icon{width:29px;height:29px;border-radius:9px;font-size:19px}
+.nav button.on{background:linear-gradient(140deg,#ffe0a0,#f4b53c);color:#352507;border-color:#ffe4a6}
+.quick i{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 10px;border-radius:19px;font-size:30px;font-style:normal}
+.quick button:nth-child(2) i{background:linear-gradient(145deg,#fff,#c9eef0a6,#84d4dca1)}
+.quick button:nth-child(3) i{background:linear-gradient(145deg,#fff,#e3d8ffa1,#b6a2ea80)}
+.quick button:nth-child(4) i{background:linear-gradient(145deg,#fff,#fff0c9c9,#f9c66885)}
+.stn .dot{color:#103d58}
+.stn.done .dot{background:linear-gradient(145deg,#fff2c4,#ffc867);color:#382508}
+.stn.part .dot{background:linear-gradient(145deg,#d5f3ff,#6dc6ed);color:#123c50}
+.mark:before,.glass-icon:before,.quick i:before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(115deg,transparent 10%,#ffffffa3 42%,#ffffff1a 53%,transparent 70%);
+ transform:translateX(-125%);animation:glassSweep 3.6s ease-in-out 1;
+}
+.quick button:nth-child(2) i:before{animation-delay:.18s}
+.quick button:nth-child(3) i:before{animation-delay:.36s}
+.quick button:nth-child(4) i:before{animation-delay:.54s}
+@keyframes glassSweep{0%,15%{transform:translateX(-125%)}70%,100%{transform:translateX(125%)}}
+@keyframes glassFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-3deg)}}
+@media(hover:hover){
+ .quick button:hover i,.iconBtn:hover .glass-icon,.nav button:hover .glass-icon,.mark:hover{animation:glassFloat .8s ease-in-out 1;box-shadow:inset 0 1px 0 #fff,0 10px 20px #0d54762e}
+ .iconBtn:hover{background:linear-gradient(145deg,#ffffff3c,#ffffff18)}
+ .quick button:hover i:before,.iconBtn:hover .glass-icon:before,.nav button:hover .glass-icon:before{animation:glassSweep .85s ease-out 1}
+}
+.iconBtn:active .glass-icon,.quick button:active i,.nav button:active .glass-icon{transform:scale(.94)}
+@media(max-width:560px){.iconBtn .glass-icon{width:31px;height:31px;font-size:21px;border-radius:10px}.nav .glass-icon{width:26px;height:26px;font-size:17px}.nav button{padding:7px 10px;gap:6px}}
+@media(prefers-reduced-motion:reduce){.mark,.glass-icon,.quick i,.stn .dot,.lsn .fav,.iconBtn{animation:none!important;transition:none!important;transform:none!important}.mark:before,.glass-icon:before,.quick i:before{animation:none!important;display:none}}
+@media print{.mark,.glass-icon,.quick i,.stn .dot,.lsn .fav{animation:none!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.mark:before,.glass-icon:before,.quick i:before{display:none!important}}
+
+
+/* Glass badges beside student names — decorative only */
+.fursan-rank .name:before,.fursan-teacher-row>span:nth-child(2):before,#teacherRequests article>strong:before{
+ content:"🛡️";display:inline-grid;place-items:center;vertical-align:middle;
+ width:29px;height:29px;margin-inline-end:7px;border-radius:10px;font-size:18px;line-height:1;
+ border:1px solid #ffffffd9;background:linear-gradient(140deg,#ffffffed,#daf2fcaa 48%,#95d8ec88);
+ box-shadow:inset 0 1px 1px #fff,0 4px 9px #0d547620;
+ -webkit-backdrop-filter:blur(8px) saturate(145%);backdrop-filter:blur(8px) saturate(145%);
+ animation:studentGlassFloat 3.8s ease-in-out 1;
+}
+.home-fursan-card .medal,.fursan-medal,.pod .medal{
+ position:relative;isolation:isolate;display:grid;place-items:center;align-self:center;
+ width:58px;height:58px;margin:0 auto 8px;border-radius:19px;line-height:1;
+ border:1px solid #ffffff9e;background:linear-gradient(145deg,#ffffffa3,#ddf4ff40 55%,#84cde44d);
+ box-shadow:inset 0 1px 1px #ffffffe0,inset 0 -3px 8px #15516f19,0 7px 18px #052e4938;
+ -webkit-backdrop-filter:blur(10px) saturate(150%);backdrop-filter:blur(10px) saturate(150%);
+ animation:studentGlassFloat 3.8s ease-in-out 1;
+}
+.fursan-slot.first .fursan-medal,.home-fursan-card.rank1 .medal{background:linear-gradient(145deg,#fff6d6d9,#ffe2a073,#efb94b52);border-color:#fff1bd}
+.home-fursan-card.rank2 .medal{background:linear-gradient(145deg,#ffffffed,#e7effa88,#9fbbd270)}
+.home-fursan-card.rank3 .medal{background:linear-gradient(145deg,#fff3e5e6,#f5cba177,#ce916b66)}
+.fursan-rank .idx,.fursan-teacher-row>b:first-child,.rk .num{
+ display:grid;place-items:center;justify-self:center;min-width:28px;min-height:30px;padding:2px 4px;
+ border:1px solid #fff;border-radius:10px;background:linear-gradient(140deg,#ffffffed,#d9edf7bb);
+ box-shadow:inset 0 1px 0 #fff,0 3px 8px #0d54761a;color:var(--g);
+}
+@keyframes studentGlassFloat{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-3px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(2deg)}}
+@keyframes studentGlassTouch{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.05)}}
+@media(hover:hover){
+ .home-fursan-card:hover .medal,.fursan-slot:hover .fursan-medal,.pod:hover .medal,
+ .fursan-rank:hover .name:before,.fursan-teacher-row:hover>span:nth-child(2):before,
+ #teacherRequests article:hover>strong:before{animation:studentGlassTouch .85s ease-in-out 1}
+}
+@media(max-width:560px){.fursan-rank .name:before,.fursan-teacher-row>span:nth-child(2):before{width:25px;height:25px;font-size:16px;margin-inline-end:5px}.fursan-medal{width:49px;height:49px;border-radius:16px}}
+@media(prefers-reduced-motion:reduce){
+ .home-fursan-card .medal,.fursan-medal,.pod .medal,.fursan-rank .name:before,
+ .fursan-teacher-row>span:nth-child(2):before,#teacherRequests article>strong:before{animation:none!important;transform:none!important}
+}
+@media print{
+ .home-fursan-card .medal,.fursan-medal,.pod .medal{animation:none!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:none!important}
+ .fursan-rank .name:before,.fursan-teacher-row>span:nth-child(2):before,#teacherRequests article>strong:before{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -347,20 +438,20 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
    <div><h1>مختبر الرازي التفاعلي</h1><small>العلوم • الصف الرابع الابتدائي</small></div>
   </div>
   <div class="hdrBtns">
-   <button class="iconBtn" onclick="cycleFont()" title="تكبير/تصغير حجم الخط" aria-label="حجم الخط">🔡<span class="ibT">حجم الخط</span></button>
-   <button class="iconBtn" onclick="openWho()" title="دخول الطلاب" aria-label="دخول الطلاب">👤<span class="ibT">دخول الطلاب</span></button>
-   <button class="iconBtn" onclick="openPin()" title="دخول لوحة المعلم" aria-label="لوحة المعلم">🔐<span class="ibT">لوحة المعلم</span></button>
+   <button class="iconBtn" onclick="cycleFont()" title="تكبير/تصغير حجم الخط" aria-label="حجم الخط"><span class="glass-icon" aria-hidden="true">🔡</span><span class="ibT">حجم الخط</span></button>
+   <button class="iconBtn" onclick="openWho()" title="دخول الطلاب" aria-label="دخول الطلاب"><span class="glass-icon" aria-hidden="true">👤</span><span class="ibT">دخول الطلاب</span></button>
+   <button class="iconBtn" onclick="openPin()" title="دخول لوحة المعلم" aria-label="لوحة المعلم"><span class="glass-icon" aria-hidden="true">🔐</span><span class="ibT">لوحة المعلم</span></button>
   </div>
  </div>
  <nav class="nav" id="nav">
-  <button class="on" data-p="home">🏠 الرئيسية</button>
-  <button data-p="lessons">📚 أوراق العمل</button>
-  <button data-p="exams">📋 اختبارات الوحدات</button>
-  <button data-p="review">🔁 صندوق الأخطاء</button>
-  <button data-p="labs">🧪 المختبر</button>
-  <button data-p="board">⚔️ فرسان العلوم</button>
-  <button data-p="me">🎒 ملفي</button>
-  <button data-p="cert">📜 الشهادات</button>
+  <button class="on" data-p="home"><span class="glass-icon" aria-hidden="true">🏠</span> الرئيسية</button>
+  <button data-p="lessons"><span class="glass-icon" aria-hidden="true">📚</span> أوراق العمل</button>
+  <button data-p="exams"><span class="glass-icon" aria-hidden="true">📋</span> اختبارات الوحدات</button>
+  <button data-p="review"><span class="glass-icon" aria-hidden="true">🔁</span> صندوق الأخطاء</button>
+  <button data-p="labs"><span class="glass-icon" aria-hidden="true">🧪</span> المختبر</button>
+  <button data-p="board"><span class="glass-icon" aria-hidden="true">⚔️</span> فرسان العلوم</button>
+  <button data-p="me"><span class="glass-icon" aria-hidden="true">🎒</span> ملفي</button>
+  <button data-p="cert"><span class="glass-icon" aria-hidden="true">📜</span> الشهادات</button>
  </nav>
 </header>
 
@@ -940,7 +1031,7 @@ const FURSAN_CRITERIA = [
  'التفاعل مع الأنشطة والتجارب العلمية.','اتباع تعليمات السلامة أثناء التجارب.','المحافظة على أدوات وممتلكات الصف.','التحسن والتطور في المستوى.','الحصول على الدرجة الكاملة في نشاط أو اختبار قصير.'
 ];
 const FURSAN_TITLES=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون'];
-let FURSAN_RAW = {}, FURSAN_TARGET = '', SCORES_READY=false;
+let FURSAN_RAW = {}, FURSAN_TARGET = '', SCORES_READY=false, SCORE_MESSAGE='جارٍ تحميل الأرصدة المحفوظة…', SCORE_REF=null, SCORE_TIMER=null;
 const fursanKey = n => String(n||'').replace(/[.#$\[\]\/]/g,'_');
 const fursanScore = n => Number(FURSAN_RAW[fursanKey(n)])||0;
 function fursanRows(){ return ROSTER_NAMES.slice().sort((a,b)=>fursanScore(b)-fursanScore(a)||a.localeCompare(b,'ar')); }
@@ -971,6 +1062,8 @@ function syncMyFursanPoints(){
   if(S.pts !== p){ S.pts=p; save(); }
 }
 function drawFursanBoard(){
+ if(!SCORES_READY){const message='<div role="status" style="grid-column:1/-1;text-align:center;padding:24px;opacity:.85">'+(SCORE_MESSAGE==='جارٍ تحميل الأرصدة…'?'جارٍ تحميل الأرصدة…':'الأرصدة غير متاحة الآن')+' <button class="btn o sm" onclick="listenFursanScores()">تحديث</button></div>';['fursanPodium','fursanRankList','homeFursanTop10','fursanMyScore'].forEach(id=>{const el=$(id);if(el)el.innerHTML=message;});const sync=$('fursanSync');if(sync){sync.textContent='بانتظار الأرصدة';sync.className='tag';}return;}
+
   const rows=fursanRows(), top=rows.slice(0,3), order=[top[1],top[0],top[2]];
   const pod=$('fursanPodium');
   if(pod) pod.innerHTML=order.map((n,i)=>{
@@ -995,20 +1088,46 @@ function drawFursanBoard(){
       </article>`;
     }).join('') || '<div class="home-fursan-card"><strong>لا توجد أسماء في الكشف.</strong></div>';
   }
-  const sy=$('fursanSync'); if(sy){ sy.textContent=SCORES_READY?'الأرصدة المحفوظة متزامنة ✓':'جارٍ تحميل الأرصدة…'; sy.className='tag sea'; }
+  const sy=$('fursanSync'); if(sy){ sy.textContent=SCORE_MESSAGE?'آخر أرصدة محمّلة • جارٍ إعادة الاتصال':('آخر تحديث '+new Date(SCORE_LAST_OK).toLocaleTimeString('ar-SA',{hour:'2-digit',minute:'2-digit'})); sy.className='tag sea'; }
 }
 function drawBoard(){ syncMyFursanPoints(); drawFursanBoard(); }
-function listenFursanScores(){
-  FURSAN_DB.ref('scores').on('value',snap=>{
-    FURSAN_RAW=snap.val()||{}; SCORES_READY=true;
-    syncMyFursanPoints(); drawFursanBoard();
-    try{refresh();}catch(e){}
-    try{drawFursanTeacher();}catch(e){}
-  },err=>{
-    SCORES_READY=false; console.warn('تعذرت مزامنة فرسان العلوم',err);
-    const sy=$('fursanSync'); if(sy){sy.textContent='تعذرت مزامنة فرسان العلوم';sy.className='tag gold';}
-  });
+// Both transports read the existing scores node. Never seed or restore balances.
+let SCORE_GENERATION=0, SCORE_REVISION=0, SCORE_BUSY=false, SCORE_ABORT=null, SCORE_LAST_OK=0;
+function renderScoreState(){drawFursanBoard();refresh();drawFursanTeacher();}
+function acceptScoreSnapshot(v){
+ if(!v||typeof v!=='object'||Array.isArray(v)||!Object.keys(v).length){SCORE_MESSAGE='لم يُرجع مسار scores أي أرصدة.';renderScoreState();return false;}
+ if(Object.values(v).some(x=>(typeof x!=='number'&&typeof x!=='string')||String(x).trim()===''||!Number.isFinite(Number(x)))){SCORE_MESSAGE='صيغة بيانات النقاط غير متوقعة.';renderScoreState();return false;}
+ FURSAN_RAW=v;SCORES_READY=true;SCORE_LAST_OK=Date.now();SCORE_MESSAGE='';syncMyFursanPoints();renderScoreState();return true;
 }
+async function readScoresHttps(){
+ if(SCORE_BUSY)return;
+ const generation=SCORE_GENERATION, revision=SCORE_REVISION;
+ SCORE_BUSY=true;const controller=new AbortController();SCORE_ABORT=controller;
+ const timeout=setTimeout(()=>controller.abort(),10000);
+ try{
+  const response=await fetch(FURSAN_FIREBASE_CONFIG.databaseURL.replace(/\/$/,'')+'/scores.json',{method:'GET',cache:'no-store',credentials:'omit',signal:controller.signal});
+  if(!response.ok)throw Error('HTTP '+response.status);
+  const values=await response.json();
+  if(generation===SCORE_GENERATION&&revision===SCORE_REVISION)acceptScoreSnapshot(values);
+ }catch(error){
+  if(generation===SCORE_GENERATION&&revision===SCORE_REVISION){SCORE_MESSAGE=/401|403/.test(error.message||'')?'تعذرت قراءة scores: راجع صلاحية القراءة في مشروع fursan-science.':'تعذر تحديث الأرصدة الآن؛ ستُعاد المحاولة تلقائيًا.';renderScoreState();}
+ }finally{
+  clearTimeout(timeout);
+  if(generation===SCORE_GENERATION){SCORE_BUSY=false;SCORE_ABORT=null;clearTimeout(SCORE_TIMER);SCORE_TIMER=setTimeout(()=>{if(document.visibilityState==='hidden'){SCORE_TIMER=setTimeout(readScoresHttps,60000);}else readScoresHttps();},60000);}
+ }
+}
+function listenFursanScores(){
+ SCORE_GENERATION++;if(SCORE_ABORT)SCORE_ABORT.abort();SCORE_BUSY=false;
+ if(SCORE_REF)SCORE_REF.off();clearTimeout(SCORE_TIMER);
+ SCORE_MESSAGE=SCORES_READY?'':'جارٍ تحميل الأرصدة…';renderScoreState();
+ // HTTPS is independent of the SDK's persistent connection and authentication refresh.
+ readScoresHttps();
+ try{SCORE_REF=FURSAN_DB.ref('scores');
+ SCORE_REF.on('value',snap=>{SCORE_REVISION++;acceptScoreSnapshot(snap.val());},()=>{readScoresHttps();});
+ }catch(error){/* HTTPS remains active when the realtime listener is unavailable. */}
+}
+window.addEventListener('online',()=>readScoresHttps());
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')readScoresHttps();});
 function openFursanCriteria(studentName){
   FURSAN_TARGET=studentName||'';
   const title=$('fursanCritTitle'), sub=$('fursanCritSub'), list=$('fursanCritList');
@@ -1048,6 +1167,8 @@ async function adjustFursanScore(name,delta){
   }catch(e){ alert('تعذر تعديل النقاط: '+e.message); }
 }
 function drawFursanTeacher(){
+ if(!SCORES_READY){const el=$('fursanTeacherList');if(el)el.innerHTML='<div class="note warn">'+esc(SCORE_MESSAGE)+'</div>';return;}
+
   const el=$('fursanTeacherList'); if(!el) return;
   const q=norm(($('fursanTeacherSearch')&&$('fursanTeacherSearch').value)||'');
   const all=fursanRows(), rows=all.filter(n=>!q||norm(n).includes(q));
@@ -1169,8 +1290,8 @@ function openUnit(id){ go('lessons'); $('fUnit').value = id; drawLessons(); }
 function refresh(){
   const acc = S.total ? Math.round(S.right / S.total * 100) : 0;
   const set = (id, v) => { const e = $(id); if (e) e.textContent = v; };
-  set('stPts', ar(S.pts)); set('stLsn', ar(S.viewed.length)); set('stAcc', ar(acc) + '٪'); set('stBdg', ar(S.badges.length));
-  set('mePts', ar(S.pts)); set('meLsn', ar(S.viewed.length)); set('meAcc', ar(acc) + '٪');
+  set('stPts', SCORES_READY?ar(S.pts):'—'); set('stLsn', ar(S.viewed.length)); set('stAcc', ar(acc) + '٪'); set('stBdg', ar(S.badges.length));
+  set('mePts', SCORES_READY?ar(S.pts):'—'); set('meLsn', ar(S.viewed.length)); set('meAcc', ar(acc) + '٪');
 }
 
 /* ══════════ الدروس ══════════ */
@@ -1721,7 +1842,7 @@ function drawMe(){
     `<div class="bdg ${S.badges.includes(b[0]) ? '' : 'lock'}"><i>${b[1]}</i><b>${esc(b[2])}</b></div>`).join('');
   refresh();
 }
-function parentReport(){
+function parentReport(){if(!SCORES_READY){alert("لم تُحمّل النقاط بعد. أعد تحميل الأرصدة أولًا.");return;}
   const acc = S.total ? Math.round(S.right / S.total * 100) : 0;
   const strong = Object.entries(S.examScore).sort((a, b) => b[1] - a[1])[0];
   const weakKeys = Object.keys(S.wrong).filter(k => QI[k]);
@@ -1787,13 +1908,13 @@ function certHTML(){
       <div class="code">${code}</div>
     </div></div>`;
 }
-function makeCert(){
+function makeCert(){if(!SCORES_READY){alert("لم تُحمّل النقاط بعد. أعد تحميل الأرصدة أولًا.");return;}
   if (!S.student) { openWho(); return; }
   $('certArea').innerHTML = certHTML();
   $('cPrint').disabled = false;
 }
-function printCert(){ $('printZone').innerHTML = certHTML(); window.print(); }
-function printBoard(){
+function printCert(){if(!SCORES_READY){alert("لم تُحمّل النقاط بعد. أعد تحميل الأرصدة أولًا.");return;} $('printZone').innerHTML = certHTML(); window.print(); }
+function printBoard(){if(!SCORES_READY){alert("لم تُحمّل النقاط بعد. أعد تحميل الأرصدة أولًا.");return;}
   const rows=fursanRows().slice(0,20);
   $('printZone').innerHTML=`<div style="padding:18px" dir="rtl"><h2 style="text-align:center">⚔️ فرسان العلوم — الصف الرابع</h2><p style="text-align:center;color:#666">مدرسة أبي بكر الرازي الابتدائية</p><table style="width:100%;border-collapse:collapse"><thead><tr><th>#</th><th>الفارس</th><th>اللقب</th><th>النقاط</th></tr></thead><tbody>${rows.map((n,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(n)}</td><td>الفارس ${FURSAN_TITLES[i]||ar(i+1)}</td><td>⭐ ${ar(fursanScore(n))}</td></tr>`).join('')}</tbody></table><p style="margin-top:14px;font-size:.8rem;color:#666">تعرض القائمة النقاط المعتمدة. تُمنح مكافآت التعلم بعد مراجعة المعلم، ويمكنه إضافة نقاط وفق المعايير.</p></div>`;
   window.print();
@@ -1939,7 +2060,7 @@ function dl(name, text){
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 }
 function exportRoster(){ dl('كشف-الفصل.csv', 'م,الطالب,الرمز\n' + ROSTER.map((r,i) => `${i+1},${r[0]},${r[1]}`).join('\n')); }
-function exportResults(){
+function exportResults(){if(!SCORES_READY){alert("لم تُحمّل النقاط بعد. أعد تحميل الأرصدة أولًا.");return;}
   const rows=fursanRows();
   dl('نقاط-فرسان-العلوم.csv','الترتيب,الطالب,النقاط\n'+rows.map((n,i)=>`${i+1},${n},${fursanScore(n)}`).join('\n'));
 }
