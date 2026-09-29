@@ -966,6 +966,28 @@ function fursanCanonicalStudent(){
   نستخدم مفتاحًا ثابتًا داخل awardLogs لكل إنجاز لمنع تكرار النقاط عند إعادة فتح الدرس
   أو إعادة حل السؤال على الجهاز نفسه، ومع المزامنة تُحفظ علامة الإنجاز في Firebase أيضًا.
 */
+async function ensureFursanStudentAuth(){
+  const student=fursanCanonicalStudent();
+  if(!student) throw new Error('لا يوجد طالب مسجل');
+  let user=FURSAN_AUTH.currentUser;
+  if(!user || !user.isAnonymous){
+    if(user && !user.isAnonymous) throw new Error('حساب المعلم نشط');
+    const cred=await FURSAN_AUTH.signInAnonymously();
+    user=cred.user;
+  }
+  const sk=fursanKey(student), acc=FURSAN_DB.ref('studentAccounts/'+user.uid);
+  const snap=await acc.once('value');
+  const cur=snap.val();
+  if(!cur){
+    await acc.set({student:student,key:sk});
+  }else if(cur.key!==sk || norm(cur.student)!==norm(student)){
+    await FURSAN_AUTH.signOut();
+    const cred=await FURSAN_AUTH.signInAnonymously();
+    user=cred.user;
+    await FURSAN_DB.ref('studentAccounts/'+user.uid).set({student:student,key:sk});
+  }
+  return user;
+}
 async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
   const student=fursanCanonicalStudent();
   if(!student) return false;
@@ -973,27 +995,28 @@ async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
   if(S.earned[localKey]===1 || S.earned[localKey]==='pending') return false;
   S.earned[localKey]='pending'; save();
   const sk=fursanKey(student), ev=fursanAutoEventKey(type,id);
-  const receipt=FURSAN_DB.ref('awardLogs/'+sk+'/'+ev);
-  let claimed=false;
   try{
-    const tx=await receipt.transaction(v=>{
-      if(v) return; // سبق تسجيل هذا الإنجاز في قاعدة فرسان العلوم
-      return {
-        student, criterion:'مكافأة تلقائية: '+label,
-        eventType:type, eventId:String(id), delta:points,
-        automatic:true, source:'مختبر الرازي',
-        ts:firebase.database.ServerValue.TIMESTAMP
-      };
-    });
-    claimed=!!(tx&&tx.committed);
-    if(claimed){
-      await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
+    const user=await ensureFursanStudentAuth();
+    const receipt=await FURSAN_DB.ref('awardLogs/'+sk+'/'+ev).once('value');
+    if(receipt.exists()){
+      S.earned[localKey]=1; save(); return false;
     }
+    const scoreSnap=await FURSAN_DB.ref('scores/'+sk).once('value');
+    const oldScore=Number(scoreSnap.val())||0;
+    const updates={};
+    updates['scoreClaims/'+sk]={event:ev};
+    updates['scores/'+sk]=oldScore+points;
+    updates['awardLogs/'+sk+'/'+ev]={
+      student, criterion:'مكافأة تلقائية: '+label,
+      eventType:String(type), eventId:String(id), delta:points,
+      automatic:true, uid:user.uid,
+      ts:firebase.database.ServerValue.TIMESTAMP
+    };
+    await FURSAN_DB.ref().update(updates);
     S.earned[localKey]=1; save();
-    return claimed;
+    return true;
   }catch(e){
     console.warn('تعذر إضافة نقاط فرسان العلوم تلقائيًا',e);
-    if(claimed){ try{ await receipt.remove(); }catch(_e){} }
     delete S.earned[localKey]; save();
     return false;
   }
@@ -1003,6 +1026,54 @@ function syncMyFursanPoints(){
   const canonical = ROSTER_NAMES.find(n=>norm(n)===norm(S.student)) || S.student;
   const p = fursanScore(canonical);
   if(S.pts !== p){ S.pts=p; save(); }
+}
+
+/* مزامنة إنجازات أوراق العمل من Firebase إلى حساب الطالب على أي جهاز */
+let STUDENT_AWARD_REF = null;
+function stopStudentAwardSync(){
+  if(STUDENT_AWARD_REF){ try{ STUDENT_AWARD_REF.off(); }catch(e){} STUDENT_AWARD_REF=null; }
+}
+function applyStudentCloudAwards(v){
+  if(!v || typeof v!=='object') return;
+  let changed=false;
+  Object.keys(v).forEach(ev=>{
+    const a=v[ev];
+    if(!a || a.automatic!==true) return;
+    const type=String(a.eventType||''), id=String(a.eventId||'');
+    if(!type || !id) return;
+    const autoKey='fauto:'+type+':'+id;
+    if(S.earned[autoKey]!==1){ S.earned[autoKey]=1; changed=true; }
+    if(type==='question'){
+      const ptsKey='pts:'+id, seenKey='seen:'+id;
+      if(!S.earned[ptsKey]){ S.earned[ptsKey]=1; changed=true; }
+      if(!S.earned[seenKey]){ S.earned[seenKey]=1; S.total++; S.right++; changed=true; }
+    }else if(type==='lesson'){
+      const n=Number(id);
+      if(n && !S.viewed.includes(n)){ S.viewed.push(n); changed=true; }
+      if(n && !S.earned['open:'+n]){ S.earned['open:'+n]=1; changed=true; }
+    }else if(type==='lab'){
+      const n=Number(id);
+      if(n && !S.labs.includes(n)){ S.labs.push(n); changed=true; }
+    }
+  });
+  if(changed){
+    LESSONS.forEach(l=>{
+      const keys=l.q.map((q,i)=>'L'+l.id+'#'+i);
+      S.lsnScore[l.id]=keys.filter(k=>S.earned['pts:'+k]).length;
+    });
+    checkBadges(); save();
+    try{ refresh(); }catch(e){}
+    try{ if(curLesson) lsnScoreView(curLesson); }catch(e){}
+    try{ drawMe(); }catch(e){}
+  }
+}
+function startStudentAwardSync(){
+  stopStudentAwardSync();
+  const student=fursanCanonicalStudent();
+  if(!student) return;
+  const sk=fursanKey(student);
+  STUDENT_AWARD_REF=FURSAN_DB.ref('awardLogs/'+sk);
+  STUDENT_AWARD_REF.on('value',snap=>applyStudentCloudAwards(snap.val()||{}),err=>console.warn('تعذرت مزامنة درجات أوراق العمل',err));
 }
 function drawFursanBoard(){
   const rows=fursanRows(), top=rows.slice(0,3), order=[top[1],top[0],top[2]];
@@ -2009,10 +2080,10 @@ function tryLogin(){
   if (code !== studentCode(real)) return fail('الرمز غير صحيح — اطلب رمزك الخاص من معلم المادة.');
   setName(real);
 }
-function setName(n){ S.student = n; save(); applyGate(); closeOv('mWho'); go('home'); drawMe(); drawBoard(); refresh(); }
+async function setName(n){ S.student = n; save(); try{ await ensureFursanStudentAuth(); }catch(e){ console.warn('تعذر ربط حساب الطالب بفرسان العلوم',e); } startStudentAwardSync(); applyGate(); closeOv('mWho'); go('home'); drawMe(); drawBoard(); refresh(); }
 function logoutStudent(){
   if (!confirm('تسجيل الخروج؟ ستحتاج اسمك ورمزك للدخول مرة أخرى.')) return;
-  S.student = ''; S.teacher = false; save(); applyGate(); openWho();
+  stopStudentAwardSync(); S.student = ''; S.teacher = false; save(); applyGate(); openWho();
 }
 
 /* ══════════ وضع العرض ══════════ */
@@ -2080,7 +2151,8 @@ function applyFont(){ document.body.classList.remove('fs-l', 'fs-xl');
 
 /* ══════════ التشغيل ══════════ */
 function syncTeacherAuthState(){
-  S.teacher = !!(FB_AUTH.currentUser || FURSAN_AUTH.currentUser);
+  const fu=FURSAN_AUTH.currentUser;
+  S.teacher = !!(FB_AUTH.currentUser || (fu && !fu.isAnonymous));
   save(); applyGate();
   if(S.teacher){ try{ drawTeacher(); }catch(e){} }
 }
@@ -2090,9 +2162,10 @@ FB_AUTH.onAuthStateChanged(async user => {
     try { await ensureRosterOnFirebase(); } catch(e) { console.warn('تعذر تهيئة كشف الطلاب', e); }
   }
 });
-FURSAN_AUTH.onAuthStateChanged(() => syncTeacherAuthState());
+FURSAN_AUTH.onAuthStateChanged(() => { syncTeacherAuthState(); if(S.student) startStudentAwardSync(); });
 listenRosterFromFirebase();
 listenFursanScores();
+if(S.student) startStudentAwardSync();
 
 function init(){
   $('fUnit').innerHTML = '<option value="0">كل الوحدات</option>' +
