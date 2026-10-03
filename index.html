@@ -996,18 +996,32 @@ async function writeFursanScoreSafely(sk,ev,student,points,user,label,type,id){
   }catch(claimErr){
     console.warn('تعذر حفظ مطالبة النقاط، سيتم استخدام المسار المباشر',claimErr);
   }
+  const logRef=FURSAN_DB.ref('awardLogs/'+sk+'/'+ev);
+  let ownsClaim=false;
+  const claimTx=await logRef.transaction(v=>{
+    if(v && v.credited===true) return v;
+    if(v && v.claimUid && v.claimUid!==user.uid) return v;
+    ownsClaim=true;
+    return Object.assign({}, v||{}, {
+      student, criterion:'مكافأة تلقائية: '+label,
+      eventType:String(type), eventId:String(id), delta:points,
+      automatic:true, uid:user.uid, claimUid:user.uid,
+      credited:false, ts:now
+    });
+  });
+  const claimVal=claimTx.snapshot && claimTx.snapshot.val();
+  if(claimVal && claimVal.credited===true) return false;
+  if(!ownsClaim && (!claimVal || claimVal.claimUid!==user.uid)){
+    throw new Error('هذا الإنجاز قيد الحفظ على جهاز آخر.');
+  }
   const tx=await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
   if(!tx.committed) throw new Error('لم يتم اعتماد تحديث الدرجة.');
   try{
-    await FURSAN_DB.ref('awardLogs/'+sk+'/'+ev).set({
-      student, criterion:'مكافأة تلقائية: '+label,
-      eventType:String(type), eventId:String(id), delta:points,
-      automatic:true, uid:user.uid,
-      ts:now
-    });
+    await logRef.update({credited:true, creditedAt:now});
   }catch(logErr){
     console.warn('تمت إضافة النقاط، لكن تعذر حفظ سجل الإنجاز',logErr);
   }
+  return true;
 }
 async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
   const student=fursanCanonicalStudent();
@@ -1020,15 +1034,16 @@ async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
     const user=await ensureFursanStudentAuth();
     try{
       const receipt=await FURSAN_DB.ref('awardLogs/'+sk+'/'+ev).once('value');
-      if(receipt.exists()){
+      const rv=receipt.val();
+      if(rv && rv.credited===true){
         S.earned[localKey]=1; save(); return false;
       }
     }catch(readErr){
       console.warn('تعذر فحص سجل الإنجاز، سيتم اعتماد الحفظ الآمن',readErr);
     }
-    await writeFursanScoreSafely(sk,ev,student,points,user,label,type,id);
+    const added=await writeFursanScoreSafely(sk,ev,student,points,user,label,type,id);
     S.earned[localKey]=1;
-    S.pts=(Number(S.pts)||0)+points;
+    if(added!==false) S.pts=(Number(S.pts)||0)+points;
     save();
     try{ refresh(); }catch(e){}
     return true;
