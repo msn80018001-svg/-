@@ -732,6 +732,7 @@ try { FURSAN_APP = firebase.app('fursanBoard'); }
 catch(e) { FURSAN_APP = firebase.initializeApp(FURSAN_FIREBASE_CONFIG, 'fursanBoard'); }
 const FURSAN_DB = FURSAN_APP.database();
 const FURSAN_AUTH = FURSAN_APP.auth();
+try { FURSAN_AUTH.setPersistence(firebase.auth.Auth.Persistence.LOCAL); } catch(e) {}
 function listenRosterFromFirebase(){
   FB_DB.ref('roster').on('value', snap => {
     const v = snap.val();
@@ -988,6 +989,26 @@ async function ensureFursanStudentAuth(){
   }
   return user;
 }
+async function writeFursanScoreSafely(sk,ev,student,points,user,label,type,id){
+  const now=firebase.database.ServerValue.TIMESTAMP;
+  try{
+    await FURSAN_DB.ref('scoreClaims/'+sk).set({event:ev,uid:user.uid,delta:points,ts:now});
+  }catch(claimErr){
+    console.warn('تعذر حفظ مطالبة النقاط، سيتم استخدام المسار المباشر',claimErr);
+  }
+  const tx=await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
+  if(!tx.committed) throw new Error('لم يتم اعتماد تحديث الدرجة.');
+  try{
+    await FURSAN_DB.ref('awardLogs/'+sk+'/'+ev).set({
+      student, criterion:'مكافأة تلقائية: '+label,
+      eventType:String(type), eventId:String(id), delta:points,
+      automatic:true, uid:user.uid,
+      ts:now
+    });
+  }catch(logErr){
+    console.warn('تمت إضافة النقاط، لكن تعذر حفظ سجل الإنجاز',logErr);
+  }
+}
 async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
   const student=fursanCanonicalStudent();
   if(!student) return false;
@@ -997,22 +1018,15 @@ async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
   const sk=fursanKey(student), ev=fursanAutoEventKey(type,id);
   try{
     const user=await ensureFursanStudentAuth();
-    const receipt=await FURSAN_DB.ref('awardLogs/'+sk+'/'+ev).once('value');
-    if(receipt.exists()){
-      S.earned[localKey]=1; save(); return false;
+    try{
+      const receipt=await FURSAN_DB.ref('awardLogs/'+sk+'/'+ev).once('value');
+      if(receipt.exists()){
+        S.earned[localKey]=1; save(); return false;
+      }
+    }catch(readErr){
+      console.warn('تعذر فحص سجل الإنجاز، سيتم اعتماد الحفظ الآمن',readErr);
     }
-    const scoreSnap=await FURSAN_DB.ref('scores/'+sk).once('value');
-    const oldScore=Number(scoreSnap.val())||0;
-    const updates={};
-    updates['scoreClaims/'+sk]={event:ev};
-    updates['scores/'+sk]=oldScore+points;
-    updates['awardLogs/'+sk+'/'+ev]={
-      student, criterion:'مكافأة تلقائية: '+label,
-      eventType:String(type), eventId:String(id), delta:points,
-      automatic:true, uid:user.uid,
-      ts:firebase.database.ServerValue.TIMESTAMP
-    };
-    await FURSAN_DB.ref().update(updates);
+    await writeFursanScoreSafely(sk,ev,student,points,user,label,type,id);
     S.earned[localKey]=1; save();
     return true;
   }catch(e){
@@ -1072,6 +1086,7 @@ function startStudentAwardSync(){
   const student=fursanCanonicalStudent();
   if(!student) return;
   const sk=fursanKey(student);
+  ensureFursanStudentAuth().catch(e=>console.warn('تعذر تهيئة حساب الطالب للمزامنة',e));
   STUDENT_AWARD_REF=FURSAN_DB.ref('awardLogs/'+sk);
   STUDENT_AWARD_REF.on('value',snap=>applyStudentCloudAwards(snap.val()||{}),err=>console.warn('تعذرت مزامنة درجات أوراق العمل',err));
 }
