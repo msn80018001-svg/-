@@ -1027,13 +1027,37 @@ async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
       console.warn('تعذر فحص سجل الإنجاز، سيتم اعتماد الحفظ الآمن',readErr);
     }
     await writeFursanScoreSafely(sk,ev,student,points,user,label,type,id);
-    S.earned[localKey]=1; save();
+    S.earned[localKey]=1;
+    S.pts=(Number(S.pts)||0)+points;
+    save();
+    try{ refresh(); }catch(e){}
     return true;
   }catch(e){
     console.warn('تعذر إضافة نقاط فرسان العلوم تلقائيًا',e);
     delete S.earned[localKey]; save();
     return false;
   }
+}
+function awardFursanIfMissing(type,id,label){
+  const localKey='fauto:'+type+':'+id;
+  if(S.earned[localKey]===1 || S.earned[localKey]==='pending') return;
+  awardFursanAuto(type,id,label);
+}
+function retryMissingFursanAwards(){
+  if(!S.student) return;
+  Object.keys(S.earned||{}).forEach(k=>{
+    if(!k.startsWith('pts:') || !S.earned[k]) return;
+    const qid=k.slice(4), src=(QI[qid]&&QI[qid].src)?QI[qid].src:'سؤال العلوم';
+    awardFursanIfMissing('question',qid,'إجابة صحيحة — '+src);
+  });
+  (S.viewed||[]).forEach(id=>{
+    const l=LESSONS.find(x=>Number(x.id)===Number(id));
+    if(l) awardFursanIfMissing('lesson',id,'فتح الدرس لأول مرة — '+l.t);
+  });
+  (S.labs||[]).forEach(id=>{
+    const L=LABS.find(x=>String(x.id)===String(id));
+    if(L) awardFursanIfMissing('lab',id,'إنجاز التجربة لأول مرة — '+L.t);
+  });
 }
 function syncMyFursanPoints(){
   if(!S.student) return;
@@ -1086,7 +1110,9 @@ function startStudentAwardSync(){
   const student=fursanCanonicalStudent();
   if(!student) return;
   const sk=fursanKey(student);
-  ensureFursanStudentAuth().catch(e=>console.warn('تعذر تهيئة حساب الطالب للمزامنة',e));
+  ensureFursanStudentAuth()
+    .then(()=>setTimeout(retryMissingFursanAwards,700))
+    .catch(e=>console.warn('تعذر تهيئة حساب الطالب للمزامنة',e));
   STUDENT_AWARD_REF=FURSAN_DB.ref('awardLogs/'+sk);
   STUDENT_AWARD_REF.on('value',snap=>applyStudentCloudAwards(snap.val()||{}),err=>console.warn('تعذرت مزامنة درجات أوراق العمل',err));
 }
@@ -1250,6 +1276,8 @@ function finish(key, right, extra){
   if (!S.earned['seen:' + key]) { S.earned['seen:' + key] = 1; S.total++; if (right) S.right++; }
   if (right && !S.earned['pts:' + key]) {
     S.earned['pts:' + key] = 1;
+  }
+  if (right && S.earned['fauto:question:'+key]!==1 && S.earned['fauto:question:'+key]!=='pending') {
     const src = (QI[key] && QI[key].src) ? QI[key].src : 'سؤال العلوم';
     awardFursanAuto('question', key, 'إجابة صحيحة — ' + src).then(got=>{
       if(got && fb && !fb.querySelector('.fursan-auto-gain'))
@@ -1329,8 +1357,8 @@ function openLesson(id){
     S.viewed.push(id);
     if (!S.earned['open:' + id]) { S.earned['open:' + id] = 1; }
     checkBadges(); save();
-    awardFursanAuto('lesson', id, 'فتح الدرس لأول مرة — ' + l.t);
   }
+  awardFursanIfMissing('lesson', id, 'فتح الدرس لأول مرة — ' + l.t);
   $('lmUnit').textContent = l.unit + ' • ' + l.ch;
   $('lmTitle').textContent = l.t;
   $('lmSum').textContent = l.s;
@@ -1790,8 +1818,8 @@ function labPick(id, ok, btn){
   const firstLabSuccess = ok && !S.labs.includes(id);
   if (firstLabSuccess) {
     S.labs.push(id);
-    awardFursanAuto('lab', id, 'إنجاز التجربة لأول مرة — ' + L.t);
   }
+  if (ok) awardFursanIfMissing('lab', id, 'إنجاز التجربة لأول مرة — ' + L.t);
   save(); refresh();
   let extra = '';
   if (L.extra === 'circuit')
