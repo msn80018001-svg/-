@@ -569,6 +569,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
   <input id="fursanTeacherSearch" class="inp" type="search" placeholder="ابحث عن اسم الطالب…" oninput="drawFursanTeacher()">
   <div id="fursanTeacherList" style="margin-top:10px;max-height:520px;overflow:auto"></div>
   <div class="row" style="margin-top:12px">
+   <button class="btn g sm" onclick="repairFursanScoresFromLogs()">إصلاح النقاط الناقصة</button>
    <button class="btn o sm" onclick="exportResults()">⬇️ تنزيل نقاط الفرسان (CSV)</button>
    <button class="btn o sm" onclick="printBoard()">🖨️ طباعة فرسان العلوم</button>
   </div>
@@ -1233,6 +1234,46 @@ async function adjustFursanScore(name,delta){
       });
     }catch(logErr){ console.warn('تعذر حفظ سجل التصحيح',logErr); }
   }catch(e){ alert('تعذر تعديل النقاط: '+e.message); }
+}
+function fursanLogDelta(a){
+  if(!a || typeof a!=='object') return 0;
+  const d=Number(a.delta)||0;
+  if(a.automatic===true) return d===FURSAN_AUTO_POINTS ? d : 0;
+  return d;
+}
+function fursanScoreFromLogs(logs){
+  if(!logs || typeof logs!=='object') return 0;
+  return Object.values(logs).reduce((sum,a)=>sum+fursanLogDelta(a),0);
+}
+async function repairFursanScoresFromLogs(){
+  const user=FURSAN_AUTH.currentUser;
+  if(!user || !(user.uid==='Dm8g0RXYBoVm1BAFP2KUWKRCZIC2' || (user.email||'')==='alrazy2021@gmail.com')){
+    return alert('سجّل دخول المعلم أولًا إلى فرسان العلوم.');
+  }
+  if(!confirm('إصلاح النقاط الناقصة سيقارن سجلات الإنجاز مع الرصيد الظاهر، ويرفع أي طالب له نقاط ناقصة فقط. هل تريد المتابعة؟')) return;
+  try{
+    const [logsSnap,scoresSnap]=await Promise.all([
+      FURSAN_DB.ref('awardLogs').once('value'),
+      FURSAN_DB.ref('scores').once('value')
+    ]);
+    const logs=logsSnap.val()||{}, scores=scoresSnap.val()||{};
+    const updates={}, fixed=[];
+    const keys=new Set([].concat(Object.keys(logs),Object.keys(scores)));
+    keys.forEach(sk=>{
+      const computed=fursanScoreFromLogs(logs[sk]);
+      const current=Number(scores[sk])||0;
+      if(computed>current){
+        updates['scores/'+sk]=computed;
+        fixed.push({sk,current,computed});
+      }
+    });
+    if(!fixed.length) return alert('تم الفحص: لا توجد نقاط ناقصة حسب سجلات الإنجاز.');
+    await FURSAN_DB.ref().update(updates);
+    alert('تم إصلاح النقاط الناقصة لعدد '+ar(fixed.length)+' طالب/طلاب.');
+  }catch(e){
+    console.warn('تعذر إصلاح نقاط فرسان العلوم',e);
+    alert('تعذر إصلاح النقاط الآن: '+(e.message||e));
+  }
 }
 function drawFursanTeacher(){
   const el=$('fursanTeacherList'); if(!el) return;
