@@ -1272,6 +1272,9 @@ async function repairFursanScoresFromLogs(){
     alert('تم إصلاح النقاط الناقصة لعدد '+ar(fixed.length)+' طالب/طلاب.');
   }catch(e){
     console.warn('تعذر إصلاح نقاط فرسان العلوم',e);
+    if(String(e && e.message || e).includes('permission_denied')){
+      return alert('تعذر الإصلاح لأن قواعد Firebase لم تُحدّث بعد. افتح ملف firebase_rules_fursan_points.json وانشره في قاعدة نقاط فرسان العلوم.');
+    }
     alert('تعذر إصلاح النقاط الآن: '+(e.message||e));
   }
 }
