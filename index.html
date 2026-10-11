@@ -484,7 +484,7 @@ th{color:var(--mut);font-size:.78rem;font-weight:800}
    <p class="muted" style="margin:2px 0 12px">الصف الرابع الابتدائي</p>
    <div class="row" style="justify-content:center;gap:6px">
     <button class="btn o sm" onclick="openWho()">تغيير الاسم</button>
-    <button class="btn g sm" id="forceFursanSyncBtn" onclick="forceFursanSync()">مزامنة النقاط</button>
+    <button class="btn g sm" id="forceFursanSyncBtn" onclick="forceFursanSync()">تحديث الرصيد</button>
     <button class="btn d sm" onclick="logoutStudent()">خروج</button>
    </div>
    <div style="margin-top:16px;text-align:right">
@@ -1000,30 +1000,20 @@ async function writeFursanScoreSafely(sk,ev,student,points,user,label,type,id){
     console.warn('تعذر حفظ مطالبة النقاط، سيتم استخدام المسار المباشر',claimErr);
   }
   const logRef=FURSAN_DB.ref('awardLogs/'+sk+'/'+ev);
-  let ownsClaim=false;
+  let createdClaim=false;
   const claimTx=await logRef.transaction(v=>{
-    if(v && v.credited===true) return v;
-    if(v && v.claimUid && v.claimUid!==user.uid) return v;
-    ownsClaim=true;
+    if(v) return v;
+    createdClaim=true;
     return Object.assign({}, v||{}, {
       student, criterion:'مكافأة تلقائية: '+label,
       eventType:String(type), eventId:String(id), delta:points,
       automatic:true, uid:user.uid, claimUid:user.uid,
-      credited:false, ts:now
+      credited:true, creditedAt:now, ts:now
     });
   });
-  const claimVal=claimTx.snapshot && claimTx.snapshot.val();
-  if(claimVal && claimVal.credited===true) return false;
-  if(!ownsClaim && (!claimVal || claimVal.claimUid!==user.uid)){
-    throw new Error('هذا الإنجاز قيد الحفظ على جهاز آخر.');
-  }
+  if(!claimTx.committed || !createdClaim) return false;
   const tx=await FURSAN_DB.ref('scores/'+sk).transaction(v=>(Number(v)||0)+points);
   if(!tx.committed) throw new Error('لم يتم اعتماد تحديث الدرجة.');
-  try{
-    await logRef.update({credited:true, creditedAt:now});
-  }catch(logErr){
-    console.warn('تمت إضافة النقاط، لكن تعذر حفظ سجل الإنجاز',logErr);
-  }
   return true;
 }
 async function awardFursanAuto(type,id,label,points=FURSAN_AUTO_POINTS){
@@ -1065,22 +1055,8 @@ function awardFursanIfMissing(type,id,label){
   return awardFursanAuto(type,id,label);
 }
 async function retryMissingFursanAwards(){
-  if(!S.student) return [];
-  const jobs=[];
-  Object.keys(S.earned||{}).forEach(k=>{
-    if(!k.startsWith('pts:') || !S.earned[k]) return;
-    const qid=k.slice(4), src=(QI[qid]&&QI[qid].src)?QI[qid].src:'سؤال العلوم';
-    jobs.push(awardFursanIfMissing('question',qid,'إجابة صحيحة — '+src));
-  });
-  (S.viewed||[]).forEach(id=>{
-    const l=LESSONS.find(x=>Number(x.id)===Number(id));
-    if(l) jobs.push(awardFursanIfMissing('lesson',id,'فتح الدرس لأول مرة — '+l.t));
-  });
-  (S.labs||[]).forEach(id=>{
-    const L=LABS.find(x=>String(x.id)===String(id));
-    if(L) jobs.push(awardFursanIfMissing('lab',id,'إنجاز التجربة لأول مرة — '+L.t));
-  });
-  return Promise.allSettled(jobs);
+  console.warn('تم تعطيل التعويض التلقائي الجماعي للنقاط حمايةً من تضخم الرصيد.');
+  return [];
 }
 function syncMyFursanPoints(){
   if(!S.student) return;
@@ -1135,7 +1111,6 @@ function startStudentAwardSync(){
   if(!student) return;
   const sk=fursanKey(student);
   ensureFursanStudentAuth()
-    .then(()=>setTimeout(retryMissingFursanAwards,700))
     .catch(e=>console.warn('تعذر تهيئة حساب الطالب للمزامنة',e));
   STUDENT_AWARD_REF=FURSAN_DB.ref('awardLogs/'+sk);
   STUDENT_AWARD_REF.on('value',snap=>applyStudentCloudAwards(snap.val()||{}),err=>console.warn('تعذرت مزامنة درجات أوراق العمل',err));
@@ -1147,10 +1122,9 @@ async function forceFursanSync(){
   if(btn){ btn.disabled=true; btn.textContent='جارٍ المزامنة...'; }
   try{
     await ensureFursanStudentAuth();
-    await retryMissingFursanAwards();
     syncMyFursanPoints();
     refresh(); drawMe(); drawBoard();
-    alert('تمت مزامنة النقاط. إذا كان الطالب حل أسئلة صحيحة جديدة فستظهر خلال لحظات.');
+    alert('تم تحديث الرصيد من Firebase. تم إيقاف التعويض التلقائي الجماعي حمايةً من تضخم النقاط.');
   }catch(e){
     console.warn('تعذرت مزامنة النقاط يدويًا',e);
     alert('تعذرت المزامنة الآن. تأكد من الاتصال بالإنترنت ثم أعد المحاولة.');
@@ -1237,6 +1211,7 @@ async function adjustFursanScore(name,delta){
 }
 function fursanLogDelta(a){
   if(!a || typeof a!=='object') return 0;
+  if(a.automatic===true && a.credited!==true) return 0;
   const d=Number(a.delta)||0;
   if(a.automatic===true) return d===FURSAN_AUTO_POINTS ? d : 0;
   return d;
@@ -1358,11 +1333,10 @@ function finish(key, right, extra){
     (extra ? '<span class="why">' + extra + '</span>' : '') +
     (q.w ? '<span class="why">💡 ' + esc(q.w) + '</span>' : '');
 
+  const firstQuestionPoint = right && !S.earned['pts:' + key];
   if (!S.earned['seen:' + key]) { S.earned['seen:' + key] = 1; S.total++; if (right) S.right++; }
-  if (right && !S.earned['pts:' + key]) {
+  if (firstQuestionPoint) {
     S.earned['pts:' + key] = 1;
-  }
-  if (right && S.earned['fauto:question:'+key]!==1) {
     const src = (QI[key] && QI[key].src) ? QI[key].src : 'سؤال العلوم';
     awardFursanAuto('question', key, 'إجابة صحيحة — ' + src).then(got=>{
       if(got && fb && !fb.querySelector('.fursan-auto-gain'))
@@ -1441,9 +1415,9 @@ function openLesson(id){
   if (!S.viewed.includes(id)) {
     S.viewed.push(id);
     if (!S.earned['open:' + id]) { S.earned['open:' + id] = 1; }
+    awardFursanIfMissing('lesson', id, 'فتح الدرس لأول مرة — ' + l.t);
     checkBadges(); save();
   }
-  awardFursanIfMissing('lesson', id, 'فتح الدرس لأول مرة — ' + l.t);
   $('lmUnit').textContent = l.unit + ' • ' + l.ch;
   $('lmTitle').textContent = l.t;
   $('lmSum').textContent = l.s;
@@ -1903,8 +1877,8 @@ function labPick(id, ok, btn){
   const firstLabSuccess = ok && !S.labs.includes(id);
   if (firstLabSuccess) {
     S.labs.push(id);
+    awardFursanIfMissing('lab', id, 'إنجاز التجربة لأول مرة — ' + L.t);
   }
-  if (ok) awardFursanIfMissing('lab', id, 'إنجاز التجربة لأول مرة — ' + L.t);
   save(); refresh();
   let extra = '';
   if (L.extra === 'circuit')
